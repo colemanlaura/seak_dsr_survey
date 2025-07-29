@@ -1,0 +1,10 @@
+Filename,Frame,AKDT,Time (HMS),Period,Period time (HMS),Length (mm),Precision (mm),RMS (mm),Range (mm),Direction (deg),Horz. Dir. (deg),Vert. Dir. (deg),Mid X (mm),Mid Y (mm),Mid Z (mm),OpCode,Tape Reader,Depth,Comment,Year,Dive No,Transect No,User Def. 4,User Def. 5,User Def. 6,User Def. 7,User Def. 8,Family,Genus,Species,Code,Number,Stage,Activity,Check ID,Comment,Event Time HH:MM:SS
+SL_FW_Dive_20_12-33-07.871.avi,17342,12:42:57,20:42:57,,,,94.925,0.183,6755.635,21.14,,,-1718.745,1714.611,-6304.334,1,Kristen Green ,0,,2015,20,1,,,,,,rockfish,yelloweye,145,145,1,AD,Fish milling/hovering,,,
+SL_FW_Dive_20_12-33-07.871.avi,17987,12:43:19,20:43:19,,,581.736,34.61,3.679,4086.909,19.98,2.163,16.59,-1393.122,96.07,-3840.938,1,Kristen Green ,0,,2015,20,1,,,,,,rockfish,yelloweye,145,145,1,AD,,,,
+SL_FW_Dive_20_12-33-07.871.avi,18263,12:43:28,20:43:28,,,,15.505,6.17,2691.05,28.051,,,1005.856,-772.499,-2373.446,1,Kristen Green ,0,,2015,20,1,,,,,,rockfish,rosethorn,150,150,2,,,,,
+SL_FW_Dive_20_12-33-07.871.avi,19600,12:44:12,20:44:12,,,,13.235,6.537,2603.79,14.203,,,-597.63,-230.677,-2523.757,1,Kristen Green ,0,,2015,20,1,,,,,,rockfish,rosethorn,150,150,3,,,,,
+SL_FW_Dive_20_12-33-07.871.avi,31979,12:51:05,20:51:05,,,,21.916,5.19,3352.891,19.771,,,-1127.038,-132.876,-3154.998,1,Kristen Green ,0,,2015,20,1,,,,,,skate,longnose skate,701,701,4,,,,,
+SL_FW_Dive_20_12-33-07.871.avi,38400,12:54:39,20:54:39,,,,25.956,3.113,3598.01,22.539,,,-1335.15,-352.1,-3322.51,1,Kristen Green ,0,,2015,20,1,,,,,,rockfish,rosethorn,150,150,5,,,,,
+SL_FW_Dive_20_12-33-07.871.avi,45370,12:58:31,20:58:31,,,,13.8,0.292,2659.54,15.146,,,-226.765,-661.805,-2565.881,1,Kristen Green ,0,,2015,20,1,,,,,,rockfish,rosethorn,150,150,6,,,,,
+SL_FW_Dive_20_12-33-07.871.avi,47544,12:59:44,20:59:44,,,,16.351,7.569,2938.749,10.463,,,471.279,-256.005,-2889.395,1,Kristen Green ,0,,2015,20,1,,,,,,rockfish,rosethorn,150,150,7,,,,,
+SL_FW_Dive_20_12-33-07.871.avi,49402,13:00:46,21:00:46,,,,10.517,5.482,2337.107,12.668,,,176.257,-485.676,-2279.281,1,Kristen Green ,0,,2015,20,1,,,,,,flatfish,Dover sole,124,124,8,,,,,

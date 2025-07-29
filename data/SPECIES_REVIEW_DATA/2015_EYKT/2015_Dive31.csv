@@ -1,0 +1,10 @@
+Filename,Frame,Time_AKDT,Time (HMS),Period,Period time (HMS),Length (mm),Precision (mm),RMS (mm),Range (mm),Direction (deg),Horz. Dir. (deg),Vert. Dir. (deg),Mid X (mm),Mid Y (mm),Mid Z (mm),OpCode,Tape Reader,Depth,Comment,Year,Dive No,Transect No,User Def. 4,User Def. 5,User Def. 6,User Def. 7,User Def. 8,Family,Genus,Species,Code,Number,Stage,Activity,Check ID,Comment,Event Time HH:MM:SS
+SL_FW_Dive_31_13-15-27.601.avi,31424,13:33:08,21:33:08,,,,16.65,2.007,3136.602,3.019,,,-112.033,-127.445,-3132.009,1,Jenny Stahl,0,,2015,31,1,,,,,,halibut,halibut,200,200,1,,,,,
+SL_FW_Dive_31_13-15-27.601.avi,31427,13:33:09,21:33:09,,,1026.816,50.995,0.67,2947.05,9.281,73.6,25.159,-238.851,-410.888,-2908.475,1,Jenny Stahl,0,,2015,31,1,,,,,,halibut,halibut,200,200,1,,,,high RMS-bird's eye,
+SL_FW_Dive_31_13-15-27.601.avi,39555,13:37:39,21:37:39,,,,8.797,0.3,2089.533,24.942,,,-850.882,-232.698,-1894.202,1,Jenny Stahl,0,,2015,31,1,,,,,,rockfish,rosethorn,150,150,2,,,,,
+SL_FW_Dive_31_13-15-27.601.avi,39737,13:37:46,21:37:46,,,,59.053,0.114,5354.369,19.738,,,-1151.29,1384.698,-5042.461,1,Jenny Stahl,0,,2015,31,1,,,,,,rockfish,yelloweye,145,145,3,AD,Fish seeking cover,,no length-under rock,
+SL_FW_Dive_31_13-15-27.601.avi,41193,13:38:34,21:38:34,,,,19.289,0.708,3287.93,6.435,,,288.295,-235.813,-3266.767,1,Jenny Stahl,0,,2015,31,1,,,,,,skate,longnose skate,701,701,4,,,,,
+SL_FW_Dive_31_13-15-27.601.avi,42659,13:39:23,21:39:23,,,,42.676,0.065,4845.54,10.112,,,839.974,125.575,-4770.528,1,Jenny Stahl,0,,2015,31,1,,,,,,rockfish,yelloweye,145,145,5,AD,Fish seeking cover,,no length-in rocks,
+SL_FW_Dive_31_13-15-27.601.avi,48241,13:42:29,21:42:29,,,,25.74,0.318,3645.706,23.39,,,-1443.171,-115.952,-3345.891,1,Jenny Stahl,0,,2015,31,1,,,,,,skate,longnose skate,701,701,6,,,,,
+SL_FW_Dive_31_13-15-27.601.avi,52877,13:45:04,21:45:04,,,,8.341,1.931,2004.757,26.913,,,-402.324,-816.83,-1786.051,1,Jenny Stahl,0,,2015,31,1,,,,,,rockfish,rosethorn,150,150,7,,,,,
+SL_FW_Dive_31_13-15-27.601.avi,53353,13:45:19,21:45:19,,,,22.955,3.73,3352.186,16.911,,,832.184,-514.374,-3206.25,1,Jenny Stahl,0,,2015,31,1,,,,,,skate,longnose skate,701,701,8,,,,,

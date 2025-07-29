@@ -1,0 +1,13 @@
+Filename,Frame,Time_AKDT,Time (HMS),Period,Period time (HMS),Length (mm),Precision (mm),RMS (mm),Range (mm),Direction (deg),Horz. Dir. (deg),Vert. Dir. (deg),Mid X (mm),Mid Y (mm),Mid Z (mm),OpCode,Tape Reader,Depth,Comment,Year,Dive No,Transect No,User Def. 4,User Def. 5,User Def. 6,User Def. 7,User Def. 8,Family,Genus,Species,Code,Number,Stage,Activity,Check ID,Comment,Event Time HH:MM:SS
+SL_FW_Dive_28_09-04-12.887.avi,15052,9:12:44,17:12:44,,,,14.074,4.614,2728.708,10.767,,,-290.999,413.36,-2681.474,1,Jenny Stahl,0,,2015,28,1,,,,,,cod,,,,1,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,17661,9:14:11,17:14:11,,,,9.867,1.722,2198.269,15.993,,,504.976,-338.48,-2112.538,1,Jenny Stahl,0,,2015,28,1,,,,,,flatfish,flatfish,,,2,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,22592,9:16:55,17:16:55,,,,9.109,4.717,2088.618,21.28,,,-640.752,-408.746,-1945.427,1,Jenny Stahl,0,,2015,28,1,,,,,,flatfish,Dover sole,124,124,3,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,23131,9:17:13,17:17:13,,,,17.166,0.821,2940.49,28.16,,,1371.242,208.227,-2592.839,1,Jenny Stahl,0,,2015,28,1,,,,,,greenling,lingcod,130,130,4,,,,no length-bad angle and dark,
+SL_FW_Dive_28_09-04-12.887.avi,35003,9:23:49,17:23:49,,,,5.113,6.688,1588.83,31.239,,,-657.149,-499.707,-1357.509,1,Jenny Stahl,0,,2015,28,1,,,,,,flatfish,arrowtooth flounder,121,121,5,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,40751,9:27:00,17:27:00,,,,11.069,1.472,2386.704,28.955,,,-1121.116,-283.581,-2087.83,1,Jenny Stahl,0,,2015,28,1,,,,,,flatfish,Dover sole,124,124,6,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,42003,9:27:42,17:27:42,,,,9.837,2.006,2249.62,18.093,,,-51.502,-700.873,-2137.034,1,Jenny Stahl,0,,2015,28,1,,,,,,flatfish,Dover sole,124,124,7,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,42003,9:27:42,17:27:42,,,,8.631,1.163,1999.806,25.458,,,615.369,-603.713,-1804.46,1,Jenny Stahl,0,,2015,28,1,,,,,,flatfish,Dover sole,124,124,8,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,46370,9:30:08,17:30:08,,,,15.107,2.785,2707.465,27.878,,,-1090.112,-648.333,-2392.004,1,Jenny Stahl,0,,2015,28,1,,,,,,flatfish,unknown,10006,10006,9,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,46704,9:30:19,17:30:19,,,,15.398,6.817,2789.324,13.705,,,566.894,-344.911,-2709.243,1,Jenny Stahl,0,,2015,28,1,,,,,,skate,longnose skate,701,701,10,,,,,
+SL_FW_Dive_28_09-04-12.887.avi,48359,9:31:14,17:31:14,,,,9.882,6.418,2183.719,18.767,,,-526.997,-468.559,-2066.726,1,Jenny Stahl,0,,2015,28,1,,,,,,ronquil,ronquil,,,11,,,,in burrow,
+SL_FW_Dive_28_09-04-12.887.avi,52736,9:33:40,17:33:40,,,,18.058,3.142,2970.041,23.633,,,1160.931,-269.51,-2720.431,1,Jenny Stahl,0,,2015,28,1,,,,,,rockfish,yelloweye,145,145,12,AD,Fish seeking cover,,no length-under rock,
