@@ -3,11 +3,12 @@
 # Authors: Laura Coleman (laura.coleman@alaska.gov)
 # Last modified: July 29, 2025
 
-#ROV Surveys for DSR Stock Assessment
-# CSEO_2012
+## ROV Surveys for DSR Stock Assessment
+## two hashtags are used when the data has added to this repo
+## CSEO_2012
 # SSEO_2013
 # 2014 CANCELED
-# EYKT_2015
+## EYKT_2015
 # CSEO_2016
 # NSEO_2016
 # EYKT_2017
@@ -21,6 +22,11 @@
 # NSEO_2022
 # EYKT_2023
 # The ROV program was suspended after 2023 due to the retirement of ROV pilot Mike Byerly
+
+# TO DO:
+# Dive 11, EYKT 2015 has multiple version and I think I should read in all of those versions to have available to play with
+# I added dive_type to several of these files - i need to figure out id there were any other experimental transects
+# Check with Kelli - who added the data to oceanak, need to verify - justin didn't know
 
 
 # set up ----
@@ -36,11 +42,31 @@ theme_set(theme_bw(base_size=18,base_family='Times New Roman')
 
 ##########################################################################################
 ### IMPORT DATA ###
-sheets <- excel_sheets("data/DiveCoodinates_SpeciesList_ROVSurvey.xlsx")
-data_list <- lapply(sheets, function(sheet) {read_excel("data/DiveCoodinates_SpeciesList_ROVSurvey.xlsx", sheet = sheet)})
-names(data_list) <- sheets
+
+# 2012 -----------------------------------------------------------------------
+# I cannot find the original files from eventmeasure, so that I can combine everything myself.
+#Filepath: C:\Users\lscoleman\Documents\R code - Working Files\seak_dsr_survey\data\SPECIES_REVIEW_DATA\2012_CSEO\FishVideoReview_Feb2_2013ROV lengths_kg.csv
+
+CSEO_2012_ALLdata <- read_csv("data/SPECIES_REVIEW_DATA/2012_CSEO/FishVideoReview_Feb2_2013ROV lengths_kg.csv")%>% 
+  clean_names()%>% 
+  mutate(mgmt_area = "SSEO",
+         dive_type = "Line") %>% #are all transects considered line for this survey?
+  select(year,mgmt_area,time_mins,length_mm,precision,rms_1_mm,vert_dir_deg,
+         tape_reader,dive_no, transect_no, family,genus,species,code,specimen_number,stage,
+         activity,check_id,trip_comment,species_comment) %>% 
+  rename(rms_mm = rms_1_mm,
+         comment = trip_comment,
+         comment_1 = species_comment,
+         time_hms = time_mins,
+         precision_mm = precision,
+         number = specimen_number) 
+
 
 # 2013 -----------------------------------------------------------------------
+# I cannot find the original files from event measure, so that I can combine everything myself.
+# Filepath: M:\ROVSurvey\2013\species_SSEO_2013
+# The 2013 ROV Distance Analysis notes have been saved in the documents folder
+
 SSEO_2013_ALLdata <- data_list$"2013_SSEO_ALLdata" %>% 
   clean_names() %>% 
   mutate(mgmt_area = "SSEO",
@@ -61,57 +87,14 @@ str(SSEO_2013_ALLdata)
 
 # 2015 -----------------------------------------------------------------------
 
-# EYKT_2015_ALLdata <- data_list$"2015_EYKT_ALLdata" %>% 
-# clean_names() %>% 
-#   mutate(mgmt_area = "EYKT") %>% 
-#   select(year,mgmt_area,time_hms,length_mm,precision_mm,rms_mm,vert_dir_deg,
-#          tape_reader,dive_no, transect_no, family,genus,species,code,number,stage,
-#          activity,check_id,comment,comment_1) %>% 
-#   mutate(length_mm = as.numeric(as.character(length_mm)))
-# 
-# EYKT_2015_ALLdata$time_hms <- format(EYKT_2015_ALLdata$time_hms, "%H:%M:%S")
-# 
-# head(EYKT_2015_ALLdata)
-# str(EYKT_2015_ALLdata)
-# 
-# eykt_2015 <- EYKT_2015_ALLdata %>% 
-#   distinct(dive_no) %>% 
-#   mutate(dive_no = as.numeric(as.character(dive_no))) %>% 
-#   arrange(dive_no)
-# 
-# #dives 1 and 8 are missing here and there is also data from 2014 with no dive number
-# #dive 1 - some ye were seen
-# #dive 8 - aborted, so make sense for it to be missing
-# #checked the 2015_FW_ROV_Data_Collection_Edited_JS doc and found that there were
-# #34 dives on FW Grouunds in 2015.
-# #I am not sure where this 2014 is from! Because i don't see any files for it in the 
-# #2014 file....seems weird!!!
-# 
-# yelloweye_2015 <- EYKT_2015_ALLdata %>%
-#   group_by(year) %>% 
-#   filter(genus == "yelloweye"&stage %in% c("AD","SU")) %>%
-#   summarise(n());yelloweye_2015
-# #420 but the doc for the survey says 259 total fish were seen with 244 adults and 15 sub adults
-# #something is wrong with this data
-# #251 fish are seen in the SAFE report table
-
-EYKT_2015_ALLdata <- read.csv("output/SPECIES_EYKT_2015.csv") %>% 
-  mutate(mgmt_area = "EYKT") %>% 
+EYKT_2015_ALLdata <- read.csv("outputs/species_review/SPECIES_EYKT_2015.csv") %>% 
+  mutate(mgmt_area = "EYKT",
+         dive_type = "Line") %>% 
   select(year,mgmt_area,time_hms,length_mm,precision_mm,rms_mm,vert_dir_deg,
          tape_reader,dive_no, transect_no, family,genus,species,code,number,stage,
          activity,check_id,comment,comment_1)%>% 
   mutate(length_mm = as.numeric(as.character(length_mm))) %>% 
-  filter(!is.na(year))%>% 
-  mutate(dive_type = "Line") #check that this is true
-
-yelloweye_2015_new <- EYKT_2015_ALLdata %>%
-  group_by(year) %>%
-  filter(genus == "yelloweye",
-         stage %in% c("AD", "SU"),
-         is.na(length) | length_mm > 340) %>%
-  #they used to only include fish of this size because smaller fish would not be 
-  #targeted by the commercial fishery
-  summarise(count = n(), .groups = "drop")
+  filter(!is.na(year))
 
 # 2016 -----------------------------------------------------------------------
 
