@@ -7,13 +7,14 @@
 library(tidyverse)
 library(readxl)
 library(ggthemes)   
-library(extrafont)  # for ggplot theme
+# library(extrafont)  # for ggplot theme #9/16 removed from CRAN?
 library(lubridate)
 library(gridExtra)  
 library(tidyr)       # data processing
 library(padr)        # pads time series with 0s or interpolated values
 library(anytime)     # easily deals with any date/time format
 library(ggridges)    # length comps
+library(janitor)
 #install.packages("devtools")
 #devtools::install_github("ben-williams/FNGr")
 # library("FNGr")
