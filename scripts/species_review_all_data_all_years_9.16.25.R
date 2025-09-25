@@ -56,10 +56,13 @@ CSEO_2012_ALLdata <- read_csv("data/SPECIES_REVIEW_DATA/2012_CSEO/species_CSEO_2
 # 2013 -----------------------------------------------------------------------
 # I cannot find the original files from event measure, so that I can combine everything myself.
 # Filepath: M:\ROVSurvey\2013\species_SSEO_2013
-# This was created in 2021, so I am assuming it was created by Phil or Kelli
+# This was created in 2021, so I am assuming it was created by Phil or Kelli but there are 8 dives missing
+# i found a note that said there were 8 dives without yelloweye, which explains why these ones are missing
 # The 2013 ROV Distance Analysis notes have been saved in the documents folder
 
 SSEO_2013_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2013_SSEO/species_SSEO_2013.csv")
+
+unique(SSEO_2013_ALLdata$Dive.No)
 
 # 2015 -----------------------------------------------------------------------
 # I combined the raw files for this survey - see code: 2015_EYKT_MergingCSVFilesCode_SpeciesReviewData
@@ -88,9 +91,37 @@ EYKT_2017_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2017_EYKT/species_EYKT_2
 
 CSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_CSEO/species_CSEO_2018.csv")
 
-NSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_SSEO/species_SSEO_2018.csv")
+NSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_NSEO/species_NSEO_2018.csv")
 
-SSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_NSEO/species_NSEO_2018.csv")
+SSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_SSEO/species_SSEO_2018.csv") %>% 
+  # need to fix the dive and transect numbers for dive 16
+  mutate(DIVE_NO = case_when(
+    FILENAME == "SL_2018SSEO_Dive_16_19-03-14.000.avi" ~ 16, TRUE ~ DIVE_NO)) %>%  
+  mutate(TRANSECT_NUMBER = case_when(
+    FILENAME == "SL_2018SSEO_Dive_16_19-03-14.000.avi" ~ 64,TRUE ~ TRANSECT_NUMBER)) %>%
+  mutate(DIVE_NO = case_when(
+    FILENAME == "SL_2018SSEO_Dive_21_10-59-57.000.avi" ~ 21,TRUE ~ DIVE_NO)) %>%  
+  mutate(TRANSECT_NUMBER = case_when(
+    FILENAME == "SL_2018SSEO_Dive_21_10-59-57.000.avi" ~ 69,TRUE ~ TRANSECT_NUMBER))
+
+SSEO_2018_ALLdata %>% summarise(distinct_dives = n_distinct(DIVE_NO))
+
+# the transect numbers recorded on the dive log from the field do not match what was recorded 
+# in the species review files - i am going to assume that what is in the species review files
+# is correct - may want to cross reference this with the GPS locations
+
+# also note - dive 8 is missing because there was a note that the data was bad and to not use
+# but there was no other explanation on why the data was bad (that I could find anyways!!)
+
+# final note is that there are two other dives (34 and 35) that are on the dive log but are not
+# in the species review. These dives were never analyzed in event measure and they do no belong
+# to another area.
+
+#with this in mind, 32 transects were used in the SEO DSR stock assessment but 35 were attempted
+
+# FLAG! do we want to include dive 8 for completeness? i could not figure out why the data was bad
+# so am worried about adding it and it accidentally being used for analysis
+
 
 # 2019 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2019\EYKT\R Code\EYKT_2019\EYKT_2019_species
@@ -100,9 +131,18 @@ EYKT_2019_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2019_EYKT/species_EYKT_2
 
 # 2020 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2020\R Code\Data\SSEO_2020_Species
+# I found that the transect number and dive number are flipped for transect 31.
 # The 2020 ROV Distance Analysis notes have been saved in the documents folder
 
-SSEO_2020_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2020_SSEO/species_SSEO_2020.csv")
+SSEO_2020_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2020_SSEO/species_SSEO_2020.csv") %>%
+  mutate(Dive = case_when(
+    Filename == "18SL_2018SSEO_Dive_21_10-59-57.000.avi" ~ 31,
+      TRUE ~ Dive),
+    Transect.Number = case_when(
+      Dive == 31 & Transect.Number == 31 ~ 18,
+      TRUE ~ Transect.Number))
+
+unique(SSEO_2020_ALLdata$Dive)
 
 # 2022 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\SPECIES_CSEO_2022_summary
@@ -248,7 +288,8 @@ EYKT_2015 <- EYKT_2015 %>%
          period_time_mins = "NA",
          rms_2_mm = "NA") %>%  
   rename(dive = dive_no,
-         transect_number = transect_no)
+         transect_number = transect_no) %>% 
+  filter(!is.na(year))
 
 # CSEO 2016 --------------------------------------------------------------------
 
@@ -301,7 +342,8 @@ NSEO_2016 <- NSEO_2016 %>%
          rms_2_mm = "NA",
          event_time_hh_mm_ss = "NA") %>%  
   rename(dive = dive_no,
-         transect_number = transect_no)
+         transect_number = transect_no) %>% 
+  filter(!is.na(year)) #there is a rosethorn rf with no location data
 
 # EYKT 2017 --------------------------------------------------------------------
 
@@ -657,6 +699,14 @@ ggplot(inactive, aes(x = reorder(activity, -percentage), y = percentage, fill = 
   theme_minimal(base_size = 14) +
   theme(legend.position = "none") +
   coord_flip()  # Flip for readability
+
+
+#EYKT
+
+EYKT <- ROV_species_review_all_years %>% 
+  filter(mgmt_area=="EYKT")
+
+unique(SSEO_2018$dive)
 
 
 
