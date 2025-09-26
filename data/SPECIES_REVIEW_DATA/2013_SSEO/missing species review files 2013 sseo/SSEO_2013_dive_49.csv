@@ -1,0 +1,16 @@
+3D Point and Length Measurements,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Generated: Tuesday, December 17, 2013 14:54:03",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Filename,Frame,Time (mins),Period,Period time (mins),Length (mm),Precision (mm),RMS 1 (mm),RMS 2 (mm),Range (mm),Direction (deg),Horz. Dir. (deg),Vert. Dir. (deg),Mid X (mm),Mid Y (mm),Mid Z (mm),OpCode,Tape Reader,Depth,Comment,Year,Dive No,Transect No,User Def. 4,User Def. 5,User Def. 6,User Def. 7,User Def. 8,Family,Genus,Species,Code,Number,Stage,Activity,Check ID,Comment,Event Time
+2013_49_1_SL.avi,11422,6.3519,,,,33.213,6.853,,4197.441,18.064,,,-1278.86,197.471,-3992.998,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,yelloweye,145,145,2,AD,actively swimming within frame,,bad angle; no length,3:09:23
+2013_49_1_SL.avi,17785,9.8904,,,,38.647,1.445,,4498.474,16.65,,,-1131.089,-665.957,-4302.721,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,yelloweye,145,145,3,SU,resting on bottom,,,3:12:55
+2013_49_1_SL.avi,17851,9.9271,,,428.016,55.697,6.054,4.684,3722.005,19.163,50.053,24.55,-911.786,-852.36,-3506.487,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,yelloweye,145,145,3,SU,,,,3:12:58
+2013_49_1_SL.avi,43327,24.0946,,,,27.221,6.528,,3908.379,12.496,,,514.213,-713.857,-3808.073,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,tiger,148,148,4,,,,,3:27:08
+2013_49_1_SL.avi,63873,35.5204,,,,8.397,0.895,,2219.079,4.569,,,175.183,-48.16,-2211.629,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,halibut,halibut,200,200,6,,,,,3:38:33
+2013_49_1_SL.avi,63911,35.5415,,,519.913,14.13,7.509,0.68,1575.371,8.64,77.734,18.362,148.837,-201.367,-1555.344,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,halibut,halibut,200,200,6,,,,,3:38:35
+2013_49_1_SL.avi,74113,41.215,,,,15.597,5.266,,2664.604,24.957,,,-940.367,-643.099,-2408.786,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,canary,146,146,7,,,,,3:44:15
+2013_49_1_SL.avi,78818,43.8315,,,,19.273,2.885,,3286.021,13.331,,,-579.952,451.884,-3202.716,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,yellowtail,155,155,8,,,,,3:46:52
+2013_49_1_SL.avi,79920,44.4443,,,,10.002,5.408,,2381.998,9.393,,,-138.726,-389.343,-2345.865,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,rosethorn,150,150,9,,,,,3:47:29
+2013_49_1_SL.avi,82490,45.8735,,,,70.753,9.276,,6585.566,9.784,,,719.507,784.827,-6498.926,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,yelloweye,145,145,10,AD,milling/hovering,,,3:48:55
+2013_49_1_SL.avi,82752,46.0192,,,663.455,29.117,6.675,2.752,3995.554,14.281,8.239,1.945,985.345,-67.544,-3871.562,1,Kristen Green,0,"old cameras, pause and restart,  enter Horita time",2013,49,1,,,,,,rockfish,yelloweye,145,145,10,AD,,,,3:49:03
