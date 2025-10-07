@@ -56,13 +56,28 @@ CSEO_2012_ALLdata <- read_csv("data/SPECIES_REVIEW_DATA/2012_CSEO/species_CSEO_2
 # 2013 -----------------------------------------------------------------------
 # I cannot find the original files from event measure, so that I can combine everything myself.
 # Filepath: M:\ROVSurvey\2013\species_SSEO_2013
+
 # This was created in 2021, so I am assuming it was created by Phil or Kelli but there are 8 dives missing
-# i found a note that said there were 8 dives without yelloweye, which explains why these ones are missing
+# according to the dive log. 
+
+#I found event measure files for the missing dives but I did not find documentation 
+# on why these dives were not included in the "speces_SSEO_2013" file. I def want 
+# to revisit this and make sure that those dives were included in the assessment in 2013.
+
 # The 2013 ROV Distance Analysis notes have been saved in the documents folder
 
-SSEO_2013_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2013_SSEO/species_SSEO_2013.csv")
+SSEO_2013_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2013_SSEO/species_SSEO_2013.csv") %>% 
+  mutate(Time..mins. = NA,
+         Period.time..mins. = NA) #adding these columns to match the missing data
+
+SSEO_2013_missing_data <- read.csv("data/SPECIES_REVIEW_DATA/2013_SSEO/species_SSEO_2013_missing_dives.csv") %>% 
+  rename(Comment=Comment...20,
+         Comment.1=Comment...37)
 
 unique(SSEO_2013_ALLdata$Dive.No)
+unique(SSEO_2013_missing_data$Dive.No)
+
+SSEO_2013_ALLdata <- rbind(SSEO_2013_ALLdata,SSEO_2013_missing_data)
 
 # 2015 -----------------------------------------------------------------------
 # I combined the raw files for this survey - see code: 2015_EYKT_MergingCSVFilesCode_SpeciesReviewData
@@ -93,12 +108,15 @@ CSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_CSEO/species_CSEO_2
 
 NSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_NSEO/species_NSEO_2018.csv")
 
+unique(NSEO_2018_ALLdata$Dive)
+
 SSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_SSEO/species_SSEO_2018.csv") %>% 
   # need to fix the dive and transect numbers for dive 16
   mutate(DIVE_NO = case_when(
     FILENAME == "SL_2018SSEO_Dive_16_19-03-14.000.avi" ~ 16, TRUE ~ DIVE_NO)) %>%  
   mutate(TRANSECT_NUMBER = case_when(
     FILENAME == "SL_2018SSEO_Dive_16_19-03-14.000.avi" ~ 64,TRUE ~ TRANSECT_NUMBER)) %>%
+  # need to fix the dive and transect numbers for dive 21
   mutate(DIVE_NO = case_when(
     FILENAME == "SL_2018SSEO_Dive_21_10-59-57.000.avi" ~ 21,TRUE ~ DIVE_NO)) %>%  
   mutate(TRANSECT_NUMBER = case_when(
@@ -117,7 +135,7 @@ SSEO_2018_ALLdata %>% summarise(distinct_dives = n_distinct(DIVE_NO))
 # in the species review. These dives were never analyzed in event measure and they do no belong
 # to another area.
 
-#with this in mind, 32 transects were used in the SEO DSR stock assessment but 35 were attempted
+# with this in mind, 32 transects were used in the SEO DSR stock assessment but 35 were attempted
 
 # FLAG! do we want to include dive 8 for completeness? i could not figure out why the data was bad
 # so am worried about adding it and it accidentally being used for analysis
@@ -127,7 +145,9 @@ SSEO_2018_ALLdata %>% summarise(distinct_dives = n_distinct(DIVE_NO))
 # File path: M:\ROVSurvey\2019\EYKT\R Code\EYKT_2019\EYKT_2019_species
 # There is not a document for the analysis beyond the SAFE report.
 
-EYKT_2019_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2019_EYKT/species_EYKT_2019.csv")
+EYKT_2019_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2019_EYKT/species_EYKT_2019.csv") %>% 
+  mutate(Dive = case_when(
+  Filename == "SL_2019_EYKT_Dive_12_09-27-40.000.avi" ~ 12, TRUE ~ Dive))
 
 # 2020 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2020\R Code\Data\SSEO_2020_Species
@@ -135,20 +155,31 @@ EYKT_2019_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2019_EYKT/species_EYKT_2
 # The 2020 ROV Distance Analysis notes have been saved in the documents folder
 
 SSEO_2020_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2020_SSEO/species_SSEO_2020.csv") %>%
+  #the transect number and dive number were flipped for dive 31
   mutate(Dive = case_when(
-    Filename == "18SL_2018SSEO_Dive_21_10-59-57.000.avi" ~ 31,
-      TRUE ~ Dive),
+    Filename == "SL_2020_SSEO_Dive_31_09-34-49.000.avi" ~ 31, TRUE ~ Dive),
     Transect.Number = case_when(
-      Dive == 31 & Transect.Number == 31 ~ 18,
-      TRUE ~ Transect.Number))
+      Filename == "SL_2020_SSEO_Dive_31_09-34-49.000.avi" ~ 18, TRUE ~ Transect.Number))
 
 unique(SSEO_2020_ALLdata$Dive)
+SSEO_2020_ALLdata %>% summarise(distinct_dives = n_distinct(Dive))
 
 # 2022 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\SPECIES_CSEO_2022_summary
 # File path: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW\SPECIES_NSEO_2022_summary
 
-CSEO_2022_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2022_CSEO/species_CSEO_2022.csv")
+CSEO_2022_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2022_CSEO/species_CSEO_2022.csv") %>% 
+  # need to fix the dive and transect numbers for dive 17 - renamed from 17b to 17
+  mutate(Dive = case_when(
+    Filename == "SL_2022_CSEO_Dive_17b_07-57-18.000.avi" ~ 17,TRUE ~ as.numeric(Dive))) %>%  
+  #dive number and transect number were both NA - changed to what is on the dive log
+  mutate(Dive = case_when(
+    Filename == "SL_2022_CSEO_Dive_18_14-14-08.000.avi" ~ 18,TRUE ~ as.numeric(Dive))) %>%  
+  mutate(Transect.Number = case_when(
+    Filename == "SL_2018SSEO_Dive_21_10-59-57.000.avi" ~ 15,TRUE ~ as.numeric(Transect.Number)))
+
+unique(CSEO_2022_ALLdata$Dive)
+CSEO_2022_ALLdata %>% summarise(distinct_dives = n_distinct(Dive))
 
 NSEO_2022_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2022_NSEO/species_NSEO_2022.csv")
 
@@ -214,10 +245,10 @@ compare_cols1 <- data.frame(
 CSEO_2012 <- CSEO_2012 %>% 
   mutate(mgmt_area = "CSEO",
          dive_type = "Line",
-         time_hms = "NA",
-         period_time_hms = "NA",
-         event_time_hh_mm_ss = "NA",
-         time_akdt = "NA") %>% #time_akdt is in 2015 EYKT so adding it here 
+         time_hms = NA,
+         period_time_hms = NA,
+         event_time_hh_mm_ss = NA,
+         time_akdt = NA) %>% #time_akdt is in 2015 EYKT so adding it here 
   rename(precision_mm = precision,
          rms_mm = rms_1_mm,
          op_code = opcode,
@@ -230,10 +261,10 @@ CSEO_2012 <- CSEO_2012 %>%
 
 EYKT_2023 <- EYKT_2023 %>% 
   mutate(mgmt_area = "EYKT",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA",
-         time_akdt = "NA") #time_akdt is in 2015 EYKT so adding it here )
+         time_mins = NA,
+         period_time_mins = NA,
+         rms_2_mm = NA,
+         time_akdt = NA) #time_akdt is in 2015 EYKT so adding it here )
 
 # SSEO 2013 --------------------------------------------------------------------
 
@@ -255,10 +286,8 @@ compare_cols2 <- data.frame(
 SSEO_2013 <- SSEO_2013 %>% 
   mutate(mgmt_area = "SSEO",
          dive_type = "Line",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA",
-         time_akdt = "NA") %>% #time_akdt is in 2015 EYKT so adding it here
+         rms_2_mm = NA,
+         time_akdt = NA) %>% #time_akdt is in 2015 EYKT so adding it here
   rename(rms_mm = rms_1_mm,
          dive = dive_no,
          transect_number = transect_no,
@@ -284,9 +313,9 @@ compare_cols3 <- data.frame(
 EYKT_2015 <- EYKT_2015 %>% 
   mutate(mgmt_area = "EYKT",
          dive_type = "Line",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA") %>%  
+         time_mins = NA,
+         period_time_mins = NA,
+         rms_2_mm = NA) %>%  
   rename(dive = dive_no,
          transect_number = transect_no) %>% 
   filter(!is.na(year))
@@ -311,9 +340,9 @@ compare_cols4 <- data.frame(
 CSEO_2016 <- CSEO_2016 %>% 
   mutate(mgmt_area = "CSEO",
          dive_type = "Line",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA") %>%  
+         time_mins = NA,
+         period_time_mins = NA,
+         rms_2_mm = NA) %>%  
   rename(dive = dive_no,
          transect_number = transect_no)
 
@@ -337,10 +366,10 @@ compare_cols5 <- data.frame(
 NSEO_2016 <- NSEO_2016 %>% 
   mutate(mgmt_area = "NSEO",
          dive_type = "Line",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA",
-         event_time_hh_mm_ss = "NA") %>%  
+         time_mins = NA,
+         period_time_mins = NA,
+         rms_2_mm = NA,
+         event_time_hh_mm_ss = NA) %>%  
   rename(dive = dive_no,
          transect_number = transect_no) %>% 
   filter(!is.na(year)) #there is a rosethorn rf with no location data
@@ -365,13 +394,15 @@ compare_cols6 <- data.frame(
 EYKT_2017 <- EYKT_2017 %>% 
   mutate(mgmt_area = "EYKT",
          dive_type = "Line",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA",
-         event_time_hh_mm_ss = "NA",
-         time_akdt =  "NA") %>%  
+         time_mins = NA,
+         period_time_mins = NA,
+         rms_2_mm = NA,
+         event_time_hh_mm_ss = NA,
+         time_akdt =  NA) %>%  
   rename(dive = dive_no,
-         transect_number = transect_no)
+         transect_number = transect_no) %>% 
+  mutate(dive_type = case_when(
+    filename == "SL_2017EYKT_Dive_16_11-05-02.000.avi" ~ "Exploratory", TRUE ~ as.character(dive_type)))
 
 # NSEO 2018 --------------------------------------------------------------------
 
@@ -391,16 +422,16 @@ compare_cols7 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols7
 
 NSEO_2018 <- NSEO_2018 %>% 
-  select(!dive) %>% #"dive" is "management area"_ "dive number", which is not helpful here
   mutate(mgmt_area = "NSEO",
          dive_type = "Line",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA",
-         time_akdt =  "NA") %>%  
-  rename(op_code = opcode,
-         tape_reader = tapereader,
-         dive = dive_no)
+         time_mins = NA,
+         period = NA,
+         period_time_mins = NA,
+         period_time_hms = NA,
+         rms_2_mm = NA,
+         time_akdt =  NA,
+         event_time_hh_mm_ss = NA,
+         comment_1 = NA)
 
 # CSEO 2018 --------------------------------------------------------------------
 
@@ -423,13 +454,13 @@ CSEO_2018 <- CSEO_2018 %>%
   select(!dive) %>% #"dive" is "management area"_ "dive number", which is not helpful here
   mutate(mgmt_area = "CSEO",
          dive_type = "Line",
-         time_mins = "NA",
-         period = "NA",
-         period_time_mins = "NA",
-         period_time_hms = "NA",
-         rms_2_mm = "NA",
-         time_akdt =  "NA",
-         event_time_hh_mm_ss = "NA") %>%  
+         time_mins = NA,
+         period = NA,
+         period_time_mins = NA,
+         period_time_hms = NA,
+         rms_2_mm = NA,
+         time_akdt =  NA,
+         event_time_hh_mm_ss = NA) %>%  
   rename(op_code = opcode,
          tape_reader = tapereader,
          dive = dive_no)
@@ -452,15 +483,16 @@ compare_cols9 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols9
 
 SSEO_2018 <- SSEO_2018 %>% 
+  select(!dive) %>% #"dive" is "management area"_ "dive number", which is not helpful here
   mutate(mgmt_area = "SSEO",
-         time_mins = "NA",
-         period = "NA",
-         period_time_mins = "NA",
-         period_time_hms = "NA",
-         rms_2_mm = "NA",
-         time_akdt =  "NA",
-         event_time_hh_mm_ss = "NA",
-         comment_1 = "NA")
+         dive_type = "Line",
+         time_mins = NA,
+         period_time_mins = NA,
+         rms_2_mm = NA,
+         time_akdt =  NA) %>%
+  rename(op_code = opcode,
+         tape_reader = tapereader,
+         dive = dive_no)
 
 # EYKT 2019 --------------------------------------------------------------------
 
@@ -481,12 +513,12 @@ compare_cols10 <- data.frame(
 
 EYKT_2019 <- EYKT_2019 %>% 
   mutate(mgmt_area = "EYKT",
-         time_mins = "NA",
-         period = "NA",
-         period_time_mins = "NA",
-         period_time_hms = "NA",
-         rms_2_mm = "NA",
-         time_akdt =  "NA")
+         time_mins = NA,
+         period = NA,
+         period_time_mins = NA,
+         period_time_hms = NA,
+         rms_2_mm = NA,
+         time_akdt =  NA)
 
 # SSEO 2020, CSEO and NSEO 2022 are the same as EYKT 2023, so don't need the other checks
 # adding the columns that I needed to add to EYKT 2023
@@ -494,26 +526,28 @@ EYKT_2019 <- EYKT_2019 %>%
 # SSEO 2020 --------------------------------------------------------------------
 SSEO_2020 <- SSEO_2020 %>% 
   mutate(mgmt_area = "SSEO",
-       time_mins = "NA",
-       period_time_mins = "NA",
-       rms_2_mm = "NA",
-       time_akdt = "NA")
+       time_mins = NA,
+       period_time_mins = NA,
+       rms_2_mm = NA,
+       time_akdt = NA)
 
 # CSEO 2022 --------------------------------------------------------------------
 CSEO_2022 <- CSEO_2022 %>% 
   mutate(mgmt_area = "CSEO",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA",
-         time_akdt = "NA")
+         time_mins = NA,
+         period_time_mins = NA,
+         rms_2_mm = NA,
+         time_akdt = NA)
+
+unique(CSEO_2022$dive)
 
 # NSEO 2022 --------------------------------------------------------------------
 NSEO_2022 <- NSEO_2022 %>% 
   mutate(mgmt_area = "NSEO",
-         time_mins = "NA",
-         period_time_mins = "NA",
-         rms_2_mm = "NA",
-         time_akdt = "NA")
+         time_mins = NA,
+         period_time_mins = NA,
+         rms_2_mm = NA,
+         time_akdt = NA)
 
 #recombine them in this list
 all_dfs_edited <- list(
@@ -568,10 +602,10 @@ ROV_species_review_all_years <- ROV_species_review_all_years %>%
        precision_mm = as.numeric(as.character(precision_mm)),
        rms_mm = as.numeric(as.character(rms_mm)),
        vert_dir_deg = as.character(vert_dir_deg),
-       vert_dir_deg = na_if(vert_dir_deg, "NA"), 
+       vert_dir_deg = na_if(vert_dir_deg, NA), 
        vert_dir_deg = as.numeric(as.character(vert_dir_deg))) %>% 
   mutate(tape_reader = case_when(
-    tape_reader == "Kristen Green " ~ "Kristen Green",
+    tape_reader %in% c("Kristen", "Kristen Green ") ~ "Kristen Green",
     tape_reader %in% c("Jennifer Stahl", "Jenny") ~ "Jenny Stahl",
     tape_reader == "asia" ~ "Asia",
     tape_reader == "LauraColeman" ~ "Laura Coleman",
@@ -588,7 +622,8 @@ ROV_species_review_all_years <- ROV_species_review_all_years %>%
       TRUE ~ activity),
     dive_type = case_when(
       dive_type == "Grouundtruth" ~ "Groundtruth",
-      TRUE ~ dive_type))
+      TRUE ~ dive_type)) %>% 
+  filter(!dive_type %in% c("Groundtruth", "Exploratory"))
 
 write.csv(ROV_species_review_all_years,"outputs/ROV_species_review_all_years.csv")
 
@@ -605,6 +640,8 @@ unique(ROV_species_review_all_years$code)
 unique(ROV_species_review_all_years$stage)
 unique(ROV_species_review_all_years$activity)
 unique(ROV_species_review_all_years$dive_type)
+#flag!! i would like to go back through the logs and check for exploratory dives that i may have missed
+#it would also be interesting to have a record of all of the exploratory dives too!!!
 
 transects_per_area_per_year <- ROV_species_review_all_years %>%
   group_by(mgmt_area,year) %>%
@@ -699,14 +736,6 @@ ggplot(inactive, aes(x = reorder(activity, -percentage), y = percentage, fill = 
   theme_minimal(base_size = 14) +
   theme(legend.position = "none") +
   coord_flip()  # Flip for readability
-
-
-#EYKT
-
-EYKT <- ROV_species_review_all_years %>% 
-  filter(mgmt_area=="EYKT")
-
-unique(SSEO_2018$dive)
 
 
 
