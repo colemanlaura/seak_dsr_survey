@@ -670,12 +670,14 @@ activity<- ROV_species_review_all_years %>%
                     "Fish moving quickly into frame",
                     "Passing",
                     "Fish being chased",
-                    "Fish chasing other fish")~ "Moving",
+                    "Fish chasing other fish",
+                    "Fish actively swimming within frame")~ "Moving",
     activity %in% c("Fish resting on bottom",
                     "Fish moving slowly into frame",
                     "Fish milling/hovering",
                     "Fish seeking cover",
-                    "Fish moving slowly out of frame") ~ "Not Moving or Minimal Movement",
+                    "Fish moving slowly out of frame",
+                    "Fish milling") ~ "Not Moving or Minimal Movement",
     activity == "Attracted" ~ "Attracted",
     TRUE ~ activity)) %>% 
   group_by(activity_new) %>% 
@@ -710,12 +712,14 @@ inactive <- ROV_species_review_all_years %>%
                     "Fish moving quickly into frame",
                     "Passing",
                     "Fish being chased",
-                    "Fish chasing other fish")~ "Moving",
+                    "Fish chasing other fish",
+                    "Fish actively swimming within frame")~ "Moving",
     activity %in% c("Fish resting on bottom",
                     "Fish moving slowly into frame",
                     "Fish milling/hovering",
                     "Fish seeking cover",
-                    "Fish moving slowly out of frame") ~ "Not Moving or Minimal Movement",
+                    "Fish moving slowly out of frame",
+                    "Fish milling") ~ "Not Moving or Minimal Movement",
     activity == "Attracted" ~ "Attracted",
     TRUE ~ activity)) %>% 
   filter(activity_new == "Not Moving or Minimal Movement") %>% 
@@ -724,8 +728,10 @@ inactive <- ROV_species_review_all_years %>%
   mutate(percentage = (count / sum(count)) * 100) %>%
   arrange(desc(percentage))
 
+
+
 # Breakdown of minimal movement behaviors
-ggplot(inactive, aes(x = reorder(activity, -percentage), y = percentage, fill = activity)) +
+ggplot(inactive, aes(x = reorder(activity_new, -percentage), y = percentage, fill = activity_new)) +
   geom_bar(stat = "identity", width = 0.7) +
   geom_text(aes(label = paste0(round(percentage, 1), "%")), 
             vjust = -0.5, size = 4) +
