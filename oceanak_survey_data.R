@@ -61,12 +61,11 @@ source('scripts/helper.r')
 
 # -----------------------
 
-# The fix data is referring to when groundfish was using the manned submersible. Every five minutes they were
-# stopping to take a fix (aka GPS position) to then map the transect by figuring out the distance between
-# the two fixes.
+# Fixes are periodical location fixes along the transect. They were using TRAK-POINT navigation with loran
+# or GPS. The length of the transect is the sum of the distances between locational fixes.
+# The fix data exists in OceanAK but is not in these subject areas.......
 # When we used the ROV we moved to using Hypack software tp track the ROV. The Hypack is taking location data
 # every 2-3 seconds.
-# Need to fact check both of the above statements.
 
 # -----------------------
 
@@ -126,9 +125,38 @@ unique(visual_survey_species_data$camera)
 unique(visual_survey_species_data$observation_source)
 unique(visual_survey_species_data$observation_type)
 
-# right now, we are only interested in hte line transect data
+# right now, we are only interested in the line transect data
 
 visual_survey_species_data <- read_csv("data/OCEANAK VISUAL SURVEY DATA/visual_survey_species_data_oceanak.csv") %>% 
-  clean_names()
+  clean_names() %>% 
+  mutate(dive_trans = paste(dive_number,transect_number, sep = "_"))
 
+transects_per_area_per_year <- visual_survey_species_data %>%
+  filter(transect_type=="Line Transect",
+         management_area %in% c("EYKT","NSEO","CSEO","SSEO")) %>% 
+  group_by(management_area,year,submersible_type) %>%
+  summarise(num_dives = n_distinct(dive_trans)) %>%
+  arrange(management_area)
 
+#compared this to the numbers in the SAFE report and there were very few discrepancies
+#EYKT 1999 20 vs 18 transects
+#NSEO - 2001 8 transects were done and this is not in the SAFE report - i believe this 
+#is because not enough data was collected for a density estimate
+#CSEO 1994 - there is not data in the SAFE report
+#CSEO 1995 24VS 36
+#CSEO 2012 - this actually matches between the SAFE report and this output but there is a big mismatch
+#between this output and the output from "species_review_all_data_all_year_9.16.25"
+#SSEO 1994 13 vs 16 transects
+
+YE_per_area_per_year <- visual_survey_species_data %>%
+  filter(
+    transect_type == "Line Transect",
+    management_area %in% c("EYKT", "NSEO", "CSEO", "SSEO"),
+    species_code == 145,  # yelloweye only
+    stage %in% c("adult", "subadult")) %>%
+  group_by(management_area, year, submersible_type) %>%
+  summarise(YE = sum(number_of_fish, na.rm = TRUE),
+    total_length_m = sum(unique(line_length_meters), na.rm = TRUE)) %>%
+  mutate(encounter_rate = YE / total_length_m) %>%
+  arrange(management_area, year)
+  
