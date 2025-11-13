@@ -166,9 +166,12 @@ SSEO_2020_ALLdata %>% summarise(distinct_dives = n_distinct(Dive))
 
 # 2022 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\SPECIES_CSEO_2022_summary
-# File path: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW\SPECIES_NSEO_2022_summary
+# The times in the original excel files were never converted to HHMMSS, so when combined in
+# R originally, the times were still incorrect. I was unable to convert the time in the combined file,
+# so I converted the time in the original species review .csv files and recombined them
+# using the code 2022_CSEO_MergingCSVFilesCode_SpeciesReviewData
 
-CSEO_2022_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2022_CSEO/species_CSEO_2022.csv") %>% 
+CSEO_2022_ALLdata <- read.csv("outputs/SPECIES_CSEO_2022.csv") %>% 
   # need to fix the dive and transect numbers for dive 17 - renamed from 17b to 17
   mutate(Dive = case_when(
     Filename == "SL_2022_CSEO_Dive_17b_07-57-18.000.avi" ~ 17,TRUE ~ as.numeric(Dive))) %>%  
@@ -176,10 +179,17 @@ CSEO_2022_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2022_CSEO/species_CSEO_2
   mutate(Dive = case_when(
     Filename == "SL_2022_CSEO_Dive_18_14-14-08.000.avi" ~ 18,TRUE ~ as.numeric(Dive))) %>%  
   mutate(Transect.Number = case_when(
-    Filename == "SL_2018SSEO_Dive_21_10-59-57.000.avi" ~ 15,TRUE ~ as.numeric(Transect.Number)))
+    Filename == "SL_2022_CSEO_Dive_18_14-14-08.000.avi" ~ 15,TRUE ~ as.numeric(Transect.Number))) %>% 
+  mutate(Transect.Number = case_when(
+    Filename == "SL_2022_CSEO_Dive_22_15-14-56.000.avi" ~ 23,TRUE ~ as.numeric(Transect.Number)))
 
 unique(CSEO_2022_ALLdata$Dive)
 CSEO_2022_ALLdata %>% summarise(distinct_dives = n_distinct(Dive))
+CSEO_2022_ALLdata %>% summarise(distinct_trans = n_distinct(Transect.Number))
+
+write.csv(CSEO_2022_ALLdata,"outputs/SPECIES_CSEO_2022_summary_time_corrected.csv")
+
+# File path: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW\SPECIES_NSEO_2022_summary
 
 NSEO_2022_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2022_NSEO/species_NSEO_2022.csv")
 
