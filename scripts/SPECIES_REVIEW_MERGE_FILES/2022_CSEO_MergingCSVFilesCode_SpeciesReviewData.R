@@ -28,4 +28,4 @@ SPECIES_CSEO_2022
 View(SPECIES_CSEO_2022)
 
 #Export dataframe into a new csv file==================================================
-write.csv(SPECIES_EYKT_2023,"Output/SPECIES_CSEO_2022.csv", row.names = FALSE)
+write.csv(SPECIES_CSEO_2022,"outputs/SPECIES_CSEO_2022.csv", row.names = FALSE)
