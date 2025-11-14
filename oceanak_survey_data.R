@@ -159,4 +159,10 @@ YE_per_area_per_year <- visual_survey_species_data %>%
     total_length_m = sum(unique(line_length_meters), na.rm = TRUE)) %>%
   mutate(encounter_rate = YE / total_length_m) %>%
   arrange(management_area, year)
+
+# The 1994 stock assessment only used survey data from the CSEO, NSEO and SSEO sections. 
+# The 1994 survey covered more area than past surveys and employed improved navigational techniques.
+# They used an automated system for regularly recording the GPS location along the transect lines each minute.
+# In 1990 and 1991, they were manually recording thel ocation every 10 mins.
+#The new data resulted in a significantly lower estimate of DSR biomass than previous estimates.
   

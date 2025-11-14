@@ -673,21 +673,20 @@ activity<- ROV_species_review_all_years %>%
          !activity %in% c(""," "),
          !is.na(activity)) %>%  
   mutate(activity_new = case_when(
-    activity %in% c("fish seeking cover", 
-                    "Feeding",
-                    "Fish actively swimming in frame",
-                    "Fish moving quickly out of frame",
-                    "Fish moving quickly into frame",
-                    "Passing",
-                    "Fish being chased",
-                    "Fish chasing other fish",
-                    "Fish actively swimming within frame")~ "Moving",
-    activity %in% c("Fish resting on bottom",
+    activity %in% c("Fish milling/hovering",
+                    "Fish resting on bottom",
                     "Fish moving slowly into frame",
-                    "Fish milling/hovering",
-                    "Fish seeking cover",
                     "Fish moving slowly out of frame",
-                    "Fish milling") ~ "Not Moving or Minimal Movement",
+                    "Fish milling")~ "Not Moving or Minimal Movement",
+    activity %in% c("Fish actively swimming in frame",
+                    "Fish chasing other fish",
+                    "Fish moving quickly into frame",
+                    "Fish seeking cover",
+                    "Fish being chased",
+                    "Fish moving quickly out of frame",
+                    "Fish actively swimming within frame",
+                    "Feeding",
+                    "Passing") ~ "Moving",
     activity == "Attracted" ~ "Attracted",
     TRUE ~ activity)) %>% 
   group_by(activity_new) %>% 
@@ -711,32 +710,37 @@ ggplot(activity, aes(x = reorder(activity_new, -percentage), y = percentage, fil
 #Here I am asking the question - what is the percentage breakdown of the
 # inactive fish? what activitiy are they doing?
 inactive <- ROV_species_review_all_years %>%
-  filter(genus=="yelloweye",
-         !activity %in% c(""," "),
-         !is.na(activity)) %>%  
-  mutate(activity_new = case_when(
-    activity %in% c("fish seeking cover", 
-                    "Feeding",
-                    "Fish actively swimming in frame",
-                    "Fish moving quickly out of frame",
-                    "Fish moving quickly into frame",
-                    "Passing",
-                    "Fish being chased",
-                    "Fish chasing other fish",
-                    "Fish actively swimming within frame")~ "Moving",
-    activity %in% c("Fish resting on bottom",
-                    "Fish moving slowly into frame",
-                    "Fish milling/hovering",
-                    "Fish seeking cover",
-                    "Fish moving slowly out of frame",
-                    "Fish milling") ~ "Not Moving or Minimal Movement",
-    activity == "Attracted" ~ "Attracted",
-    TRUE ~ activity)) %>% 
-  filter(activity_new == "Not Moving or Minimal Movement") %>% 
-  group_by(activity) %>% 
+  filter(genus == "yelloweye",
+         !activity %in% c("", " "),
+         !is.na(activity)) %>%
+  mutate(
+    activity_new = case_when(
+      activity %in% c(
+        "Fish milling/hovering",
+        "Fish resting on bottom",
+        "Fish moving slowly into frame",
+        "Fish moving slowly out of frame",
+        "Fish milling") ~ "Not Moving or Minimal Movement",
+      activity %in% c(
+        "Fish actively swimming in frame",
+        "Fish chasing other fish",
+        "Fish moving quickly into frame",
+        "Fish seeking cover",
+        "Fish being chased",
+        "Fish moving quickly out of frame",
+        "Fish actively swimming within frame",
+        "Feeding",
+        "Passing") ~ "Moving",
+      activity == "Attracted" ~ "Attracted", TRUE ~ activity),
+    inactive = case_when(activity %in% c(
+        "Fish milling/hovering",
+        "Fish resting on bottom",
+        "Fish milling") ~ "No Movement",TRUE ~ "Moving")) %>%
+  group_by(inactive) %>% 
   summarize(count = n()) %>% 
   mutate(percentage = (count / sum(count)) * 100) %>%
   arrange(desc(percentage))
+
 
 
 
