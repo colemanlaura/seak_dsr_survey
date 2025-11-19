@@ -104,9 +104,30 @@ EYKT_2017_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2017_EYKT/species_EYKT_2
 # File path: M:\ROVSurvey\2018\NSEO\NSEO_2018_species
 # File path: M:\ROVSurvey\2018\SSEO\Species Review Files\2018ROV Survey_FishVideoReview_SSEO
 
+#It looks like dives 25 and 26 are missing but these dives were brf experimental dives
+#There are .text files in the ROVSurvey/2018/CSEO/Stereo Files folder for those experimental dives
 CSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_CSEO/species_CSEO_2018.csv")
 
-NSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_NSEO/species_NSEO_2018.csv")
+#columns for NSEO 
+cols <- c("Filename","Frame","Time..HMS.","Period","Period.time..HMS.","Length..mm.","Precision..mm.","RMS..mm.",
+          "Range..mm.","Direction..deg.","Horz..Dir...deg.","Vert..Dir...deg.","Mid.X..mm.","Mid.Y..mm.","Mid.Z..mm.",
+          "OpCode","TapeReader","Depth","Comment","Year","Dive","Transect.Number","Dive.Type","Family","Genus",
+          "Species","Code","Number","Stage","Activity","Check.ID","Comment.1","Event.Time.HH.MM.SS")
+
+NSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_NSEO/species_NSEO_2018.csv") %>% 
+  mutate(Period = NA, 
+         Period.time..HMS. = NA,
+         Comment.1 = NA,
+         Event.Time.HH.MM.SS = NA) %>% 
+  select(any_of(cols))
+
+#This spreadsheet is missing dive 26. I don't think it was included in the assessment because it is
+#not in any of the combined species files in the 2018 NSEO
+NSEO_2018_dive26 <- read.csv("data/SPECIES_REVIEW_DATA/2018_NSEO/NSEO_2018_Dive26.csv") %>% 
+  select(! c(X,X.1,X.2,X.3)) %>% 
+  select(any_of(cols))
+
+NSEO_2018_ALLdata <- rbind(NSEO_2018_ALLdata,NSEO_2018_dive26)
 
 unique(NSEO_2018_ALLdata$Dive)
 
@@ -622,18 +643,20 @@ ROV_species_review_all_years <- ROV_species_review_all_years %>%
     TRUE ~ tape_reader),
     activity = case_when(
       activity == "fish seeking cover" ~ "Fish seeking cover",
+      activity == "Fish milling" ~ "Fish milling/hovering",
       activity == "resting on bottom" ~ "Fish resting on bottom",
       activity == "Chase other" ~ "Fish chasing other fish",
       activity %in% c("fish moving slowly into frame", "moving slowly into frame") ~ "Fish moving slowly into frame",
       activity %in% c("fish moving quickly into frame", "moving quickly into frame") ~ "Fish moving quickly into frame",
-      activity == "actively swimming within frame" ~ "Fish actively swimming in frame",
+      activity %in% c("actively swimming within frame", "Fish actively swimming within frame") ~ "Fish actively swimming in frame",
       activity %in% c("fish moving quickly out of frame", "Fish moving quickly out of frame.") ~ "Fish moving quickly out of frame",
       activity %in% c("milling", "milling/hovering") ~ "Fish milling/hovering",
       TRUE ~ activity),
     dive_type = case_when(
       dive_type == "Grouundtruth" ~ "Groundtruth",
       TRUE ~ dive_type)) %>% 
-  filter(!dive_type %in% c("Groundtruth", "Exploratory"))
+  filter(!dive_type %in% c("Groundtruth", "Exploratory")) %>% 
+  mutate(dive_trans = paste(dive,transect_number, sep = "_"))
 
 write.csv(ROV_species_review_all_years,"outputs/ROV_species_review_all_years.csv")
 
@@ -655,14 +678,22 @@ unique(ROV_species_review_all_years$dive_type)
 
 transects_per_area_per_year <- ROV_species_review_all_years %>%
   group_by(mgmt_area,year) %>%
-  summarise(num_dives = n_distinct(dive_no)) %>%
+  summarise(num_dives = n_distinct(dive_trans)) %>%
   arrange(mgmt_area)
+
+summary_table <- ROV_species_review_all_years %>%
+  filter(species == 145 & stage %in% c("AD","SA"))%>% 
+  group_by(mgmt_area, year) %>%   # or group_by(year), or group_by(dive_trans)
+  summarise(n_transects = n_distinct(dive_trans),
+    n_yelloweye = sum(code == 145, na.rm = TRUE))
 
 # Data Exploration  ---------------------------------------------------------
 #Since the adoption of the ROV in 2012, an average of 78% of all yelloweye 
 #rockfish from the surveys moved minimally or slowly. Of those slow-moving 
 #specimens, approximately 70% did not display directional movements (i.e., 
 #they were milling or resting on the bottom). 
+
+#I
 #
 #The above text is from the draft of the ROP. I am assuming Kelli or Phil
 #but I don't know where this analysis was completed. 
