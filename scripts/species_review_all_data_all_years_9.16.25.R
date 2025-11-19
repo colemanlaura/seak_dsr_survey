@@ -3,6 +3,15 @@
 # Authors: Laura Coleman (laura.coleman@alaska.gov)
 # Last modified: July 29, 2025
 
+# The goal here is is create one file with ALL of the RAW ROV line transect data for 
+# yelloweye rockfish stock assessment survey. I want to include ALL transects, with 
+# all species. Kelli or Phil compiled a lot of this data already, so I will
+# start with the outputs they created and will recombine raw files if needed.
+
+# Not that this code should not be used to get the number of YE for the stock assessment survey
+# I believe that yelloweye rockfish form the "bad" segments are not counted and are therefore
+# removed. FLAG! This is something I still need to followup on.
+
 ## ROV Surveys for DSR Stock Assessment
 ## two hashtags are used when the data has added to this repo
 ## CSEO_2012
@@ -22,16 +31,6 @@
 # NSEO_2022
 # EYKT_2023
 # The ROV program was suspended after 2023 due to the retirement of ROV pilot Mike Byerly
-
-#The goal here is is create one file with ALL of the RAW ROV data. I want to include ALL
-#transects, with all species. Kelli or Phil compiled a lot of this data already, so I will
-#start with the outputs they created and will recombine raw files if needed.
-
-# TO DO:
-# Dive 11, EYKT 2015 has multiple version and I think I should read in all of those versions to have available to play with
-# I added dive_type to several of these files - i need to figure out id there were any other experimental transects
-# Check with Kelli - who added the data to oceanak, need to verify - justin didn't know
-
 
 # set up ----
 source('scripts/helper.r') 
@@ -60,8 +59,8 @@ CSEO_2012_ALLdata <- read_csv("data/SPECIES_REVIEW_DATA/2012_CSEO/species_CSEO_2
 # This was created in 2021, so I am assuming it was created by Phil or Kelli but there are 8 dives missing
 # according to the dive log. 
 
-#I found event measure files for the missing dives but I did not find documentation 
-# on why these dives were not included in the "speces_SSEO_2013" file. I def want 
+#FLAG! I found event measure files for the missing dives but I did not find documentation 
+# on why these dives were not included in the "species_SSEO_2013" file. I def want 
 # to revisit this and make sure that those dives were included in the assessment in 2013.
 
 # The 2013 ROV Distance Analysis notes have been saved in the documents folder
@@ -74,10 +73,8 @@ SSEO_2013_missing_data <- read.csv("data/SPECIES_REVIEW_DATA/2013_SSEO/species_S
   rename(Comment=Comment...20,
          Comment.1=Comment...37)
 
-unique(SSEO_2013_ALLdata$Dive.No)
-unique(SSEO_2013_missing_data$Dive.No)
-
 SSEO_2013_ALLdata <- rbind(SSEO_2013_ALLdata,SSEO_2013_missing_data)
+
 
 # 2015 -----------------------------------------------------------------------
 # I combined the raw files for this survey - see code: 2015_EYKT_MergingCSVFilesCode_SpeciesReviewData
@@ -673,19 +670,17 @@ unique(ROV_species_review_all_years$code)
 unique(ROV_species_review_all_years$stage)
 unique(ROV_species_review_all_years$activity)
 unique(ROV_species_review_all_years$dive_type)
-#flag!! i would like to go back through the logs and check for exploratory dives that i may have missed
-#it would also be interesting to have a record of all of the exploratory dives too!!!
 
 transects_per_area_per_year <- ROV_species_review_all_years %>%
   group_by(mgmt_area,year) %>%
+  filter(!is.na(year)) %>% 
   summarise(num_dives = n_distinct(dive_trans)) %>%
   arrange(mgmt_area)
 
 summary_table <- ROV_species_review_all_years %>%
-  filter(species == 145 & stage %in% c("AD","SA"))%>% 
-  group_by(mgmt_area, year) %>%   # or group_by(year), or group_by(dive_trans)
-  summarise(n_transects = n_distinct(dive_trans),
-    n_yelloweye = sum(code == 145, na.rm = TRUE))
+  filter(species == 145 & stage %in% c("AD","SU")) %>% 
+  group_by(mgmt_area, year) %>%  
+  summarise(n_yelloweye = n())
 
 # Data Exploration  ---------------------------------------------------------
 #Since the adoption of the ROV in 2012, an average of 78% of all yelloweye 
