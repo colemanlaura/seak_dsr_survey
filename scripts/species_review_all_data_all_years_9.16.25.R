@@ -182,6 +182,9 @@ SSEO_2020_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2020_SSEO/species_SSEO_2
 unique(SSEO_2020_ALLdata$Dive)
 SSEO_2020_ALLdata %>% summarise(distinct_dives = n_distinct(Dive))
 
+#This output was sent to Ivy for species distribution model
+write.csv(SSEO_2020_ALLdata,"outputs/SPECIES_SSEO_2020_divenum_corrected.csv")
+
 # 2022 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\SPECIES_CSEO_2022_summary
 # The times in the original excel files were never converted to HHMMSS, so when combined in
@@ -205,6 +208,7 @@ unique(CSEO_2022_ALLdata$Dive)
 CSEO_2022_ALLdata %>% summarise(distinct_dives = n_distinct(Dive))
 CSEO_2022_ALLdata %>% summarise(distinct_trans = n_distinct(Transect.Number))
 
+#This output was sent to Ivy for species distribution model
 write.csv(CSEO_2022_ALLdata,"outputs/SPECIES_CSEO_2022_summary_time_corrected.csv")
 
 # File path: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW\SPECIES_NSEO_2022_summary
