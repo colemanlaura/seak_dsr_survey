@@ -8,18 +8,17 @@
 # all species. Kelli or Phil compiled a lot of this data already, so I will
 # start with the outputs they created and will recombine raw files if needed.
 
-# Not that this code should not be used to get the number of YE for the stock assessment survey
+# Note that this code should not be used to get the number of YE for the stock assessment survey
 # I believe that yelloweye rockfish form the "bad" segments are not counted and are therefore
 # removed. FLAG! This is something I still need to followup on.
 
 ## ROV Surveys for DSR Stock Assessment
-## two hashtags are used when the data has added to this repo
-## CSEO_2012
-## SSEO_2013
-## 2014 CANCELED
-## EYKT_2015
-## CSEO_2016
-## NSEO_2016
+# CSEO_2012
+# SSEO_2013
+# 2014 CANCELED
+# EYKT_2015
+# CSEO_2016
+# NSEO_2016
 # EYKT_2017
 # NSEO_2018
 # CSEO_2018
@@ -252,7 +251,7 @@ list2env(all_dfs, envir = .GlobalEnv)
 lapply(all_dfs, names)
 
 # R programmers everywhere are going to cry at what I am about to do. I am 
-# finding a lot of variation in column names and also data types, and get figure out
+# finding a lot of variation in column names and also data types, and can't figure out
 # how to make big changes to all of them at once, so I am going to change each 
 # data frame one by one. Sowwy.
 
@@ -692,10 +691,11 @@ summary_table <- ROV_species_review_all_years %>%
 #specimens, approximately 70% did not display directional movements (i.e., 
 #they were milling or resting on the bottom). 
 
-#I
-#
+
 #The above text is from the draft of the ROP. I am assuming Kelli or Phil
-#but I don't know where this analysis was completed. 
+#but I don't know where this analysis was completed. Below I replicated this
+#analysis and updated the statement above in the ROP, which should be published
+#in 2026
 
 
 activity<- ROV_species_review_all_years %>%
