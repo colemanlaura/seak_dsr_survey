@@ -1,0 +1,312 @@
+Filename,Frame,Time (HMS),Period,Period time (HMS),Image row,Image col,OpCode,Tape Reader,Depth,Comment,Year,Dive,Transect Number,Family,Genus,Species,Code,Number,Stage,Activity,Start_End,Comment,Event Time HH:MM:SS
+SL_2017EYKT_Dive_01_13-26-38.000.avi,1669,13:27:41,,,454,888,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,1,,,START,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,24001,13:40:05,,,542,712,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,climbing wall,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,25847,13:41:07,,,538,850,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,27015,13:41:46,,,646,857,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,27526,13:42:03,,,542,788,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,27850,13:42:13,,,519,764,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,20,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,27951,13:42:17,,,483,576,QC,Amy,,,2017,1,1,Bad,lost bottom visual,BLB,BLB,14,AD,Passing,,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,28511,13:42:35,,,543,799,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,21,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,28886,13:42:48,,,530,835,QC,Amy,,,2017,1,1,Bad,lost bottom visual,BLB,BLB,22,AD,Passing,,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,29186,13:42:58,,,654,913,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,17,AD,Passing,,can see in belly,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,29407,13:43:05,,,522,796,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,73415,14:07:32,,,605,804,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,18,AD,Passing,,can see in belly,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,74062,14:07:54,,,557,806,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,76456,14:09:14,,,623,839,QC,Amy,,,2017,1,1,Bad,loitering in same area,BLA,BLA,11,AD,Passing,,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,76928,14:09:29,,,589,866,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,12,AD,Passing,,,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,80878,14:11:41,,,559,816,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_01_13-26-38.000.avi,81116,14:11:49,,,631,816,QC,Amy,,,2017,1,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,
+SL_2017EYKT_Dive_02_19-08-19.000.avi,286,19:08:31,,,234,392,QC,Amy,,,2017,2,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_02_19-08-19.000.avi,56374,19:39:40,,,328,338,QC,Amy,,,2017,2,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_02_19-08-19.000.avi,56477,19:39:44,,,214,357,QC,Amy,,,2017,2,1,Bad,going over drop-off,BDO,BDO,5,AD,Passing,,,
+SL_2017EYKT_Dive_02_19-08-19.000.avi,56967,19:40:00,,,222,342,QC,Amy,,,2017,2,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,
+SL_2017EYKT_Dive_02_19-08-19.000.avi,75373,19:50:13,,,249,357,QC,Amy,,,2017,2,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_03_06-15-41.000.avi,143,6:15:51,,,241,372,QC,Amy,,,2017,3,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_03_06-15-41.000.avi,24120,6:29:10,,,249,351,QC,Amy,,,2017,3,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,camera tech issue.can see bottom in belly,
+SL_2017EYKT_Dive_03_06-15-41.000.avi,24376,6:29:19,,,269,322,QC,Amy,,,2017,3,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,
+SL_2017EYKT_Dive_03_06-15-41.000.avi,69458,6:54:21,,,235,342,QC,Amy,,,2017,3,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_04_07-53-38.000.avi,116,7:53:46,,,195,374,QC,Amy,,,2017,4,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_04_07-53-38.000.avi,61951,8:28:07,,,206,365,QC,Amy,,,2017,4,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_05_10-02-35.000.avi,250,10:02:47,,,178,354,QC,Amy,,,2017,5,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_05_10-02-35.000.avi,5648,10:05:47,,,383,363,QC,Amy,,,2017,5,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_05_10-02-35.000.avi,6099,10:06:02,,,229,362,QC,Amy,,,2017,5,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,
+SL_2017EYKT_Dive_05_10-02-35.000.avi,61428,10:36:47,,,287,328,QC,Amy,,,2017,5,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_06_11-14-20.000.avi,122,11:14:28,,,206,314,QC,Amy,,,2017,6,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_06_11-14-20.000.avi,61649,11:48:39,,,189,348,QC,Amy,,,2017,6,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_07_12-24-11.000.avi,175,12:24:27,,,226,332,QC,Amy,,,2017,7,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_07_12-24-11.000.avi,64159,13:00:00,,,246,335,QC,Amy,,,2017,7,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_08_13-36-09.000.avi,220,13:36:55,,,226,361,QC,Amy,,,2017,8,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_08_13-36-09.000.avi,75190,14:18:34,,,233,376,QC,Amy,,,2017,8,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_09_14-56-10.000.avi,449,14:56:35,,,238,337,QC,Amy,,,2017,9,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_09_14-56-10.000.avi,60413,15:29:54,,,224,324,QC,Amy,,,2017,9,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_10_16-14-22.000.avi,305,16:15:04,,,222,352,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_10_16-14-22.000.avi,47285,16:41:10,,,254,343,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,can see bottom in belly,16:41:11
+SL_2017EYKT_Dive_10_16-14-22.000.avi,47544,16:41:19,,,171,276,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,16:41:20
+SL_2017EYKT_Dive_10_16-14-22.000.avi,49793,16:42:34,,,198,308,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,see bottom in belly,16:42:35
+SL_2017EYKT_Dive_10_16-14-22.000.avi,50235,16:42:49,,,264,384,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,,16:42:50
+SL_2017EYKT_Dive_10_16-14-22.000.avi,55968,16:46:00,,,281,364,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,can see in belly,16:46:01
+SL_2017EYKT_Dive_10_16-14-22.000.avi,56213,16:46:08,,,239,354,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,,16:46:09
+SL_2017EYKT_Dive_10_16-14-22.000.avi,66213,16:51:41,,,249,343,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,can see in belly,16:51:43
+SL_2017EYKT_Dive_10_16-14-22.000.avi,66367,16:51:46,,,233,341,QC,Amy,,,2017,10,1,Bad,going over drop-off,BDO,BDO,12,AD,Passing,,,16:51:48
+SL_2017EYKT_Dive_10_16-14-22.000.avi,66792,16:52:00,,,231,353,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,,16:52:02
+SL_2017EYKT_Dive_10_16-14-22.000.avi,74003,16:56:01,,,229,358,QC,Amy,,,2017,10,1,Good,Good Going Forward,GGF,GGF,11,AD,Passing,End,,16:56:03
+SL_2017EYKT_Dive_11_17-24-15.000.avi,582,17:24:36,,,261,322,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,17:24:37
+SL_2017EYKT_Dive_11_17-24-15.000.avi,16215,17:33:17,,,229,349,QC,Amy,,,2017,11,1,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,pause. investigate ubilicle tangle,17:33:18
+SL_2017EYKT_Dive_11_17-24-15.000.avi,23972,17:37:36,,,233,356,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,17:37:37
+SL_2017EYKT_Dive_11_17-24-15.000.avi,53241,17:53:52,,,304,317,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,see bottom in belly,17:53:54
+SL_2017EYKT_Dive_11_17-24-15.000.avi,53331,17:53:55,,,241,305,QC,Amy,,,2017,11,1,Bad,lost bottom visual,BLB,BLB,11,AD,Passing,,,17:53:57
+SL_2017EYKT_Dive_11_17-24-15.000.avi,53569,17:54:03,,,258,326,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,17:54:05
+SL_2017EYKT_Dive_11_17-24-15.000.avi,56617,17:55:44,,,284,330,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,see bottom in belly,17:55:46
+SL_2017EYKT_Dive_11_17-24-15.000.avi,56972,17:55:56,,,225,358,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,,17:55:58
+SL_2017EYKT_Dive_11_17-24-15.000.avi,76924,18:07:01,,,288,365,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,see bottom in belly,18:07:04
+SL_2017EYKT_Dive_11_17-24-15.000.avi,77044,18:07:05,,,236,345,QC,Amy,,,2017,11,1,Bad,lost bottom visual,BLB,BLB,13,AD,Passing,,,18:07:08
+SL_2017EYKT_Dive_11_17-24-15.000.avi,77254,18:07:12,,,214,356,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,12,AD,Passing,,,18:07:15
+SL_2017EYKT_Dive_11_17-24-15.000.avi,88390,18:13:23,,,213,361,QC,Amy,,,2017,11,1,Good,Good Going Forward,GGF,GGF,10,AD,Passing,End,,18:13:26
+SL_2017EYKT_Dive_12_19-20-43.000.avi,211,19:20:53,,,236,361,QC,Amy,,,2017,12,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,Start,,
+SL_2017EYKT_Dive_12_19-20-43.000.avi,1378,19:21:32,,,234,341,QC,Amy,,,2017,12,1,Bad,repositioned,BRP,BRP,3,AD,Passing,,pause. investigate umbilicle tangle,
+SL_2017EYKT_Dive_12_19-20-43.000.avi,13486,19:28:16,,,234,345,QC,Amy,,,2017,12,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,
+SL_2017EYKT_Dive_12_19-20-43.000.avi,72193,20:00:52,,,221,363,QC,Amy,,,2017,12,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,End,,
+SL_2017EYKT_Dive_13_06-31-36.000.avi,242,6:31:47,,,229,364,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_13_06-31-36.000.avi,14637,6:39:47,,,278,344,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,see bottom in belly,6:39:47
+SL_2017EYKT_Dive_13_06-31-36.000.avi,14744,6:39:50,,,238,314,QC,Amy,,,2017,13,1,Bad,going over drop-off,BDO,BDO,15,AD,Passing,,,6:39:51
+SL_2017EYKT_Dive_13_06-31-36.000.avi,15932,6:40:30,,,243,321,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,16,AD,Passing,,,
+SL_2017EYKT_Dive_13_06-31-36.000.avi,22737,6:44:17,,,232,323,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,see bottom in belly,6:44:17
+SL_2017EYKT_Dive_13_06-31-36.000.avi,23020,6:44:26,,,237,300,QC,Amy,,,2017,13,1,Bad,lost bottom visual,BLB,BLB,8,AD,Passing,,,6:44:27
+SL_2017EYKT_Dive_13_06-31-36.000.avi,23337,6:44:37,,,272,348,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,,6:44:37
+SL_2017EYKT_Dive_13_06-31-36.000.avi,62160,7:06:11,,,296,307,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,see bottom in belly,7:06:13
+SL_2017EYKT_Dive_13_06-31-36.000.avi,62640,7:06:27,,,220,335,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,,7:06:29
+SL_2017EYKT_Dive_13_06-31-36.000.avi,65860,7:08:14,,,302,358,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,see bottom in belly,7:08:16
+SL_2017EYKT_Dive_13_06-31-36.000.avi,65997,7:08:19,,,234,368,QC,Amy,,,2017,13,1,Bad,going over drop-off,BDO,BDO,12,AD,Passing,,,7:08:21
+SL_2017EYKT_Dive_13_06-31-36.000.avi,66269,7:08:28,,,232,389,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,,7:08:30
+SL_2017EYKT_Dive_13_06-31-36.000.avi,74868,7:13:15,,,215,349,QC,Amy,,,2017,13,1,Good,Good Going Forward,GGF,GGF,14,AD,Passing,End,,7:13:17
+SL_2017EYKT_Dive_14_07-52-49.000.avi,468,7:53:17,,,252,403,QC,Amy,,,2017,14,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_14_07-52-49.000.avi,61549,8:27:13,,,266,355,QC,Amy,,,2017,14,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_15_09-54-44.000.avi,99,9:54:55,,,227,344,QC,Amy,,,2017,15,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_15_09-54-44.000.avi,42628,10:18:33,,,285,352,QC,Amy,,,2017,15,1,Bad,going over drop-off,BDO,BDO,2,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_15_09-54-44.000.avi,42946,10:18:44,,,244,353,QC,Amy,,,2017,15,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_15_09-54-44.000.avi,56660,10:26:21,,,226,351,QC,Amy,,,2017,15,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,End,,
+SL_2017EYKT_Dive_17_12-08-53.000.avi,166,12:09:02,,,226,360,QC,Amy,,,2017,17,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_17_12-08-53.000.avi,57872,12:41:05,,,213,328,QC,Amy,,,2017,17,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_18_11-48-13.000.avi,128,11:48:21,,,245,325,QC,Amy,,,2017,18,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_18_11-48-13.000.avi,59433,12:21:18,,,250,387,QC,Amy,,,2017,18,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_19_14-23-08.000.avi,220,14:23:19,,,223,346,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,14:23:20
+SL_2017EYKT_Dive_19_14-23-08.000.avi,7525,14:27:23,,,272,317,QC,Amy,,,2017,19,1,Bad,lost bottom visual,BLB,BLB,15,AD,Passing,,,14:27:23
+SL_2017EYKT_Dive_19_14-23-08.000.avi,8267,14:27:48,,,228,292,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,17,AD,Passing,,see bottom in belly,14:27:48
+SL_2017EYKT_Dive_19_14-23-08.000.avi,8721,14:28:03,,,226,386,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,18,AD,Passing,,,14:28:03
+SL_2017EYKT_Dive_19_14-23-08.000.avi,9681,14:28:35,,,261,279,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,see bottom in belly,14:28:35
+SL_2017EYKT_Dive_19_14-23-08.000.avi,9795,14:28:39,,,245,339,QC,Amy,,,2017,19,1,Bad,lost bottom visual,BLB,BLB,19,AD,Passing,,,14:28:39
+SL_2017EYKT_Dive_19_14-23-08.000.avi,10524,14:29:03,,,245,351,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,14:29:03
+SL_2017EYKT_Dive_19_14-23-08.000.avi,14141,14:31:03,,,322,299,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,see bottom in belly,14:31:04
+SL_2017EYKT_Dive_19_14-23-08.000.avi,14524,14:31:16,,,211,338,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,14:31:17
+SL_2017EYKT_Dive_19_14-23-08.000.avi,25582,14:37:25,,,290,360,QC,Amy,,,2017,19,1,Bad,lost bottom visual,BLB,BLB,8,AD,Passing,,,14:37:26
+SL_2017EYKT_Dive_19_14-23-08.000.avi,26757,14:38:04,,,319,356,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,14:38:05
+SL_2017EYKT_Dive_19_14-23-08.000.avi,29211,14:39:26,,,231,348,QC,Amy,,,2017,19,1,Bad,going over drop-off,BDO,BDO,10,AD,Passing,,,14:39:27
+SL_2017EYKT_Dive_19_14-23-08.000.avi,29775,14:39:44,,,250,356,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,14:39:46
+SL_2017EYKT_Dive_19_14-23-08.000.avi,45915,14:48:42,,,293,385,QC,Amy,,,2017,19,1,Bad,going over drop-off,BDO,BDO,12,AD,Passing,,,14:48:44
+SL_2017EYKT_Dive_19_14-23-08.000.avi,46645,14:49:07,,,218,360,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,,14:49:09
+SL_2017EYKT_Dive_19_14-23-08.000.avi,73876,15:04:15,,,247,336,QC,Amy,,,2017,19,1,Good,Good Going Forward,GGF,GGF,14,AD,Passing,End,,15:04:17
+SL_2017EYKT_Dive_20_15-41-16.000.avi,799,15:42:07,,,238,327,QC,Amy,,,2017,20,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_20_15-41-16.000.avi,77143,16:24:31,,,290,425,QC,Amy,,,2017,20,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_21_17-04-18.000.avi,118,17:04:24,,,159,300,QC,Amy,,,2017,21,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,17:04:24
+SL_2017EYKT_Dive_21_17-04-18.000.avi,635,17:04:41,,,274,310,QC,Amy,,,2017,21,1,Bad,lost bottom visual,BLB,BLB,3,AD,Passing,,,
+SL_2017EYKT_Dive_21_17-04-18.000.avi,2122,17:05:31,,,247,320,QC,Amy,,,2017,21,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,,
+SL_2017EYKT_Dive_21_17-04-18.000.avi,3424,17:06:14,,,221,350,QC,Amy,,,2017,21,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_21_17-04-18.000.avi,3732,17:06:24,,,258,345,QC,Amy,,,2017,21,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,
+SL_2017EYKT_Dive_21_17-04-18.000.avi,6920,17:08:11,,,233,293,QC,Amy,,,2017,21,1,Bad,lost bottom visual,BLB,BLB,7,AD,Passing,,,17:08:11
+SL_2017EYKT_Dive_21_17-04-18.000.avi,7467,17:08:29,,,248,336,QC,Amy,,,2017,21,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,,17:08:29
+SL_2017EYKT_Dive_21_17-04-18.000.avi,71595,17:44:07,,,203,310,QC,Amy,,,2017,21,1,Good,Good Going Forward,GGF,GGF,8,AD,Passing,End,,17:44:09
+SL_2017EYKT_Dive_22_18-27-20.000.avi,421,18:27:38,,,252,372,QC,Amy,,,2017,22,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_22_18-27-20.000.avi,9118,18:32:28,,,260,375,QC,Amy,,,2017,22,1,Bad,going over drop-off,BDO,BDO,3,AD,Passing,,,18:32:28
+SL_2017EYKT_Dive_22_18-27-20.000.avi,9507,18:32:41,,,243,316,QC,Amy,,,2017,22,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,,18:32:41
+SL_2017EYKT_Dive_22_18-27-20.000.avi,44243,18:51:59,,,198,325,QC,Amy,,,2017,22,1,Bad,going over drop-off,BDO,BDO,4,AD,Passing,,,18:52:00
+SL_2017EYKT_Dive_22_18-27-20.000.avi,44721,18:52:15,,,176,242,QC,Amy,,,2017,22,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,18:52:16
+SL_2017EYKT_Dive_22_18-27-20.000.avi,74161,19:08:36,,,240,314,QC,Amy,,,2017,22,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,End,,19:08:39
+SL_2017EYKT_Dive_23_20-02-34.000.avi,98,20:02:39,,,231,356,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_23_20-02-34.000.avi,7029,20:06:30,,,227,351,QC,Amy,,,2017,23,1,Bad,going over drop-off,BDO,BDO,2,AD,Passing,,,
+SL_2017EYKT_Dive_23_20-02-34.000.avi,7206,20:06:36,,,200,307,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_23_20-02-34.000.avi,23544,20:15:41,,,249,341,QC,Amy,,,2017,23,1,Bad,going over drop-off,BDO,BDO,4,AD,Passing,,,20:15:41
+SL_2017EYKT_Dive_23_20-02-34.000.avi,24165,20:16:01,,,234,337,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,20:16:02
+SL_2017EYKT_Dive_23_20-02-34.000.avi,25290,20:16:39,,,256,291,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_23_20-02-34.000.avi,25424,20:16:43,,,257,315,QC,Amy,,,2017,23,1,Bad,going over drop-off,BDO,BDO,7,AD,Passing,,,20:16:44
+SL_2017EYKT_Dive_23_20-02-34.000.avi,25652,20:16:51,,,183,251,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,can see bottom in belly,
+SL_2017EYKT_Dive_23_20-02-34.000.avi,25809,20:16:56,,,225,316,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,20:16:57
+SL_2017EYKT_Dive_23_20-02-34.000.avi,26781,20:17:29,,,251,327,QC,Amy,,,2017,23,1,Bad,going over drop-off,BDO,BDO,10,AD,Passing,,,20:17:29
+SL_2017EYKT_Dive_23_20-02-34.000.avi,27208,20:17:43,,,225,323,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,20:17:43
+SL_2017EYKT_Dive_23_20-02-34.000.avi,39027,20:24:17,,,231,347,QC,Amy,,,2017,23,1,Bad,going over drop-off,BDO,BDO,12,AD,Passing,,going along wall,20:24:18
+SL_2017EYKT_Dive_23_20-02-34.000.avi,40064,20:24:51,,,201,327,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,14,AD,Passing,,,20:24:52
+SL_2017EYKT_Dive_23_20-02-34.000.avi,44329,20:27:14,,,211,324,QC,Amy,,,2017,23,1,Bad,loitering in same area,BLA,BLA,15,AD,Passing,,,20:27:15
+SL_2017EYKT_Dive_23_20-02-34.000.avi,44957,20:27:35,,,172,308,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,16,AD,Passing,,,20:27:36
+SL_2017EYKT_Dive_23_20-02-34.000.avi,48522,20:29:33,,,196,315,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,17,AD,Passing,,can see bottom in belly,20:29:35
+SL_2017EYKT_Dive_23_20-02-34.000.avi,48809,20:29:43,,,198,305,QC,Amy,,,2017,23,1,Bad,going over drop-off,BDO,BDO,18,AD,Passing,,lose belly view,20:29:44
+SL_2017EYKT_Dive_23_20-02-34.000.avi,49746,20:30:14,,,225,299,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,20,AD,Passing,,,20:30:15
+SL_2017EYKT_Dive_23_20-02-34.000.avi,51895,20:31:26,,,216,315,QC,Amy,,,2017,23,1,Bad,lost bottom visual,BLB,BLB,21,AD,Passing,,,20:31:27
+SL_2017EYKT_Dive_23_20-02-34.000.avi,52678,20:31:52,,,224,329,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,22,AD,Passing,,,20:31:53
+SL_2017EYKT_Dive_23_20-02-34.000.avi,58186,20:34:56,,,234,343,QC,Amy,,,2017,23,1,Bad,lost bottom visual,BLB,BLB,23,AD,Passing,,,20:34:57
+SL_2017EYKT_Dive_23_20-02-34.000.avi,58965,20:35:21,,,223,336,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,24,AD,Passing,,,20:35:23
+SL_2017EYKT_Dive_23_20-02-34.000.avi,59848,20:35:51,,,301,363,QC,Amy,,,2017,23,1,Bad,lost bottom visual,BLB,BLB,42,AD,Passing,,,20:35:52
+SL_2017EYKT_Dive_23_20-02-34.000.avi,60190,20:36:02,,,304,343,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,43,AD,Passing,,can see bottom in belly,20:36:04
+SL_2017EYKT_Dive_23_20-02-34.000.avi,60589,20:36:16,,,241,347,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,29,AD,Passing,,,20:36:17
+SL_2017EYKT_Dive_23_20-02-34.000.avi,64875,20:38:39,,,231,314,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,30,AD,Passing,,can see bottom in belly,20:38:40
+SL_2017EYKT_Dive_23_20-02-34.000.avi,65046,20:38:44,,,227,349,QC,Amy,,,2017,23,1,Bad,lost bottom visual,BLB,BLB,31,AD,Passing,,,20:38:46
+SL_2017EYKT_Dive_23_20-02-34.000.avi,65310,20:38:53,,,243,336,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,32,AD,Passing,,,20:38:55
+SL_2017EYKT_Dive_23_20-02-34.000.avi,69795,20:41:23,,,222,332,QC,Amy,,,2017,23,1,Bad,going over drop-off,BDO,BDO,33,AD,Passing,,,20:41:24
+SL_2017EYKT_Dive_23_20-02-34.000.avi,70547,20:41:48,,,261,328,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,34,AD,Passing,,,20:41:50
+SL_2017EYKT_Dive_23_20-02-34.000.avi,70756,20:41:55,,,206,298,QC,Amy,,,2017,23,1,Good,resting on bottom,GRB,GRB,35,AD,Passing,,,20:41:56
+SL_2017EYKT_Dive_23_20-02-34.000.avi,71500,20:42:19,,,246,313,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,36,AD,Passing,,,20:42:21
+SL_2017EYKT_Dive_23_20-02-34.000.avi,74057,20:43:45,,,225,328,QC,Amy,,,2017,23,1,Bad,going over drop-off,BDO,BDO,37,AD,Passing,,,20:43:47
+SL_2017EYKT_Dive_23_20-02-34.000.avi,74582,20:44:02,,,234,343,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,38,AD,Passing,,,20:44:04
+SL_2017EYKT_Dive_23_20-02-34.000.avi,77711,20:45:46,,,255,314,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,40,AD,Passing,,can see bottom in belly,20:45:49
+SL_2017EYKT_Dive_23_20-02-34.000.avi,77867,20:45:52,,,223,323,QC,Amy,,,2017,23,1,Bad,lost bottom visual,BLB,BLB,41,AD,Passing,,,20:45:54
+SL_2017EYKT_Dive_23_20-02-34.000.avi,78197,20:46:03,,,217,339,QC,Amy,,,2017,23,1,Good,Good Going Forward,GGF,GGF,39,AD,Passing,End,,20:46:05
+SL_2017EYKT_Dive_24_05-18-10.000.avi,232,5:18:22,,,231,321,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,5:18:22
+SL_2017EYKT_Dive_24_05-18-10.000.avi,1687,5:19:10,,,235,337,QC,Amy,,,2017,24,1,Bad,going over drop-off,BDO,BDO,2,AD,Passing,,,
+SL_2017EYKT_Dive_24_05-18-10.000.avi,2862,5:19:49,,,224,329,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,5:19:50
+SL_2017EYKT_Dive_24_05-18-10.000.avi,26051,5:32:42,,,219,322,QC,Amy,,,2017,24,1,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,waiting for clump. 5:32:55 ,5:32:43
+SL_2017EYKT_Dive_24_05-18-10.000.avi,26678,5:33:03,,,228,317,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,resume. 5:33:09,5:33:04
+SL_2017EYKT_Dive_24_05-18-10.000.avi,35069,5:37:43,,,228,337,QC,Amy,,,2017,24,1,Bad,lost bottom visual,BLB,BLB,6,AD,Passing,,,5:37:44
+SL_2017EYKT_Dive_24_05-18-10.000.avi,35463,5:37:56,,,244,308,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,5:37:57
+SL_2017EYKT_Dive_24_05-18-10.000.avi,36237,5:38:22,,,234,272,QC,Amy,,,2017,24,1,Bad,loitering in same area,BLA,BLA,8,AD,Passing,,,5:38:23
+SL_2017EYKT_Dive_24_05-18-10.000.avi,36713,5:38:38,,,246,303,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,5:38:39
+SL_2017EYKT_Dive_24_05-18-10.000.avi,40576,5:40:47,,,229,290,QC,Amy,,,2017,24,1,Bad,going over drop-off,BDO,BDO,10,AD,Passing,,,5:40:48
+SL_2017EYKT_Dive_24_05-18-10.000.avi,41429,5:41:15,,,213,303,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,5:41:17
+SL_2017EYKT_Dive_24_05-18-10.000.avi,42550,5:41:52,,,199,327,QC,Amy,,,2017,24,1,Bad,loitering in same area,BLA,BLA,12,AD,Passing,,,5:41:54
+SL_2017EYKT_Dive_24_05-18-10.000.avi,43071,5:42:10,,,227,309,QC,Amy,,,2017,24,1,Bad,repositioned,BRP,BRP,13,AD,Passing,,reposition clump. 5:42:27,5:42:11
+SL_2017EYKT_Dive_24_05-18-10.000.avi,44280,5:42:50,,,243,347,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,14,AD,Passing,,resume. 5:42:52,5:42:52
+SL_2017EYKT_Dive_24_05-18-10.000.avi,45316,5:43:25,,,262,322,QC,Amy,,,2017,24,1,Bad,loitering in same area,BLA,BLA,15,AD,Passing,,,5:43:26
+SL_2017EYKT_Dive_24_05-18-10.000.avi,46024,5:43:48,,,250,308,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,16,AD,Passing,,,5:43:50
+SL_2017EYKT_Dive_24_05-18-10.000.avi,81108,6:03:18,,,252,323,QC,Amy,,,2017,24,1,Good,Good Going Forward,GGF,GGF,17,AD,Passing,End,,6:03:20
+SL_2017EYKT_Dive_25_06-48-47.000.avi,273,6:49:00,,,217,323,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_25_06-48-47.000.avi,3679,6:50:54,,,223,322,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,see bottom in belly,6:50:54
+SL_2017EYKT_Dive_25_06-48-47.000.avi,3994,6:51:04,,,230,318,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_25_06-48-47.000.avi,8247,6:53:26,,,226,329,QC,Amy,,,2017,25,1,Bad,lost bottom visual,BLB,BLB,4,AD,Passing,,,6:53:26
+SL_2017EYKT_Dive_25_06-48-47.000.avi,9057,6:53:53,,,224,300,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,6:53:53
+SL_2017EYKT_Dive_25_06-48-47.000.avi,11313,6:55:08,,,223,319,QC,Amy,,,2017,25,1,Bad,loitering in same area,BLA,BLA,6,AD,Passing,,,
+SL_2017EYKT_Dive_25_06-48-47.000.avi,11738,6:55:22,,,231,288,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,6:55:23
+SL_2017EYKT_Dive_25_06-48-47.000.avi,21887,7:01:01,,,216,316,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,see bottom in belly,7:01:01
+SL_2017EYKT_Dive_25_06-48-47.000.avi,22001,7:01:04,,,225,328,QC,Amy,,,2017,25,1,Bad,lost bottom visual,BLB,BLB,9,AD,Passing,,,7:01:05
+SL_2017EYKT_Dive_25_06-48-47.000.avi,22385,7:01:17,,,210,308,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,see bottom in belly,7:01:18
+SL_2017EYKT_Dive_25_06-48-47.000.avi,22491,7:01:21,,,223,317,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,7:01:21
+SL_2017EYKT_Dive_25_06-48-47.000.avi,24638,7:02:32,,,256,312,QC,Amy,,,2017,25,1,Bad,loitering in same area,BLA,BLA,12,AD,Passing,,,7:02:33
+SL_2017EYKT_Dive_25_06-48-47.000.avi,24990,7:02:44,,,214,330,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,,7:02:45
+SL_2017EYKT_Dive_25_06-48-47.000.avi,52162,7:17:50,,,205,339,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,14,AD,Passing,,see bottom in belly,7:17:51
+SL_2017EYKT_Dive_25_06-48-47.000.avi,52299,7:17:54,,,229,331,QC,Amy,,,2017,25,1,Bad,lost bottom visual,BLB,BLB,15,AD,Passing,,,7:17:56
+SL_2017EYKT_Dive_25_06-48-47.000.avi,53387,7:18:31,,,209,314,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,16,AD,Passing,,,7:18:32
+SL_2017EYKT_Dive_25_06-48-47.000.avi,70541,7:28:02,,,249,313,QC,Amy,,,2017,25,1,Bad,loitering in same area,BLA,BLA,17,AD,Passing,,,7:28:05
+SL_2017EYKT_Dive_25_06-48-47.000.avi,71376,7:28:30,,,238,335,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,19,AD,Passing,,,7:28:32
+SL_2017EYKT_Dive_25_06-48-47.000.avi,73674,7:29:47,,,217,312,QC,Amy,,,2017,25,1,Bad,loitering in same area,BLA,BLA,20,AD,Passing,,,7:29:49
+SL_2017EYKT_Dive_25_06-48-47.000.avi,75441,7:30:46,,,252,318,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,21,AD,Passing,,,7:30:48
+SL_2017EYKT_Dive_25_06-48-47.000.avi,80174,7:33:23,,,241,312,QC,Amy,,,2017,25,1,Bad,going over drop-off,BDO,BDO,22,AD,Passing,,,7:33:26
+SL_2017EYKT_Dive_25_06-48-47.000.avi,80375,7:33:30,,,214,317,QC,Amy,,,2017,25,1,Good,Good Going Forward,GGF,GGF,23,AD,Passing,End,,7:33:33
+SL_2017EYKT_Dive_26_08-03-22.000.avi,175,8:03:31,,,250,332,QC,Amy,,,2017,26,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,8:03:31
+SL_2017EYKT_Dive_26_08-03-22.000.avi,18981,8:13:58,,,248,326,QC,Amy,,,2017,26,1,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,8:13:59
+SL_2017EYKT_Dive_26_08-03-22.000.avi,19659,8:14:20,,,247,321,QC,Amy,,,2017,26,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,8:14:21
+SL_2017EYKT_Dive_26_08-03-22.000.avi,42564,8:27:04,,,231,315,QC,Amy,,,2017,26,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,see bottom in belly,8:27:05
+SL_2017EYKT_Dive_26_08-03-22.000.avi,42824,8:27:12,,,240,323,QC,Amy,,,2017,26,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,8:27:14
+SL_2017EYKT_Dive_26_08-03-22.000.avi,45964,8:28:57,,,258,320,QC,Amy,,,2017,26,1,Bad,lost bottom visual,BLB,BLB,6,AD,Passing,,,8:28:59
+SL_2017EYKT_Dive_26_08-03-22.000.avi,47452,8:29:47,,,238,325,QC,Amy,,,2017,26,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,8:29:49
+SL_2017EYKT_Dive_26_08-03-22.000.avi,50326,8:31:23,,,226,321,QC,Amy,,,2017,26,1,Bad,loitering in same area,BLA,BLA,8,AD,Passing,,,8:31:24
+SL_2017EYKT_Dive_26_08-03-22.000.avi,50819,8:31:39,,,239,319,QC,Amy,,,2017,26,1,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,8:31:41
+SL_2017EYKT_Dive_26_08-03-22.000.avi,76154,8:45:43,,,283,345,QC,Amy,,,2017,26,1,Good,Good Going Forward,GGF,GGF,10,AD,Passing,End,,8:45:46
+SL_2017EYKT_Dive_27_09-24-39.000.avi,129,9:25:05,,,213,318,QC,Amy,,,2017,27,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_27_09-24-39.000.avi,4428,9:27:29,,,222,335,QC,Amy,,,2017,27,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_27_09-24-39.000.avi,4990,9:27:47,,,212,323,QC,Amy,,,2017,27,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_27_09-24-39.000.avi,68629,10:03:09,,,235,345,QC,Amy,,,2017,27,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,End,,10:03:10
+SL_2017EYKT_Dive_28_10-50-00.000.avi,598,10:50:46,,,225,352,QC,Amy,,,2017,28,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,10:50:46
+SL_2017EYKT_Dive_28_10-50-00.000.avi,22347,11:02:51,,,231,318,QC,Amy,,,2017,28,1,Bad,lost bottom visual,BLB,BLB,2,AD,Passing,,,11:02:51
+SL_2017EYKT_Dive_28_10-50-00.000.avi,22538,11:02:57,,,207,316,QC,Amy,,,2017,28,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,see bottom in belly,11:02:58
+SL_2017EYKT_Dive_28_10-50-00.000.avi,22643,11:03:01,,,232,341,QC,Amy,,,2017,28,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,11:03:01
+SL_2017EYKT_Dive_28_10-50-00.000.avi,68172,11:28:18,,,227,324,QC,Amy,,,2017,28,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,End,,11:28:20
+SL_2017EYKT_Dive_29_12-09-06.000.avi,104,12:09:12,,,259,338,QC,Amy,,,2017,29,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,12:09:13
+SL_2017EYKT_Dive_29_12-09-06.000.avi,18908,12:19:39,,,249,337,QC,Amy,,,2017,29,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,see bottom in belly,12:19:40
+SL_2017EYKT_Dive_29_12-09-06.000.avi,19231,12:19:50,,,264,329,QC,Amy,,,2017,29,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,12:19:51
+SL_2017EYKT_Dive_29_12-09-06.000.avi,44080,12:33:38,,,194,324,QC,Amy,,,2017,29,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,see bottom in belly,12:33:40
+SL_2017EYKT_Dive_29_12-09-06.000.avi,44335,12:33:47,,,242,355,QC,Amy,,,2017,29,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,12:33:48
+SL_2017EYKT_Dive_29_12-09-06.000.avi,70502,12:48:19,,,221,305,QC,Amy,,,2017,29,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,End,,12:48:21
+SL_2017EYKT_Dive_30_13-33-15.000.avi,118,13:33:27,,,221,315,QC,Amy,,,2017,30,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_30_13-33-15.000.avi,60239,14:06:51,,,224,320,QC,Amy,,,2017,30,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,End,,
+SL_2017EYKT_Dive_31_15-01-04.000.avi,243,15:01:15,,,203,298,QC,Amy,,,2017,31,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_31_15-01-04.000.avi,59947,15:34:25,,,234,340,QC,Amy,,,2017,31,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_31_15-01-04.000.avi,60472,15:34:43,,,235,325,QC,Amy,,,2017,31,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_31_15-01-04.000.avi,64109,15:36:44,,,220,325,QC,Amy,,,2017,31,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,End,,
+SL_2017EYKT_Dive_32_16-48-04.000.avi,556,16:48:29,,,202,291,QC,Amy,,,2017,32,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_32_16-48-04.000.avi,13988,16:55:56,,,232,335,QC,Amy,,,2017,32,1,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,
+SL_2017EYKT_Dive_32_16-48-04.000.avi,14174,16:56:02,,,268,340,QC,Amy,,,2017,32,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_32_16-48-04.000.avi,20081,16:59:19,,,201,306,QC,Amy,,,2017,32,1,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,
+SL_2017EYKT_Dive_32_16-48-04.000.avi,20229,16:59:24,,,238,331,QC,Amy,,,2017,32,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2017EYKT_Dive_32_16-48-04.000.avi,51683,17:16:53,,,234,324,QC,Amy,,,2017,32,1,Bad,loitering in same area,BLA,BLA,6,AD,Passing,,,
+SL_2017EYKT_Dive_32_16-48-04.000.avi,52037,17:17:05,,,303,332,QC,Amy,,,2017,32,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,
+SL_2017EYKT_Dive_32_16-48-04.000.avi,79195,17:32:10,,,212,325,QC,Amy,,,2017,32,1,Good,Good Going Forward,GGF,GGF,8,AD,Passing,End,,
+SL_2017EYKT_Dive_33_18-38-07.000.avi,155,13:38:16,,,242,314,QC,Amy,,,2017,33,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_33_18-38-07.000.avi,9983,13:43:44,,,278,327,QC,Amy,,,2017,33,1,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,
+SL_2017EYKT_Dive_33_18-38-07.000.avi,10528,13:44:02,,,248,325,QC,Amy,,,2017,33,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_33_18-38-07.000.avi,56178,14:09:24,,,263,332,QC,Amy,,,2017,33,1,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,
+SL_2017EYKT_Dive_33_18-38-07.000.avi,56549,14:09:36,,,269,341,QC,Amy,,,2017,33,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2017EYKT_Dive_33_18-38-07.000.avi,67979,14:15:57,,,250,320,QC,Amy,,,2017,33,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,End,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,178,20:07:30,,,238,322,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,9198,20:12:31,,,229,321,QC,Amy,,,2017,34,1,Bad,lost bottom visual,BLB,BLB,2,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,9747,20:12:49,,,206,289,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,44672,20:32:13,,,225,330,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,can see in belly,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,44898,20:32:21,,,229,324,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,45000,20:32:24,,,226,325,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,can see in belly,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,45178,20:32:30,,,273,348,QC,Amy,,,2017,34,1,Bad,lost bottom visual,BLB,BLB,7,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,45397,20:32:37,,,251,324,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,54454,20:37:39,,,230,312,QC,Amy,,,2017,34,1,Bad,loitering in same area,BLA,BLA,9,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,54931,20:37:55,,,298,345,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,56136,20:38:35,,,217,332,QC,Amy,,,2017,34,1,Bad,loitering in same area,BLA,BLA,11,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,56525,20:38:48,,,237,327,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,12,AD,Passing,,,
+SL_2017EYKT_Dive_34_20-07-10.000.avi,67313,20:44:48,,,232,340,QC,Amy,,,2017,34,1,Good,Good Going Forward,GGF,GGF,13,AD,Passing,End,,
+SL_2017EYKT_Dive_35_06-59-38.000.avi,192,6:59:51,,,250,324,QC,Amy,,,2017,35,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_35_06-59-38.000.avi,10392,7:05:31,,,240,331,QC,Amy,,,2017,35,1,Bad,lost bottom visual,BLB,BLB,2,AD,Passing,,,
+SL_2017EYKT_Dive_35_06-59-38.000.avi,10888,7:05:48,,,234,318,QC,Amy,,,2017,35,1,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2017EYKT_Dive_35_06-59-38.000.avi,48698,7:26:48,,,250,326,QC,Amy,,,2017,35,1,Bad,lost bottom visual,BLB,BLB,4,AD,Passing,,,
+SL_2017EYKT_Dive_35_06-59-38.000.avi,48953,7:26:57,,,243,330,QC,Amy,,,2017,35,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2017EYKT_Dive_35_06-59-38.000.avi,74968,7:41:24,,,292,346,QC,Amy,,,2017,35,1,Good,Good Going Forward,GGF,GGF,6,AD,Passing,End,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,483,8:24:02,,,226,321,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,1,AD,Passing,Start,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,12643,8:30:47,,,224,328,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,see bottom in belly,8:30:48
+SL_2017EYKT_Dive_36_08-23-44.000.avi,12979,8:30:59,,,249,308,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,3,AD,Passing,,,8:30:59
+SL_2017EYKT_Dive_36_08-23-44.000.avi,13905,8:31:29,,,238,322,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,8:31:30
+SL_2017EYKT_Dive_36_08-23-44.000.avi,14156,8:31:38,,,267,316,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,8:31:38
+SL_2017EYKT_Dive_36_08-23-44.000.avi,17312,8:33:23,,,262,323,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,6,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,17631,8:33:34,,,220,320,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,8:33:34
+SL_2017EYKT_Dive_36_08-23-44.000.avi,17696,8:33:36,,,220,320,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,8,AD,Passing,,,8:33:36
+SL_2017EYKT_Dive_36_08-23-44.000.avi,18576,8:34:05,,,228,328,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,9,AD,Passing,,,8:34:06
+SL_2017EYKT_Dive_36_08-23-44.000.avi,18801,8:34:13,,,206,318,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,,8:34:13
+SL_2017EYKT_Dive_36_08-23-44.000.avi,19007,8:34:20,,,245,330,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,11,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,19635,8:34:41,,,252,331,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,12,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,28909,8:39:50,,,240,305,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,29032,8:39:54,,,62,204,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,14,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,29294,8:40:02,,,225,323,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,15,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,30850,8:40:54,,,256,352,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,16,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,31029,8:41:00,,,116,135,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,17,AD,Passing,,,8:41:01
+SL_2017EYKT_Dive_36_08-23-44.000.avi,35902,8:43:43,,,223,319,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,18,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,36463,8:44:01,,,239,324,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,19,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,38136,8:44:57,,,255,335,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,20,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,38936,8:45:24,,,265,346,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,21,AD,Passing,,,8:45:25
+SL_2017EYKT_Dive_36_08-23-44.000.avi,39192,8:45:32,,,229,320,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,22,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,44083,8:48:15,,,260,300,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,23,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,44953,8:48:44,,,241,328,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,24,AD,Passing,,,8:48:46
+SL_2017EYKT_Dive_36_08-23-44.000.avi,45342,8:48:57,,,231,300,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,25,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,57442,8:55:41,,,242,316,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,27,AD,Passing,,see bottom in belly,8:55:42
+SL_2017EYKT_Dive_36_08-23-44.000.avi,57550,8:55:44,,,213,322,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,28,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,58001,8:55:59,,,252,334,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,29,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,59787,8:56:59,,,270,327,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,30,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,59973,8:57:05,,,222,320,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,31,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,60407,8:57:20,,,232,326,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,32,AD,Passing,,,8:57:21
+SL_2017EYKT_Dive_36_08-23-44.000.avi,60663,8:57:28,,,252,315,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,33,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,61003,8:57:39,,,261,319,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,34,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,62998,8:58:46,,,240,326,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,35,AD,Passing,,see bottom in belly,8:58:48
+SL_2017EYKT_Dive_36_08-23-44.000.avi,63302,8:58:56,,,242,316,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,36,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,64104,8:59:23,,,231,320,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,37,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,64311,8:59:30,,,239,340,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,38,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,67941,9:01:31,,,221,320,QC,Amy,,,2017,36,1,Bad,loitering in same area,BLA,BLA,39,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,68702,9:01:56,,,253,325,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,40,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,69148,9:02:11,,,230,319,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,41,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,69421,9:02:20,,,236,319,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,42,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,69949,9:02:38,,,236,321,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,43,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,71389,9:03:26,,,214,319,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,44,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,71721,9:03:37,,,162,264,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,45,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,77784,9:06:59,,,250,327,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,46,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,78256,9:07:15,,,220,320,QC,Amy,,,2017,36,1,Bad,lost bottom visual,BLB,BLB,47,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,78644,9:07:27,,,252,307,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,48,AD,Passing,,see bottom in belly,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,78789,9:07:32,,,225,324,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,49,AD,Passing,,,
+SL_2017EYKT_Dive_36_08-23-44.000.avi,85347,9:11:11,,,237,314,QC,Amy,,,2017,36,1,Good,Good Going Forward,GGF,GGF,50,AD,Passing,End,times are still off,9:11:14

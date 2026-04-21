@@ -1,0 +1,228 @@
+Filename,Frame,Time (HMS),Seconds,Period,Period time (HMS),Image row,Image col,OpCode,TapeReader,Depth,Comment,Year,Dive,Transect Number,,,,,,Family,Genus,Species,Code,Number,Stage,Activity,Start_End,Comment,Event Time HH:MM:SS
+SL_2018SSEO_Dive_01_09-06-32.000.avi,646,9:07:14,32834,,,665,805,QC,amy,,,2018,1,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,9:07:14
+SL_2018SSEO_Dive_01_09-06-32.000.avi,90621,9:57:13,35833,,,661,906,QC,amy,,,2018,1,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,9:57:13
+SL_2018SSEO_Dive_02_10-28-44.000.avi,83,10:28:51,37731,,,551,799,QC,amy,,,2018,2,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,10:28:51
+SL_2018SSEO_Dive_02_10-28-44.000.avi,73835,11:09:49,40189,,,529,798,QC,amy,,,2018,2,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,11:09:49
+SL_2018SSEO_Dive_03_12-02-36.000.avi,173,12:02:49,43369,,,679,536,QC,amy,,,2018,3,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,12:02:49
+SL_2018SSEO_Dive_03_12-02-36.000.avi,80087,12:47:13,46033,,,631,741,QC,amy,,,2018,3,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,12:47:13
+SL_2018SSEO_Dive_04_13-18-19.000.avi,430,13:19:16,47956,,,620,762,QC,amy,,,2018,4,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,13:19:16
+SL_2018SSEO_Dive_04_13-18-19.000.avi,72461,13:59:17,50357,,,706,879,QC,amy,,,2018,4,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,13:59:17
+SL_2018SSEO_Dive_05_14-55-21.000.avi,132,14:55:28,53728,,,715,732,QC,amy,,,2018,5,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,14:55:28
+SL_2018SSEO_Dive_05_14-55-21.000.avi,73961,15:36:29,56189,,,605,745,QC,amy,,,2018,5,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,15:36:29
+SL_2018SSEO_Dive_06_17-02-30.000.avi,120,17:02:40,61360,,,551,799,QC,amy,,,2018,6,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,17:02:40
+SL_2018SSEO_Dive_06_17-02-30.000.avi,71362,17:42:15,63735,,,551,799,QC,amy,,,2018,6,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,17:42:15
+SL_2018SSEO_Dive_07_18-16-03.000.avi,545,18:16:26,65786,,,556,701,QC,amy,,,2018,7,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,18:16:26
+SL_2018SSEO_Dive_07_18-16-03.000.avi,65212,18:52:22,67942,,,551,799,QC,amy,,,2018,7,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,18:52:21
+SL_2018SSEO_Dive_08_06-16-32.000.avi,128,6:16:49,22609,,,513,551,QC,amy,,,2018,8,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,
+SL_2018SSEO_Dive_08_06-16-32.000.avi,7681,6:21:01,22861,,,551,799,QC,amy,,,2018,8,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,6:21:01
+SL_2018SSEO_Dive_08_06-16-32.000.avi,8295,6:21:22,22882,,,393,670,QC,amy,,,2018,8,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_08_06-16-32.000.avi,12138,6:23:30,23010,,,553,799,QC,amy,,,2018,8,,,,,,,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,6:23:29
+SL_2018SSEO_Dive_08_06-16-32.000.avi,12698,6:23:48,23028,,,629,818,QC,amy,,,2018,8,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,END,,6:23:48
+SL_2018SSEO_Dive_09_07-57-18.000.avi,356,7:57:35,28655,,,501,506,QC,amy,,,2018,9,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,7:57:35
+SL_2018SSEO_Dive_09_07-57-18.000.avi,81170,8:42:29,31349,,,500,921,QC,amy,,,2018,9,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,8:42:29
+SL_2018SSEO_Dive_10_09-25-54.000.avi,247,9:26:05,33965,,,765,903,QC,amy,,,2018,10,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,9:26:05
+SL_2018SSEO_Dive_10_09-25-54.000.avi,21408,9:37:51,34671,,,561,790,QC,amy,,,2018,10,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,9:37:50
+SL_2018SSEO_Dive_10_09-25-54.000.avi,22025,9:38:11,34691,,,551,812,QC,amy,,,2018,10,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_10_09-25-54.000.avi,23276,9:38:53,34733,,,631,819,QC,amy,,,2018,10,,,,,,,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,
+SL_2018SSEO_Dive_10_09-25-54.000.avi,25598,9:40:10,34810,,,588,809,QC,amy,,,2018,10,,,,,,,Bad,repositioned,BRP,BRP,5,AD,Passing,,,
+SL_2018SSEO_Dive_10_09-25-54.000.avi,27747,9:41:22,34882,,,513,806,QC,amy,,,2018,10,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,,9:41:21
+SL_2018SSEO_Dive_10_09-25-54.000.avi,79052,10:09:52,36592,,,627,667,QC,amy,,,2018,10,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,END,,10:09:52
+SL_2018SSEO_Dive_11_10-51-24.000.avi,342,10:51:40,39100,,,551,799,QC,amy,,,2018,11,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,10:51:40
+SL_2018SSEO_Dive_11_10-51-24.000.avi,7487,10:55:39,39339,,,852,772,QC,amy,,,2018,11,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,can see in belly,10:55:38
+SL_2018SSEO_Dive_11_10-51-24.000.avi,7765,10:55:48,39348,,,559,803,QC,amy,,,2018,11,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,10:55:47
+SL_2018SSEO_Dive_11_10-51-24.000.avi,20099,11:02:39,39759,,,551,799,QC,amy,,,2018,11,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,can see in belly,11:02:38
+SL_2018SSEO_Dive_11_10-51-24.000.avi,20360,11:02:48,39768,,,477,786,QC,amy,,,2018,11,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_11_10-51-24.000.avi,61917,11:25:53,41153,,,551,799,QC,amy,,,2018,11,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,can see in belly,11:25:52
+SL_2018SSEO_Dive_11_10-51-24.000.avi,62314,11:26:06,41166,,,665,868,QC,amy,,,2018,11,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,
+SL_2018SSEO_Dive_11_10-51-24.000.avi,74517,11:32:53,41573,,,482,776,QC,amy,,,2018,11,,,,,,,Good,Good Going Forward,GGF,GGF,8,AD,Passing,END,,11:32:52
+SL_2018SSEO_Dive_12_12-58-50.000.avi,96,12:58:58,46738,,,306,831,QC,amy,,,2018,12,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,
+SL_2018SSEO_Dive_12_12-58-50.000.avi,61286,13:32:58,48778,,,389,603,QC,amy,,,2018,12,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_12_12-58-50.000.avi,61905,13:33:19,48799,,,551,799,QC,amy,,,2018,12,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,13:33:19
+SL_2018SSEO_Dive_12_12-58-50.000.avi,78003,13:42:15,49335,,,800,1024,QC,amy,,,2018,12,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,END,,13:42:15
+SL_2018SSEO_Dive_13_14-30-46.000.avi,235,14:30:55,52255,,,410,657,QC,amy,,,2018,13,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,14:30:55
+SL_2018SSEO_Dive_13_14-30-46.000.avi,27852,14:46:15,53175,,,487,737,QC,amy,,,2018,13,,,,,,,Bad,resting on bottom,BRB,BRB,2,AD,Passing,,,14:46:16
+SL_2018SSEO_Dive_13_14-30-46.000.avi,29731,14:47:18,53238,,,713,692,QC,amy,,,2018,13,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,,14:47:18
+SL_2018SSEO_Dive_13_14-30-46.000.avi,48085,14:57:30,53850,,,538,799,QC,amy,,,2018,13,,,,,,,Bad,loitering in same area,BLA,BLA,5,AD,Passing,,,
+SL_2018SSEO_Dive_13_14-30-46.000.avi,48500,14:57:44,53864,,,582,832,QC,amy,,,2018,13,,,,,,,Bad,resting on bottom,BRB,BRB,6,AD,Passing,,,14:57:44
+SL_2018SSEO_Dive_13_14-30-46.000.avi,52217,14:59:48,53988,,,648,810,QC,amy,,,2018,13,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,14:59:48
+SL_2018SSEO_Dive_13_14-30-46.000.avi,62933,15:05:45,54345,,,551,799,QC,amy,,,2018,13,,,,,,,Bad,going over drop-off,BDO,BDO,9,AD,Passing,,,
+SL_2018SSEO_Dive_13_14-30-46.000.avi,63875,15:06:16,54376,,,551,799,QC,amy,,,2018,13,,,,,,,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_13_14-30-46.000.avi,64028,15:06:21,54381,,,431,731,QC,amy,,,2018,13,,,,,,,Good,Good Going Forward,GGF,GGF,12,AD,Passing,,,15:06:21
+SL_2018SSEO_Dive_13_14-30-46.000.avi,87969,15:19:39,55179,,,476,717,QC,amy,,,2018,13,,,,,,,Good,Good Going Forward,GGF,GGF,13,AD,Passing,END,,15:19:39
+SL_2018SSEO_Dive_14_15-54-22.000.avi,168,15:55:23,57323,,,387,771,QC,amy,,,2018,14,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,15:55:23
+SL_2018SSEO_Dive_14_15-54-22.000.avi,87152,16:43:42,60222,,,551,799,QC,amy,,,2018,14,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,16:43:42
+SL_2018SSEO_Dive_15_17-11-22.000.avi,191,17:11:30,61890,,,528,840,QC,amy,,,2018,15,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,17:11:30
+SL_2018SSEO_Dive_15_17-11-22.000.avi,33948,17:30:16,63016,,,547,799,QC,amy,,,2018,15,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,can see in belly,17:30:16
+SL_2018SSEO_Dive_15_17-11-22.000.avi,34449,17:30:32,63032,,,551,799,QC,amy,,,2018,15,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,17:30:32
+SL_2018SSEO_Dive_15_17-11-22.000.avi,62621,17:46:11,63971,,,371,848,QC,amy,,,2018,15,,,,,,,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,17:46:11
+SL_2018SSEO_Dive_15_17-11-22.000.avi,62830,17:46:18,63978,,,261,441,QC,amy,,,2018,15,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,17:46:18
+SL_2018SSEO_Dive_15_17-11-22.000.avi,75123,17:53:08,64388,,,381,773,QC,amy,,,2018,15,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,END,,17:53:08
+SL_2018SSEO_Dive_16_19-03-14.000.avi,211,19:03:22,68602,,,551,799,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,19:03:22
+SL_2018SSEO_Dive_16_19-03-14.000.avi,39348,19:25:07,69907,,,551,799,QC,amy,,,2018,16,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,19:25:07
+SL_2018SSEO_Dive_16_19-03-14.000.avi,39609,19:25:15,69915,,,401,620,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_16_19-03-14.000.avi,46522,19:29:06,70146,,,603,864,QC,amy,,,2018,16,,,,,,,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,19:29:06
+SL_2018SSEO_Dive_16_19-03-14.000.avi,46868,19:29:17,70157,,,372,628,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_16_19-03-14.000.avi,49105,19:30:32,70232,,,571,811,QC,amy,,,2018,16,,,,,,,Bad,loitering in same area,BLA,BLA,6,AD,Passing,,,
+SL_2018SSEO_Dive_16_19-03-14.000.avi,49417,19:30:42,70242,,,551,799,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,19:30:42
+SL_2018SSEO_Dive_16_19-03-14.000.avi,64041,19:38:50,70730,,,363,625,QC,amy,,,2018,16,,,,,,,Bad,loitering in same area,BLA,BLA,8,AD,Passing,,,19:38:50
+SL_2018SSEO_Dive_16_19-03-14.000.avi,64588,19:39:08,70748,,,450,606,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,
+SL_2018SSEO_Dive_16_19-03-14.000.avi,65704,19:39:45,70785,,,683,512,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,can see in belly,19:39:45
+SL_2018SSEO_Dive_16_19-03-14.000.avi,66719,19:40:19,70819,,,404,662,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,
+SL_2018SSEO_Dive_16_19-03-14.000.avi,71575,19:43:01,70981,,,521,709,QC,amy,,,2018,16,,,,,,,Bad,loitering in same area,BLA,BLA,12,AD,Passing,,,19:43:01
+SL_2018SSEO_Dive_16_19-03-14.000.avi,71884,19:43:11,70991,,,598,656,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,,
+SL_2018SSEO_Dive_16_19-03-14.000.avi,73352,19:44:00,71040,,,634,576,QC,amy,,,2018,16,,,,,,,Bad,loitering in same area,BLA,BLA,14,AD,Passing,,,
+SL_2018SSEO_Dive_16_19-03-14.000.avi,73775,19:44:14,71054,,,526,508,QC,amy,,,2018,16,,,,,,,Good,Good Going Forward,GGF,GGF,15,AD,Passing,END,,
+SL_2018SSEO_Dive_17_04-55-02.000.avi,116,4:55:08,17708,,,551,799,QC,amy,,,2018,17,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,4:55:08
+SL_2018SSEO_Dive_17_04-55-02.000.avi,2456,4:56:26,17786,,,663,929,QC,amy,,,2018,17,,,,,,,Bad,repositioned,BRP,BRP,2,AD,Passing,,,4:56:26
+SL_2018SSEO_Dive_17_04-55-02.000.avi,3149,4:56:49,17809,,,643,810,QC,amy,,,2018,17,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,4:56:49
+SL_2018SSEO_Dive_17_04-55-02.000.avi,32902,5:13:21,18801,,,551,799,QC,amy,,,2018,17,,,,,,,Good,resting on bottom,GRB,GRB,4,AD,Passing,,,5:13:21
+SL_2018SSEO_Dive_17_04-55-02.000.avi,33915,5:13:54,18834,,,550,799,QC,amy,,,2018,17,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_17_04-55-02.000.avi,73793,5:36:04,20164,,,551,799,QC,amy,,,2018,17,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,END,,5:36:04
+SL_2018SSEO_Dive_18_06-23-09.000.avi,155,6:23:17,22997,,,432,635,QC,amy,,,2018,18,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,6:23:17
+SL_2018SSEO_Dive_18_06-23-09.000.avi,76284,7:05:35,25535,,,608,632,QC,amy,,,2018,18,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,7:05:35
+SL_2018SSEO_Dive_19_08-14-34.000.avi,197,8:14:45,29685,,,551,799,QC,amy,,,2018,19,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,8:14:44
+SL_2018SSEO_Dive_19_08-14-34.000.avi,23875,8:27:54,30474,,,569,921,QC,amy,,,2018,19,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,8:27:53
+SL_2018SSEO_Dive_19_08-14-34.000.avi,24271,8:28:07,30487,,,551,799,QC,amy,,,2018,19,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_19_08-14-34.000.avi,41027,8:37:26,31046,,,512,743,QC,amy,,,2018,19,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,see in belly,8:37:25
+SL_2018SSEO_Dive_19_08-14-34.000.avi,41816,8:37:52,31072,,,551,799,QC,amy,,,2018,19,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_19_08-14-34.000.avi,80139,8:59:09,32349,,,643,780,QC,amy,,,2018,19,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,END,,8:59:09
+SL_2018SSEO_Dive_20_09-31-15.000.avi,4136,9:33:35,34415,,,657,746,QC,amy,,,2018,20,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,9:33:35
+SL_2018SSEO_Dive_20_09-31-15.000.avi,91164,10:21:56,37316,,,394,678,QC,amy,,,2018,20,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,10:21:56
+SL_2018SSEO_Dive_21_10-59-57.000.avi,143,11:00:07,39607,,,551,799,QC,amy,,,2018,21,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,11:00:07
+SL_2018SSEO_Dive_21_10-59-57.000.avi,74393,11:41:22,42082,,,551,803,QC,amy,,,2018,21,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,END,,11:41:22
+SL_2018SSEO_Dive_22_14-16-23.000.avi,232,14:16:36,51396,,,410,705,QC,amy,,,2018,22,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,14:16:36
+SL_2018SSEO_Dive_22_14-16-23.000.avi,17259,14:26:03,51963,,,551,799,QC,amy,,,2018,22,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,17597,14:26:15,51975,,,420,469,QC,amy,,,2018,22,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,14:26:14
+SL_2018SSEO_Dive_22_14-16-23.000.avi,33698,14:35:11,52511,,,551,799,QC,amy,,,2018,22,,,,,,,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,33898,14:35:18,52518,,,551,799,QC,amy,,,2018,22,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,45498,14:41:45,52905,,,551,799,QC,amy,,,2018,22,,,,,,,Bad,loitering in same area,BLA,BLA,6,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,45731,14:41:52,52912,,,551,799,QC,amy,,,2018,22,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,47166,14:42:40,52960,,,561,579,QC,amy,,,2018,22,,,,,,,Bad,loitering in same area,BLA,BLA,8,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,47556,14:42:53,52973,,,372,899,QC,amy,,,2018,22,,,,,,,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,48900,14:43:38,53018,,,336,672,QC,amy,,,2018,22,,,,,,,Bad,loitering in same area,BLA,BLA,10,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,49294,14:43:51,53031,,,551,799,QC,amy,,,2018,22,,,,,,,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,65920,14:53:05,53585,,,417,714,QC,amy,,,2018,22,,,,,,,Bad,loitering in same area,BLA,BLA,12,AD,Passing,,,
+SL_2018SSEO_Dive_22_14-16-23.000.avi,66432,14:53:22,53602,,,437,506,QC,amy,,,2018,22,,,,,,,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,,14:53:22
+SL_2018SSEO_Dive_22_14-16-23.000.avi,71740,14:56:19,53779,,,551,799,QC,amy,,,2018,22,,,,,,,Good,Good Going Forward,GGF,GGF,14,AD,Passing,END,,14:56:19
+SL_2018SSEO_Dive_23_15-28-33.000.avi,597,15:32:38,55958,,,618,656,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,15:32:38
+SL_2018SSEO_Dive_23_15-28-33.000.avi,4372,15:34:44,56084,,,676,746,QC,amy,,,2018,23,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,4755,15:34:56,56096,,,551,799,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,5459,15:35:20,56120,,,382,707,QC,amy,,,2018,23,,,,,,,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,5656,15:35:27,56127,,,513,698,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,5910,15:35:35,56135,,,551,799,QC,amy,,,2018,23,,,,,,,Bad,loitering in same area,BLA,BLA,6,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,6215,15:35:45,56145,,,551,799,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,15:35:45
+SL_2018SSEO_Dive_23_15-28-33.000.avi,23123,15:45:09,56709,,,690,781,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,23339,15:45:16,56716,,,556,754,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,24233,15:45:46,56746,,,490,689,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,can see in belly,15:45:45
+SL_2018SSEO_Dive_23_15-28-33.000.avi,24522,15:45:55,56755,,,478,553,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,32685,15:50:28,57028,,,512,734,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,12,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,32860,15:50:33,57033,,,566,788,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,,15:50:33
+SL_2018SSEO_Dive_23_15-28-33.000.avi,41598,15:55:25,57325,,,403,647,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,14,AD,Passing,,can see in belly,15:55:24
+SL_2018SSEO_Dive_23_15-28-33.000.avi,42432,15:55:52,57352,,,360,610,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,15,AD,Passing,,,15:55:52
+SL_2018SSEO_Dive_23_15-28-33.000.avi,50356,16:00:17,57617,,,441,489,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,16,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,50504,16:00:21,57621,,,551,799,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,17,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,59188,16:05:11,57911,,,381,618,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,18,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,59887,16:05:34,57934,,,379,698,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,19,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,62088,16:06:48,58008,,,389,698,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,20,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,62332,16:06:56,58016,,,409,597,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,21,AD,Passing,,,16:06:55
+SL_2018SSEO_Dive_23_15-28-33.000.avi,66122,16:09:02,58142,,,568,687,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,22,AD,Passing,,can see in belly,16:09:02
+SL_2018SSEO_Dive_23_15-28-33.000.avi,66407,16:09:12,58152,,,368,686,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,23,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,67661,16:09:53,58193,,,394,620,QC,amy,,,2018,23,,,,,,,Bad,loitering in same area,BLA,BLA,24,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,68200,16:10:11,58211,,,482,578,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,25,AD,Passing,,,16:10:11
+SL_2018SSEO_Dive_23_15-28-33.000.avi,69293,16:10:48,58248,,,480,641,QC,amy,,,2018,23,,,,,,,Bad,loitering in same area,BLA,BLA,26,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,70017,16:11:12,58272,,,478,634,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,27,AD,Passing,,,16:11:11
+SL_2018SSEO_Dive_23_15-28-33.000.avi,73736,16:13:16,58396,,,405,590,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,28,AD,Passing,,,can see in belly
+SL_2018SSEO_Dive_23_15-28-33.000.avi,74649,16:13:46,58426,,,551,799,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,29,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,75459,16:14:13,58453,,,388,635,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,30,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,75722,16:14:22,58462,,,396,579,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,31,AD,Passing,,,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,77131,16:15:09,58509,,,680,796,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,32,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_23_15-28-33.000.avi,77559,16:15:23,58523,,,368,622,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,33,AD,Passing,,,16:15:23
+SL_2018SSEO_Dive_23_15-28-33.000.avi,78218,16:15:45,58545,,,580,535,QC,amy,,,2018,23,,,,,,,Good,Good Going Forward,GGF,GGF,34,AD,Passing,END,,16:15:45
+SL_2018SSEO_Dive_24_19-48-04.000.avi,211,19:48:13,71293,,,402,669,QC,amy,,,2018,24,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,
+SL_2018SSEO_Dive_24_19-48-04.000.avi,27068,20:03:08,72188,,,433,639,QC,amy,,,2018,24,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,20:03:08
+SL_2018SSEO_Dive_24_19-48-04.000.avi,27403,20:03:19,72199,,,363,665,QC,amy,,,2018,24,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_24_19-48-04.000.avi,57636,20:20:07,73207,,,551,799,QC,amy,,,2018,24,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,END,,20:20:07
+SL_2018SSEO_Dive_25_04-59-12.000.avi,171,4:59:21,17961,,,450,667,QC,amy,,,2018,25,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,4:49:20
+SL_2018SSEO_Dive_25_04-59-12.000.avi,8192,5:03:48,18228,,,559,759,QC,amy,,,2018,25,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,
+SL_2018SSEO_Dive_25_04-59-12.000.avi,8480,5:03:58,18238,,,460,543,QC,amy,,,2018,25,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_25_04-59-12.000.avi,14032,5:07:03,18423,,,497,707,QC,amy,,,2018,25,,,,,,,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,
+SL_2018SSEO_Dive_25_04-59-12.000.avi,14380,5:07:14,18434,,,498,638,QC,amy,,,2018,25,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,5:07:14
+SL_2018SSEO_Dive_25_04-59-12.000.avi,20783,5:10:48,18648,,,476,646,QC,amy,,,2018,25,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,can see in belly,5:10:47
+SL_2018SSEO_Dive_25_04-59-12.000.avi,21345,5:11:07,18667,,,562,794,QC,amy,,,2018,25,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,
+SL_2018SSEO_Dive_25_04-59-12.000.avi,28274,5:14:57,18897,,,483,612,QC,amy,,,2018,25,,,,,,,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,can see in belly,5:14:57
+SL_2018SSEO_Dive_25_04-59-12.000.avi,28697,5:15:12,18912,,,530,787,QC,amy,,,2018,25,,,,,,,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,
+SL_2018SSEO_Dive_25_04-59-12.000.avi,72561,5:39:34,20374,,,551,799,QC,amy,,,2018,25,,,,,,,Good,Good Going Forward,GGF,GGF,10,AD,Passing,END,,5:39:33
+SL_2018SSEO_Dive_26_11-56-23.000.avi,125,11:56:28,42988,,,564,737,QC,amy,,,2018,26,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,11:56:29
+SL_2018SSEO_Dive_26_11-56-23.000.avi,27680,12:11:47,43907,,,616,654,QC,amy,,,2018,26,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,12:11:47
+SL_2018SSEO_Dive_26_11-56-23.000.avi,28001,12:11:57,43917,,,432,724,QC,amy,,,2018,26,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_26_11-56-23.000.avi,32890,12:14:40,44080,,,447,691,QC,amy,,,2018,26,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,END,dive cut short,12:14:41
+SL_2018SSEO_Dive_27_07-25-46.000.avi,147,7:25:53,26753,,,551,799,QC,amy,,,2018,27,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,7:25:52
+SL_2018SSEO_Dive_27_07-25-46.000.avi,733,7:26:12,26772,,,551,799,QC,amy,,,2018,27,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,
+SL_2018SSEO_Dive_27_07-25-46.000.avi,1212,7:26:28,26788,,,625,774,QC,amy,,,2018,27,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_27_07-25-46.000.avi,52439,7:54:56,28496,,,582,736,QC,amy,,,2018,27,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,can see in belly,7:54:55
+SL_2018SSEO_Dive_27_07-25-46.000.avi,52738,7:55:06,28506,,,398,705,QC,amy,,,2018,27,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_27_07-25-46.000.avi,62127,8:00:19,28819,,,684,663,QC,amy,,,2018,27,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,END,,8:00:18
+SL_2018SSEO_Dive_28_09-51-08.000.avi,331,9:51:21,35481,,,551,799,QC,amy,,,2018,28,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,9:51:21
+SL_2018SSEO_Dive_28_09-51-08.000.avi,64559,10:27:02,37622,,,435,638,QC,amy,,,2018,28,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,END,,10:27:02
+SL_2018SSEO_Dive_29_13-39-34.000.avi,190,13:39:41,49181,,,290,616,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,13:39:42
+SL_2018SSEO_Dive_29_13-39-34.000.avi,21669,13:51:37,49897,,,551,799,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_29_13-39-34.000.avi,21965,13:51:47,49907,,,337,611,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,13:51:47
+SL_2018SSEO_Dive_29_13-39-34.000.avi,31395,13:57:01,50221,,,412,563,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_29_13-39-34.000.avi,31759,13:57:14,50234,,,404,766,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_29_13-39-34.000.avi,40441,14:02:03,50523,,,366,741,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_29_13-39-34.000.avi,40716,14:02:12,50532,,,342,779,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,
+SL_2018SSEO_Dive_29_13-39-34.000.avi,44296,14:04:12,50652,,,441,706,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_29_13-39-34.000.avi,44629,14:04:23,50663,,,359,774,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,14:04:23
+SL_2018SSEO_Dive_29_13-39-34.000.avi,68410,14:17:35,51455,,,762,857,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,can see in belly,14:17:36
+SL_2018SSEO_Dive_29_13-39-34.000.avi,68787,14:17:48,51468,,,360,690,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,14:17:48
+SL_2018SSEO_Dive_29_13-39-34.000.avi,75845,14:21:43,51703,,,434,773,QC,amy,,,2018,29,,,,,,,Good,Good Going Forward,GGF,GGF,12,AD,Passing,END,,14:21:43
+SL_2018SSEO_Dive_30_14-57-58.000.avi,140,14:58:06,53886,,,551,799,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,14:58:05
+SL_2018SSEO_Dive_30_14-57-58.000.avi,24737,15:11:46,54706,,,363,606,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,can see in belly,15:11:45
+SL_2018SSEO_Dive_30_14-57-58.000.avi,25246,15:12:03,54723,,,573,786,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_30_14-57-58.000.avi,26863,15:12:56,54776,,,460,702,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,can see in belly,15:12:56
+SL_2018SSEO_Dive_30_14-57-58.000.avi,27097,15:13:04,54784,,,367,632,QC,amy,,,2018,30,,,,,,,Bad,lost bottom visual,BLB,BLB,5,AD,Passing,,,
+SL_2018SSEO_Dive_30_14-57-58.000.avi,27649,15:13:23,54803,,,551,799,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,can see in belly,15:13:22
+SL_2018SSEO_Dive_30_14-57-58.000.avi,27894,15:13:31,54811,,,279,647,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,15:13:30
+SL_2018SSEO_Dive_30_14-57-58.000.avi,56212,15:29:15,55755,,,546,695,QC,amy,,,2018,30,,,,,,,Bad,loitering in same area,BLA,BLA,8,AD,Passing,,,
+SL_2018SSEO_Dive_30_14-57-58.000.avi,56962,15:29:40,55780,,,327,674,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,
+SL_2018SSEO_Dive_30_14-57-58.000.avi,58297,15:30:24,55824,,,328,619,QC,amy,,,2018,30,,,,,,,Bad,loitering in same area,BLA,BLA,10,AD,Passing,,,
+SL_2018SSEO_Dive_30_14-57-58.000.avi,58908,15:30:45,55845,,,334,623,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,15:30:44
+SL_2018SSEO_Dive_30_14-57-58.000.avi,59100,15:30:51,55851,,,335,642,QC,amy,,,2018,30,,,,,,,Bad,loitering in same area,BLA,BLA,13,AD,Passing,,,
+SL_2018SSEO_Dive_30_14-57-58.000.avi,59396,15:31:01,55861,,,353,675,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,12,AD,Passing,,,15:31:00
+SL_2018SSEO_Dive_30_14-57-58.000.avi,60488,15:31:37,55897,,,386,622,QC,amy,,,2018,30,,,,,,,Bad,loitering in same area,BLA,BLA,14,AD,Passing,,,
+SL_2018SSEO_Dive_30_14-57-58.000.avi,60843,15:31:49,55909,,,372,590,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,15,AD,Passing,,,15:31:49
+SL_2018SSEO_Dive_30_14-57-58.000.avi,70096,15:36:58,56218,,,502,672,QC,amy,,,2018,30,,,,,,,Good,Good Going Forward,GGF,GGF,16,AD,Passing,END,,15:36:57
+SL_2018SSEO_Dive_31_16-12-26.000.avi,141,16:12:40,58360,,,405,676,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,16:12:40
+SL_2018SSEO_Dive_31_16-12-26.000.avi,5730,16:15:46,58546,,,571,803,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_31_16-12-26.000.avi,5867,16:15:51,58551,,,424,595,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_31_16-12-26.000.avi,6660,16:16:17,58577,,,310,632,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_31_16-12-26.000.avi,6862,16:16:24,58584,,,346,610,QC,amy,,,2018,31,,,,,,,Bad,lost bottom visual,BLB,BLB,5,AD,Passing,,,16:16:24
+SL_2018SSEO_Dive_31_16-12-26.000.avi,7134,16:16:33,58593,,,455,683,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,6,AD,Passing,,,
+SL_2018SSEO_Dive_31_16-12-26.000.avi,31569,16:30:07,59407,,,551,799,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_31_16-12-26.000.avi,32172,16:30:27,59427,,,203,359,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,8,AD,Passing,,,16:30:27
+SL_2018SSEO_Dive_31_16-12-26.000.avi,45991,16:38:08,59888,,,551,799,QC,amy,,,2018,31,,,,,,,Bad,lost bottom visual,BLB,BLB,9,AD,Passing,,,16:38:08
+SL_2018SSEO_Dive_31_16-12-26.000.avi,46603,16:38:28,59908,,,551,799,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,can see in belly,
+SL_2018SSEO_Dive_31_16-12-26.000.avi,46774,16:38:34,59914,,,397,836,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,10,AD,Passing,,,16:38:34
+SL_2018SSEO_Dive_31_16-12-26.000.avi,60366,16:46:07,60367,,,547,799,QC,amy,,,2018,31,,,,,,,Good,Good Going Forward,GGF,GGF,12,AD,Passing,END,,16:46:07
+SL_2018SSEO_Dive_32_19-20-48.000.avi,100,19:20:56,69656,,,551,799,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,19:20:56
+SL_2018SSEO_Dive_32_19-20-48.000.avi,3954,19:23:05,69785,,,551,798,QC,amy,,,2018,32,,,,,,,Bad,loitering in same area,BLA,BLA,2,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,4223,19:23:14,69794,,,571,798,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,4868,19:23:35,69815,,,646,610,QC,amy,,,2018,32,,,,,,,Bad,loitering in same area,BLA,BLA,4,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,5208,19:23:47,69827,,,550,576,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,5,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,8858,19:25:48,69948,,,441,566,QC,amy,,,2018,32,,,,,,,Bad,loitering in same area,BLA,BLA,6,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,9164,19:25:58,69958,,,551,799,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,7,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,11071,19:27:02,70022,,,553,792,QC,amy,,,2018,32,,,,,,,Bad,loitering in same area,BLA,BLA,8,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,11615,19:27:20,70040,,,551,799,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,9,AD,Passing,,,19:27:20
+SL_2018SSEO_Dive_32_19-20-48.000.avi,16437,19:30:01,70201,,,594,850,QC,amy,,,2018,32,,,,,,,Bad,loitering in same area,BLA,BLA,10,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,16858,19:30:15,70215,,,422,685,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,11,AD,Passing,,,19:30:15
+SL_2018SSEO_Dive_32_19-20-48.000.avi,55165,19:51:32,71492,,,551,799,QC,amy,,,2018,32,,,,,,,Bad,loitering in same area,BLA,BLA,12,AD,Passing,,,19:51:31
+SL_2018SSEO_Dive_32_19-20-48.000.avi,55373,19:51:39,71499,,,444,545,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,13,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,66101,19:57:36,71856,,,551,799,QC,amy,,,2018,32,,,,,,,Bad,loitering in same area,BLA,BLA,14,AD,Passing,,,19:57:36
+SL_2018SSEO_Dive_32_19-20-48.000.avi,66391,19:57:46,71866,,,491,497,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,15,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,73181,20:01:32,72092,,,524,797,QC,amy,,,2018,32,,,,,,,Bad,loitering in same area,BLA,BLA,16,AD,Passing,,,
+SL_2018SSEO_Dive_32_19-20-48.000.avi,73686,20:01:49,72109,,,547,808,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,17,AD,Passing,,,20:01:49
+SL_2018SSEO_Dive_32_19-20-48.000.avi,81989,20:06:26,72386,,,551,799,QC,amy,,,2018,32,,,,,,,Good,Good Going Forward,GGF,GGF,18,AD,Passing,END,,20:06:26
+SL_2018SSEO_Dive_33_20-39-00.000.avi,160,20:39:10,74350,,,386,640,QC,amy,,,2018,33,,,,,,,Good,Good Going Forward,GGF,GGF,1,AD,Passing,START,,20:39:10
+SL_2018SSEO_Dive_33_20-39-00.000.avi,45986,21:04:38,75878,,,789,736,QC,amy,,,2018,33,,,,,,,Good,Good Going Forward,GGF,GGF,2,AD,Passing,,can see in belly,21:04:37
+SL_2018SSEO_Dive_33_20-39-00.000.avi,47082,21:05:14,75914,,,732,749,QC,amy,,,2018,33,,,,,,,Good,Good Going Forward,GGF,GGF,3,AD,Passing,,,
+SL_2018SSEO_Dive_33_20-39-00.000.avi,83651,21:25:33,77133,,,425,694,QC,amy,,,2018,33,,,,,,,Good,Good Going Forward,GGF,GGF,4,AD,Passing,END,,21:25:33
