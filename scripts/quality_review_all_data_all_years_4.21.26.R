@@ -35,7 +35,6 @@ source('scripts/helper.r')
 ### IMPORT DATA ###
 
 # 2012 -----------------------------------------------------------------------
-# I cannot find the original files 
 # Filepath: M:\ALL GROUNDFISH STAFF FOLDERS\Archived Previous Employees\Jenny Stahl\
 # Rockfish_DSR\ROV survey\TransectLengths\2012 Line transects\2012VideoQualityReview
 # tab called VQR
@@ -43,11 +42,11 @@ source('scripts/helper.r')
 CSEO_2012_ALLdata <- read_csv("data/QUALITY_REVIEW_DATA/2012_CSEO/QC_CSEO_2012_summary.csv")
 
 # 2013 -----------------------------------------------------------------------
-# I cannot find the original files 
-# Filepath: M:\ROVSurvey\2013\
+# Filepath: M:\ALL GROUNDFISH STAFF FOLDERS\Archived Previous Employees\Jenny Stahl\
+# Rockfish_DSR\ROV survey\TransectLengths\2013 Line transects\2013_video_quality_review
 
 
-#SSEO_2013_ALLdata <- read.csv("data/QUALITY_REVIEW_DATA/2013_SSEO/.csv") 
+SSEO_2013_ALLdata <- read.csv("data/QUALITY_REVIEW_DATA/2013_SSEO/QC_SSEO_2013_summary.csv") 
 
 
 # 2015 -----------------------------------------------------------------------
@@ -95,7 +94,8 @@ SSEO_2020_ALLdata <- read.csv("data/QUALITY_REVIEW_DATA/2020_SSEO/QC_SSEO_2020_s
 # 2022 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\QC_CSEO_2022_summary
 
-CSEO_2022_ALLdata <- read.csv("data/QUALITY_REVIEW_DATA/2022_CSEO/QC_CSEO_2022_summary.csv")
+CSEO_2022_ALLdata <- read.csv("data/QUALITY_REVIEW_DATA/2022_CSEO/QC_CSEO_2022_summary.csv") %>% 
+  select(-Width,-Height)
 
 # File path: M:\ROVSurvey\2022\NSEO 2022\R Data Files\QC_NSEO_2022_summary
 
@@ -103,7 +103,8 @@ NSEO_2022_ALLdata <- read.csv("data/QUALITY_REVIEW_DATA/2022_NSEO/QC_NSEO_2022_s
 
 # 2023 -----------------------------------------------------------------------
 # File path: M:\ROVSurvey\2023\EYKT\Final files for Analysis\QC_EYKT_2023_summary
-EYKT_2023_ALLdata <- read.csv("data/QUALITY_REVIEW_DATA/2023_EYKT/QC_EYKT_2023_summary.csv")
+EYKT_2023_ALLdata <- read.csv("data/QUALITY_REVIEW_DATA/2023_EYKT/QC_EYKT_2023_summary.csv") %>% 
+  select(-Width,-Height) #these columns are empty 
 
 # Combine Dataframes ---------------------------------------------------------
 all_dfs <- list(
@@ -159,35 +160,85 @@ compare_cols1 <- data.frame(
   in_CSEO_2012 = cols_cseo_2012,
   in_EYKT_2023 = cols_eykt_2023);compare_cols1
 
+unique(CSEO_2012$year)
+unique(CSEO_2012$dive_no)
+unique(CSEO_2012$transect_no) # transect_no = 1 2, or 3
+unique(CSEO_2012$dive_trans) # dive number paired with transect number
+unique(CSEO_2012$dive_trans_2) # identical to the one above
+unique(CSEO_2012$hp_line) #i  wonder if this is the dive number
+unique(CSEO_2012$event_id_7)# this is the dive number with the angle
+unique(CSEO_2012$event_id_8) #this is the dive number witht he angle and transect
+unique(CSEO_2012$date) # i want to add date to everything!
+unique(CSEO_2012$utc_time)
+unique(CSEO_2012$date_time) #date and utc time
+unique(CSEO_2012$ast) # alaska standard time
+unique(CSEO_2012$sec) # seconds
+unique(CSEO_2012$quality_code)
+unique(CSEO_2012$start_end)
+unique(CSEO_2012$comments)
+unique(CSEO_2012$segment) # not sure what this is
+
 
 CSEO_2012 <- CSEO_2012 %>% 
-  mutate(mgmt_area = "CSEO",
-         dive_type = "Line",
-         time_hms = NA,
-         period_time_hms = NA,
-         event_time_hh_mm_ss = NA,
-         time_akdt = NA) %>% #time_akdt is in 2015 EYKT so adding it here 
-  rename(precision_mm = precision,
-         rms_mm = rms_1_mm,
-         op_code = opcode,
-         depth = depth_not_used,
-         comment = trip_comment,
-         dive = dive_no,
-         transect_number = transect_no,
-         number = specimen_number,
-         comment_1 = species_comment)
+  select(-event_id_7,
+         -event_id_8,
+         -segment,
+         -date_time,
+         -dive_trans,
+         -dive_trans_2) %>% 
+  rename(dive=dive_no, # n=24 but multiple transect were done per dive - so 46 actual "dives" were done
+         # i think i should redo the dive numbers based on the order that they occurred
+         transect_number=transect_no,
+         time_utc=utc_time,
+         time_akst=ast,# i think this is ak standard time
+         seconds=sec,
+         code=quality_code) %>% 
+  mutate(filename=NA,
+         frame=NA,
+         time_hms=NA,
+         period=NA,
+         period_time_hms=NA,
+         image_row=NA,
+         image_col=NA,
+         op_code=NA,
+         tape_reader=NA,
+         depth=NA,
+         year="2012",
+         family = case_when(code %in% c("GGF","GRB","GRBC")~"Good", TRUE ~ "Bad"),
+         genus=case_when( 
+           code=="GGF"~"Good Going Forward",
+           code=="GRB"~"resting on bottom",
+           code=="GRBC"~"resting on bottom with close-up image",
+           code=="BDO"~"going over drop-off",
+           code=="BBS"~"bottom stir-up",
+           code=="BLB"~"lost bottom visual",
+           code=="BGB"~"going backward",
+           code=="BRB"~"resting on bottom",
+           code=="BCF"~"bad camera focus",
+           code=="BLA"~"loitering in same area",
+           code=="BPV"~"poor visibiility",
+           code=="BRP"~"repositioned", TRUE ~ "ERROR"),
+         #there is a mystery code in this data set - GBG, not sure if they mean GRB or BGB. This would matter if we tried to redo the
+         #line lengths one day
+         species = code,
+         number=NA,
+         stage=NA,
+         actvity=NA,
+         mgmt_area = "CSEO", 
+         time_akst = NA,
+         time_ak = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         comment_1 = NA,
+         event_time_hh_mm_ss = NA)
 
-EYKT_2023 <- EYKT_2023 %>% 
-  mutate(mgmt_area = "EYKT",
-         time_mins = NA,
-         period_time_mins = NA,
-         rms_2_mm = NA,
-         time_akdt = NA) #time_akdt is in 2015 EYKT so adding it here )
 
 # SSEO 2013 --------------------------------------------------------------------
 
+#the 2013 data is VERY different from later years - i was not able to find the raw files to recombine
 cols_sseo_2013 <- names(SSEO_2013)
-cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
+cols_eykt_2023 <- names(EYKT_2023) 
 
 # Get max length between the two
 max_len <- max(length(cols_sseo_2013), length(cols_eykt_2023))
@@ -201,15 +252,76 @@ compare_cols2 <- data.frame(
   in_SSEO_2013 = cols_sseo_2013,
   in_EYKT_2023 = cols_eykt_2023);compare_cols2
 
+unique(SSEO_2013$event_id)
+#i think this is the transect and the angle
+
+unique(SSEO_2013$dive_no)
+#dive number 
+
+unique(SSEO_2013$transect_no)
+#this is left over from the way we used to do the sub surveys - now the transect number is assigned 
+#before the survey and then the dive number is reflective of the order in which the dives were completed
+
+unique(SSEO_2013$horita_code)
+unique(SSEO_2013$drop_frame)
+unique(SSEO_2013$quality_code)
+unique(SSEO_2013$segment_no)
+unique(SSEO_2013$start_end)
+unique(SSEO_2013$comments)
+
 SSEO_2013 <- SSEO_2013 %>% 
-  mutate(mgmt_area = "SSEO",
-         dive_type = "Line",
-         rms_2_mm = NA,
-         time_akdt = NA) %>% #time_akdt is in 2015 EYKT so adding it here
-  rename(rms_mm = rms_1_mm,
-         dive = dive_no,
-         transect_number = transect_no,
-         event_time_hh_mm_ss = event_time)
+  select(-transect_no,#this = 1 for all dives
+         -event_id,#i don't think event_id, dropframe, and segment_no are useful
+         -drop_frame,
+         -segment_no) %>% 
+  rename(transect_number=dive_no,#this is more like the transect that is assigned before the survey
+         code=quality_code,
+         comment = comments) %>% 
+  #i will create a column for dive number to match the order in which the transects were completed
+  mutate(filename=NA,
+         frame=NA,
+         time_hms=NA,
+         period=NA,
+         period_time_hms=NA,
+         image_row=NA,
+         image_col=NA,
+         op_code=NA,
+         tape_reader=NA,
+         depth=NA,
+         year="2013",
+         dive = NA, #need to figure out the order that the dives were performed to fix this - how does this look for the species review?
+         dive_type="Line",
+         family = case_when(code %in% c("GGF","GRB","GRBC")~"Good", TRUE ~ "Bad"),
+         genus=case_when( 
+           code=="GGF"~"Good Going Forward",
+           code=="GRB"~"resting on bottom",
+           code=="GRBC"~"resting on bottom with close-up image",
+           code=="BDO"~"going over drop-off",
+           code=="BBS"~"bottom stir-up",
+           code=="BLB"~"lost bottom visual",
+           code=="BGB"~"going backward",
+           code=="BRB"~"resting on bottom",
+           code=="BCF"~"bad camera focus",
+           code=="BLA"~"loitering in same area",
+           code=="BPV"~"poor visibiility",
+           code=="BRP"~"repositioned", TRUE ~ "ERROR"),
+         species = code,
+         number=NA,
+         stage=NA,
+         actvity=NA,
+         mgmt_area = "SSEO", 
+         seconds = NA,
+         time_utc = NA,
+         time_akst = NA,
+         time_ak = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         comment_1 = NA,
+         event_time_hh_mm_ss = NA)
+
+
+
 
 # EYKT 2015 --------------------------------------------------------------------
 
@@ -229,14 +341,14 @@ compare_cols3 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols3
 
 EYKT_2015 <- EYKT_2015 %>% 
-  mutate(mgmt_area = "EYKT",
-         dive_type = "Line",
-         time_mins = NA,
-         period_time_mins = NA,
-         rms_2_mm = NA) %>%  
   rename(dive = dive_no,
          transect_number = transect_no) %>% 
-  filter(!is.na(year))
+  mutate(mgmt_area = "EYKT",
+         dive_type="Line",
+         time_utc = NA,
+         time_akst = NA,
+         horita_code=NA,
+         time_ak = NA)
 
 # CSEO 2016 --------------------------------------------------------------------
 
@@ -256,18 +368,23 @@ compare_cols4 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols4
 
 CSEO_2016 <- CSEO_2016 %>% 
+  rename(dive=dive_no,
+         transect_number=transect_no,
+         comment_1=comments) %>% 
   mutate(mgmt_area = "CSEO",
          dive_type = "Line",
-         time_mins = NA,
-         period_time_mins = NA,
-         rms_2_mm = NA) %>%  
-  rename(dive = dive_no,
-         transect_number = transect_no)
+         time_utc = NA,
+         time_akst = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         horita_code=NA,
+         actual_time_ak_std = NA,
+         time_akst=NA)
 
 # NSEO 2016 --------------------------------------------------------------------
 
 cols_nseo_2016 <- names(NSEO_2016)
-cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
+cols_eykt_2023 <- names(EYKT_2023) 
 
 # Get max length between the two
 max_len <- max(length(cols_nseo_2016), length(cols_eykt_2023))
@@ -282,15 +399,20 @@ compare_cols5 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols5
 
 NSEO_2016 <- NSEO_2016 %>% 
-  mutate(mgmt_area = "NSEO",
-         dive_type = "Line",
-         time_mins = NA,
-         period_time_mins = NA,
-         rms_2_mm = NA,
-         event_time_hh_mm_ss = NA) %>%  
+  rename(mgmt_area=management_area) %>% 
+  select(-year_1) %>% #duplicate
   rename(dive = dive_no,
          transect_number = transect_no) %>% 
-  filter(!is.na(year)) #there is a rosethorn rf with no location data
+  mutate(time_hms = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         horita_code=NA,
+         time_akst=NA,
+         dive_type="Line",
+         start_end = case_when(
+           start_end == "End " ~ "End",
+           TRUE ~ start_end))
 
 # EYKT 2017 --------------------------------------------------------------------
 
@@ -312,15 +434,18 @@ compare_cols6 <- data.frame(
 EYKT_2017 <- EYKT_2017 %>% 
   mutate(mgmt_area = "EYKT",
          dive_type = "Line",
-         time_mins = NA,
-         period_time_mins = NA,
-         rms_2_mm = NA,
-         event_time_hh_mm_ss = NA,
-         time_akdt =  NA) %>%  
-  rename(dive = dive_no,
-         transect_number = transect_no) %>% 
-  mutate(dive_type = case_when(
-    filename == "SL_2017EYKT_Dive_16_11-05-02.000.avi" ~ "Exploratory", TRUE ~ as.character(dive_type)))
+         time_utc = NA,
+         time_ak = NA,
+         time_akst = NA,
+         seconds = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         horita_code=NA,
+         start_end = case_when(
+           start_end == "START" ~ "Start",
+           start_end == "END"   ~ "End",
+           TRUE ~ start_end))
 
 # NSEO 2018 --------------------------------------------------------------------
 
@@ -340,16 +465,19 @@ compare_cols7 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols7
 
 NSEO_2018 <- NSEO_2018 %>% 
-  mutate(mgmt_area = "NSEO",
-         dive_type = "Line",
-         time_mins = NA,
-         period = NA,
-         period_time_mins = NA,
-         period_time_hms = NA,
-         rms_2_mm = NA,
-         time_akdt =  NA,
-         event_time_hh_mm_ss = NA,
-         comment_1 = NA)
+  rename(start_end=check_id) %>% 
+    mutate(mgmt_area = "NSEO",
+           time_utc = NA,
+           time_akst = NA,
+           time_ak = NA,
+           time_hms_1 = NA,
+           actual_time_hms = NA,
+           actual_time_ak_std = NA,
+           horita_code=NA,
+         start_end = case_when(
+           start_end == "START" ~ "Start",
+           start_end == "END"   ~ "End",
+           TRUE ~ start_end))
 
 # CSEO 2018 --------------------------------------------------------------------
 
@@ -369,19 +497,19 @@ compare_cols8 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols8
 
 CSEO_2018 <- CSEO_2018 %>% 
-  select(!dive) %>% #"dive" is "management area"_ "dive number", which is not helpful here
   mutate(mgmt_area = "CSEO",
          dive_type = "Line",
-         time_mins = NA,
-         period = NA,
-         period_time_mins = NA,
-         period_time_hms = NA,
-         rms_2_mm = NA,
-         time_akdt =  NA,
-         event_time_hh_mm_ss = NA) %>%  
-  rename(op_code = opcode,
-         tape_reader = tapereader,
-         dive = dive_no)
+         time_utc = NA,
+         time_ak = NA,
+         time_akst = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         horita_code=NA,
+         start_end = case_when(
+           start_end == "START" ~ "Start",
+           start_end == "END"   ~ "End",
+           TRUE ~ start_end))
 
 # SSEO 2018 --------------------------------------------------------------------
 
@@ -401,21 +529,24 @@ compare_cols9 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols9
 
 SSEO_2018 <- SSEO_2018 %>% 
-  select(!dive) %>% #"dive" is "management area"_ "dive number", which is not helpful here
   mutate(mgmt_area = "SSEO",
          dive_type = "Line",
-         time_mins = NA,
-         period_time_mins = NA,
-         rms_2_mm = NA,
-         time_akdt =  NA) %>%
-  rename(op_code = opcode,
-         tape_reader = tapereader,
-         dive = dive_no)
+         time_utc = NA,
+         time_ak = NA,
+         time_akst = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         horita_code=NA,
+         start_end = case_when(
+           start_end == "START" ~ "Start",
+           start_end == "END"   ~ "End",
+           TRUE ~ start_end))
 
 # EYKT 2019 --------------------------------------------------------------------
 
 cols_eykt_2019 <- names(EYKT_2019)
-cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
+cols_eykt_2023 <- names(EYKT_2023) 
 
 # Get max length between the two
 max_len <- max(length(cols_eykt_2019), length(cols_eykt_2023))
@@ -430,42 +561,131 @@ compare_cols10 <- data.frame(
   in_EYKT_2023 = cols_eykt_2023);compare_cols10
 
 EYKT_2019 <- EYKT_2019 %>% 
+  rename(start_end=check_id) %>% #rename check_id to start_end
   mutate(mgmt_area = "EYKT",
-         time_mins = NA,
-         period = NA,
-         period_time_mins = NA,
-         period_time_hms = NA,
-         rms_2_mm = NA,
-         time_akdt =  NA)
+         time_utc = NA,
+         time_ak = NA,
+         time_akst = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         horita_code=NA,
+         start_end = case_when( #fill start_end with the start end info that is recorded in the comments
+           comment_1 == "START" ~ "Start",
+           comment_1 == "END"   ~ "End",
+           TRUE ~ start_end))
 
-# SSEO 2020, CSEO and NSEO 2022 are the same as EYKT 2023, so don't need the other checks
-# adding the columns that I needed to add to EYKT 2023
 
 # SSEO 2020 --------------------------------------------------------------------
+
+cols_sseo_2020 <- names(SSEO_2020)
+cols_eykt_2023 <- names(EYKT_2023) 
+
+# Get max length between the two
+max_len <- max(length(cols_sseo_2020), length(cols_eykt_2023))
+
+# Make lists to the same length
+cols_sseo_2020 <- c(cols_sseo_2020, rep(NA, max_len - length(cols_sseo_2020)))
+cols_eykt_2023 <- c(cols_eykt_2023, rep(NA, max_len - length(cols_eykt_2023)))
+
+# Combine into a data frame
+compare_cols11 <- data.frame(
+  in_SSEO_2020 = cols_sseo_2020,
+  in_EYKT_2023 = cols_eykt_2023);compare_cols11
+
 SSEO_2020 <- SSEO_2020 %>% 
   mutate(mgmt_area = "SSEO",
-       time_mins = NA,
-       period_time_mins = NA,
-       rms_2_mm = NA,
-       time_akdt = NA)
+         dive_type = "Line",
+         time_utc = NA,
+         time_ak = NA,
+         time_akst = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         horita_code=NA,
+         event_time_hh_mm_ss = NA) %>% 
+  rename(dive = dive_no,
+         transect_number = transect_no)
 
 # CSEO 2022 --------------------------------------------------------------------
+
+cols_cseo_2022 <- names(CSEO_2022)
+cols_eykt_2023 <- names(EYKT_2023) 
+
+# Get max length between the two
+max_len <- max(length(cols_cseo_2022), length(cols_eykt_2023))
+
+# Make lists to the same length
+cols_cseo_2022 <- c(cols_cseo_2022, rep(NA, max_len - length(cols_cseo_2022)))
+cols_eykt_2023 <- c(cols_eykt_2023, rep(NA, max_len - length(cols_eykt_2023)))
+
+# Combine into a data frame
+compare_cols11 <- data.frame(
+  in_CSEO_2022 = cols_cseo_2022,
+  in_EYKT_2023 = cols_eykt_2023);compare_cols11
+
 CSEO_2022 <- CSEO_2022 %>% 
   mutate(mgmt_area = "CSEO",
-         time_mins = NA,
-         period_time_mins = NA,
-         rms_2_mm = NA,
-         time_akdt = NA)
+         time_utc = NA,
+         time_ak = NA,
+         time_akst = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         horita_code=NA,
+         actual_time_ak_std = NA,) %>% 
+  rename(dive=dive_no,
+         transect_number=transect_no)
 
-unique(CSEO_2022$dive)
+
 
 # NSEO 2022 --------------------------------------------------------------------
+
+cols_NSEO_2022 <- names(NSEO_2022)
+cols_eykt_2023 <- names(EYKT_2023) 
+
+# Get max length between the two
+max_len <- max(length(cols_NSEO_2022), length(cols_eykt_2023))
+
+# Make lists to the same length
+cols_NSEO_2022 <- c(cols_NSEO_2022, rep(NA, max_len - length(cols_NSEO_2022)))
+cols_eykt_2023 <- c(cols_eykt_2023, rep(NA, max_len - length(cols_eykt_2023)))
+
+# Combine into a data frame
+compare_cols13 <- data.frame(
+  in_NSEO_2022 = cols_NSEO_2022,
+  in_EYKT_2023 = cols_eykt_2023);compare_cols13
+
+
 NSEO_2022 <- NSEO_2022 %>% 
+  rename(start_end=check_id) %>% #rename check_id to start_end
   mutate(mgmt_area = "NSEO",
-         time_mins = NA,
-         period_time_mins = NA,
-         rms_2_mm = NA,
-         time_akdt = NA)
+         time_utc = NA,
+         time_ak = NA,
+         time_akst = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         horita_code=NA,
+         seconds = NA,
+         start_end = case_when( #fill start_end with the start end info that is recorded in the comments
+           comment_1 == "START" ~ "Start",
+           comment_1 == "END"   ~ "End",
+           TRUE ~ start_end))
+
+
+# EYKT 2023 --------------------------------------------------------------------
+
+EYKT_2023 <- EYKT_2023 %>% 
+  mutate(mgmt_area = "EYKT", 
+         seconds = NA,
+         time_utc = NA,
+         time_akst = NA,
+         time_ak = NA,
+         time_hms_1 = NA,
+         actual_time_hms = NA,
+         actual_time_ak_std = NA,
+         horita_code=NA) %>% 
+  rename(start_end = check_id)
 
 #recombine them in this list
 all_dfs_edited <- list(
@@ -506,173 +726,51 @@ all_dfs_aligned <- lapply(all_dfs_edited, function(df) {
 })
 
 # COMBINE THE DATA
-ROV_species_review_all_years <- bind_rows(all_dfs_aligned)
+ROV_quality_review_all_years <- bind_rows(all_dfs_aligned)
 
 #Cleaning the data -------------------------------------------------------------
 
-ROV_species_review_all_years <- ROV_species_review_all_years %>% 
+ROV_quality_review_all_years <- ROV_quality_review_all_years %>%
+  select(-all_of(c("period","period_time_hms"))) %>% 
   mutate(year = as.character(year),
-       dive_no = as.character(dive),
-       transect_no = as.character(transect_number),
+       dive = as.character(dive),
+       transect_number = as.character(transect_number),
        species = as.character(species),
        code = as.character(code),
-       length_mm = as.numeric(as.character(length_mm)),
-       precision_mm = as.numeric(as.character(precision_mm)),
-       rms_mm = as.numeric(as.character(rms_mm)),
-       vert_dir_deg = as.character(vert_dir_deg),
-       vert_dir_deg = na_if(vert_dir_deg, NA), 
-       vert_dir_deg = as.numeric(as.character(vert_dir_deg))) %>% 
-  mutate(tape_reader = case_when(
-    tape_reader %in% c("Kristen", "Kristen Green ") ~ "Kristen Green",
-    tape_reader %in% c("Jennifer Stahl", "Jenny") ~ "Jenny Stahl",
-    tape_reader == "asia" ~ "Asia",
-    tape_reader == "LauraColeman" ~ "Laura Coleman",
-    TRUE ~ tape_reader),
-    activity = case_when(
-      activity == "fish seeking cover" ~ "Fish seeking cover",
-      activity == "Fish milling" ~ "Fish milling/hovering",
-      activity == "resting on bottom" ~ "Fish resting on bottom",
-      activity == "Chase other" ~ "Fish chasing other fish",
-      activity %in% c("fish moving slowly into frame", "moving slowly into frame") ~ "Fish moving slowly into frame",
-      activity %in% c("fish moving quickly into frame", "moving quickly into frame") ~ "Fish moving quickly into frame",
-      activity %in% c("actively swimming within frame", "Fish actively swimming within frame") ~ "Fish actively swimming in frame",
-      activity %in% c("fish moving quickly out of frame", "Fish moving quickly out of frame.") ~ "Fish moving quickly out of frame",
-      activity %in% c("milling", "milling/hovering") ~ "Fish milling/hovering",
-      TRUE ~ activity),
-    dive_type = case_when(
-      dive_type == "Grouundtruth" ~ "Groundtruth",
-      TRUE ~ dive_type)) %>% 
-  filter(!dive_type %in% c("Groundtruth", "Exploratory")) %>% 
-  mutate(dive_trans = paste(dive,transect_number, sep = "_"))
+       op_code = "QC",
+       family = case_when(code %in% c("GGF","GRB","GRBC")~"Good", TRUE ~ "Bad"))
 
-write.csv(ROV_species_review_all_years,"outputs/ROV_species_review_all_years.csv")
+write.csv(ROV_quality_review_all_years,"outputs/ROV_quality_review_all_years.csv")
 
 # Data Exploration  ------------------------------------------------------------
-names(ROV_species_review_all_years)
+names(ROV_quality_review_all_years)
 
-unique(ROV_species_review_all_years$year)
-unique(ROV_species_review_all_years$mgmt_area)
-unique(ROV_species_review_all_years$tape_reader)
-unique(ROV_species_review_all_years$family)
-unique(ROV_species_review_all_years$genus)
-unique(ROV_species_review_all_years$species)
-unique(ROV_species_review_all_years$code)
-unique(ROV_species_review_all_years$stage)
-unique(ROV_species_review_all_years$activity)
-unique(ROV_species_review_all_years$dive_type)
-
-transects_per_area_per_year <- ROV_species_review_all_years %>%
-  group_by(mgmt_area,year) %>%
-  filter(!is.na(year)) %>% 
-  summarise(num_dives = n_distinct(dive_trans)) %>%
-  arrange(mgmt_area)
-
-summary_table <- ROV_species_review_all_years %>%
-  filter(species == 145 & stage %in% c("AD","SU")) %>% 
-  group_by(mgmt_area, year) %>%  
-  summarise(n_yelloweye = n())
-
-# Data Exploration  ---------------------------------------------------------
-#Since the adoption of the ROV in 2012, an average of 78% of all yelloweye 
-#rockfish from the surveys moved minimally or slowly. Of those slow-moving 
-#specimens, approximately 70% did not display directional movements (i.e., 
-#they were milling or resting on the bottom). 
-
-
-#The above text is from the draft of the ROP. I am assuming Kelli or Phil
-#but I don't know where this analysis was completed. Below I replicated this
-#analysis and updated the statement above in the ROP, which should be published
-#in 2026
-
-
-activity<- ROV_species_review_all_years %>%
-  filter(genus=="yelloweye",
-         !activity %in% c(""," "),
-         !is.na(activity)) %>%  
-  mutate(activity_new = case_when(
-    activity %in% c("Fish milling/hovering",
-                    "Fish resting on bottom",
-                    "Fish moving slowly into frame",
-                    "Fish moving slowly out of frame",
-                    "Fish milling")~ "Not Moving or Minimal Movement",
-    activity %in% c("Fish actively swimming in frame",
-                    "Fish chasing other fish",
-                    "Fish moving quickly into frame",
-                    "Fish seeking cover",
-                    "Fish being chased",
-                    "Fish moving quickly out of frame",
-                    "Fish actively swimming within frame",
-                    "Feeding",
-                    "Passing") ~ "Moving",
-    activity == "Attracted" ~ "Attracted",
-    TRUE ~ activity)) %>% 
-  group_by(activity_new) %>% 
-  summarize(count = n()) %>% 
-  mutate(percentage = (count / sum(count)) * 100) %>%
-  arrange(desc(percentage))
-
-# Overall activity distribution
-ggplot(activity, aes(x = reorder(activity_new, -percentage), y = percentage, fill = activity_new)) +
-  geom_bar(stat = "identity", width = 0.7) +
-  geom_text(aes(label = paste0(round(percentage, 1), "%")), 
-            vjust = -0.5, size = 4) +
-  labs(title = "Yelloweye Rockfish Activity Distribution (All Years)",
-    x = "Activity Category",
-    y = "Percentage of Observations",
-    fill = "Activity") +
-  theme_minimal(base_size = 14) +
-  theme(legend.position = "none")
-
-
-#Here I am asking the question - what is the percentage breakdown of the
-# inactive fish? what activitiy are they doing?
-inactive <- ROV_species_review_all_years %>%
-  filter(genus == "yelloweye",
-         !activity %in% c("", " "),
-         !is.na(activity)) %>%
-  mutate(
-    activity_new = case_when(
-      activity %in% c(
-        "Fish milling/hovering",
-        "Fish resting on bottom",
-        "Fish moving slowly into frame",
-        "Fish moving slowly out of frame",
-        "Fish milling") ~ "Not Moving or Minimal Movement",
-      activity %in% c(
-        "Fish actively swimming in frame",
-        "Fish chasing other fish",
-        "Fish moving quickly into frame",
-        "Fish seeking cover",
-        "Fish being chased",
-        "Fish moving quickly out of frame",
-        "Fish actively swimming within frame",
-        "Feeding",
-        "Passing") ~ "Moving",
-      activity == "Attracted" ~ "Attracted", TRUE ~ activity),
-    inactive = case_when(activity %in% c(
-        "Fish milling/hovering",
-        "Fish resting on bottom",
-        "Fish milling") ~ "No Movement",TRUE ~ "Moving")) %>%
-  group_by(inactive) %>% 
-  summarize(count = n()) %>% 
-  mutate(percentage = (count / sum(count)) * 100) %>%
-  arrange(desc(percentage))
-
-
-
-
-# Breakdown of minimal movement behaviors
-ggplot(inactive, aes(x = reorder(activity_new, -percentage), y = percentage, fill = activity_new)) +
-  geom_bar(stat = "identity", width = 0.7) +
-  geom_text(aes(label = paste0(round(percentage, 1), "%")), 
-            vjust = -0.5, size = 4) +
-  labs(title = "Behavior Breakdown: Not Moving or Minimal Movement",
-    x = "Specific Inactive Behaviors",
-    y = "Percentage within Minimal Movement Group",
-    fill = "Behavior") +
-  theme_minimal(base_size = 14) +
-  theme(legend.position = "none") +
-  coord_flip()  # Flip for readability
+unique(ROV_quality_review_all_years$op_code) #change to QC for everything!
+unique(ROV_quality_review_all_years$tape_reader)
+unique(ROV_quality_review_all_years$depth) #what depth is being recorded here?
+unique(ROV_quality_review_all_years$year) #NA is being pulled for one of the years
+unique(ROV_quality_review_all_years$dive_type) #which years has NA for dive type?
+unique(ROV_quality_review_all_years$genus) #poor visibility spelled wrong, going backward spelled wrong
+unique(ROV_quality_review_all_years$species)
+#species should be the same as code - could honestly be removed
+unique(ROV_quality_review_all_years$code) #this is a discrepancy between species and genus here.
+#the species does not have resting on bottom but the code GRB is being used
+#the code BCF is not being but the species "bad camera focus" is being used
+unique(ROV_quality_review_all_years$number) #is this field always being used correctly? i think we just set it to 1
+unique(ROV_quality_review_all_years$stage) #remove
+unique(ROV_quality_review_all_years$activity) #remove
+unique(ROV_quality_review_all_years$start_end) #needs some cleaning! 
+unique(ROV_quality_review_all_years$comment_1)
+unique(ROV_quality_review_all_years$event_time_hh_mm_ss)
+unique(ROV_quality_review_all_years$mgmt_area)#NSEO with a space at the end needs to be fixed
+unique(ROV_quality_review_all_years$seconds)
+unique(ROV_quality_review_all_years$time_utc)
+unique(ROV_quality_review_all_years$time_akst) #nothing here - could remove this column
+unique(ROV_quality_review_all_years$time_ak)
+unique(ROV_quality_review_all_years$time_hms_1)
+unique(ROV_quality_review_all_years$actual_time_hms)
+unique(ROV_quality_review_all_years$actual_time_ak_std) #nothing here - could remove this column
+unique(ROV_quality_review_all_years$horita_code)
 
 
 
