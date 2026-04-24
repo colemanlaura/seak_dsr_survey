@@ -27,6 +27,21 @@
 # EYKT_2023
 # The ROV program was suspended after 2023 due to the retirement of ROV pilot Mike Byerly
 
+
+#Useful tid bits from Filename: ROVLineLengths Instructions_Updated 2018
+#The time that is exported out of Hypack (hptime) is the current Alaska 
+#Daylight Time (AKDT). Round time with =ROUND(A10*86400,0)/86400
+
+#Convert UTC time to Alaska time using the following formula:  
+# =IF(D6-TIME(8,0,0)>0,D6-TIME(8,0,0),D6-TIME(8,0,0)+1). Troubleshoot-may need to 
+#record date and then create a field with date and time (=Date + time). 
+
+#Calculate the total seconds by =((HOUR(A2)*3600)+MINUTE(B2)*60 +SECOND(A2)) from the AKDT
+
+#If review in event measure, then double-check that the time outputted by Event Measure 
+#for each record matches the time stamp on the video file. If not, then enter the 
+#correct time in the “Event Time” field.
+
 # set up ----
 source('scripts/helper.r') 
 
