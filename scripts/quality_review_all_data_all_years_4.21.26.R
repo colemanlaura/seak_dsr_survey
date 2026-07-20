@@ -765,12 +765,22 @@ unique(ROV_quality_review_all_years$tape_reader)
 unique(ROV_quality_review_all_years$depth) #what depth is being recorded here?
 unique(ROV_quality_review_all_years$year) #NA is being pulled for one of the years
 unique(ROV_quality_review_all_years$dive_type) #which years has NA for dive type?
+
+ROV_quality_review_all_years %>%
+  group_by(year) %>%
+  summarize(dive_types = paste(unique(dive_type), collapse = ", "))
+
+#Flag!! There must be other Groundtruth or experimental dives
+
 unique(ROV_quality_review_all_years$genus) #poor visibility spelled wrong, going backward spelled wrong
+#need to investigate "ERROR" as well
+
 unique(ROV_quality_review_all_years$species)
-#species should be the same as code - could honestly be removed
+#what is sp?
 unique(ROV_quality_review_all_years$code) #this is a discrepancy between species and genus here.
 #the species does not have resting on bottom but the code GRB is being used
 #the code BCF is not being but the species "bad camera focus" is being used
+
 unique(ROV_quality_review_all_years$number) #is this field always being used correctly? i think we just set it to 1
 unique(ROV_quality_review_all_years$stage) #remove
 unique(ROV_quality_review_all_years$activity) #remove

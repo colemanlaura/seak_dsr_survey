@@ -1,40 +1,66 @@
-##################################################################
-#CONVERTED CODE INTO A RMARKDOWN
-# This code compiles all of the ROV survey data 
-# Includes: raw species review data for ROV surveys 2012-2023
-# Authors: Laura Coleman (laura.coleman@alaska.gov)
-# Last modified: July 16, 2026
+---
+title: "ROV Survey Data Compilation — Yelloweye Rockfish Stock Assessment"
+author: "Laura Coleman (laura.coleman@alaska.gov)"
+date: "Last modified: July 16, 2026"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    df_print: paged
+---
 
-# The goal here is is create one file with ALL of the RAW ROV line transect data for 
-# yelloweye rockfish stock assessment survey. I want to include ALL transects, with 
-# all species. Kelli or Phil compiled a lot of this data already, so I will
-# start with the outputs they created and will recombine raw files if needed.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
 
-# Note that this code should not be used to get the number of YE for the stock assessment survey
-# I believe that yelloweye rockfish form the "bad" segments are not counted and are therefore
-# removed. FLAG! This is something I still need to followup on.
+# Overview
+
+This document compiles all of the ROV survey data. It includes raw species
+review data for ROV surveys 2012–2023.
+
+The goal here is to create one file with **ALL** of the raw ROV line transect
+data for the yelloweye rockfish stock assessment survey. This includes all
+transects, with all species. Kelli or Phil compiled a lot of this data
+already, so this starts with the outputs they created and recombines raw
+files where needed.
+
+Each year will have the file path of where I found the raw data. A data summary
+from previous staff when available. The full summaries are saved in the "reports" folder.
+And finally, a section noting any issue with the data.
+
+> **Note:** This code should not be used to get the number of yelloweye
+> rockfish (YE) for the stock assessment survey yet. I still need to 
+> determine if fish seen in areas marked as "bad" were used in the final 
+> assessment. Also, each year has a different criteria for including
+> or excluding fish. As of 7/16/26 this is not yet finalized. Look for flags
+> "Need to correct" for data that needs to be corrected and "Need to add"
+> for data missing from this code.
 
 ## ROV Surveys for DSR Stock Assessment
-# CSEO_2012
-# SSEO_2013
-# 2014 CANCELED
-# EYKT_2015
-# CSEO_2016
-# NSEO_2016
-# EYKT_2017
-# NSEO_2018
-# CSEO_2018
-# SSEO_2018
-# EYKT_2019
-# SSEO_2020
-# 2021 CANCELLED
-# CSEO_2022
-# NSEO_2022
-# EYKT_2023
-# The ROV program was suspended after 2023 due to the retirement of ROV pilot Mike Byerly
 
-# set up ----
-source('scripts/helper.r') 
+| Year | Area |
+|------|------|
+| 2012 | CSEO |
+| 2013 | SSEO |
+| 2014 | CANCELED |
+| 2015 | EYKT |
+| 2016 | CSEO, NSEO |
+| 2017 | EYKT |
+| 2018 | NSEO, CSEO, SSEO |
+| 2019 | EYKT |
+| 2020 | SSEO |
+| 2021 | CANCELLED |
+| 2022 | CSEO, NSEO |
+| 2023 | EYKT |
+
+The ROV program was suspended after 2023 due to the retirement of ROV pilot
+Mike Byerly.
+
+# Setup
+
+```{r source-helper}
+source('scripts/helper.r')
 
 ###  set plotting theme to use TNR  ###
 # #font_import() #remove # to run this but only do this one time - it takes a while
@@ -42,30 +68,71 @@ source('scripts/helper.r')
 # windowsFonts(Times=windowsFont("TT Times New Roman"))
 # theme_set(theme_bw(base_size=18,base_family='Times New Roman')
 #           +theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()))
+```
 
+# Import Data
 
-##########################################################################################
-### IMPORT DATA ###
+## 2012 — CSEO
 
-# 2012 -----------------------------------------------------------------------
-# I cannot find the original files from eventmeasure, so that I can combine everything myself.
-#Filepath: C:\Users\lscoleman\Documents\R code - Working Files\seak_dsr_survey\data\SPECIES_REVIEW_DATA\2012_CSEO\FishVideoReview_Feb2_2013ROV lengths_kg.csv
+**Data Summary**
 
+The 2012 CSEO ROV survey took place 8/18/2012-8/23/2012. **46 valid transects** were completed. 293 yelloweye rockfish were oberved on the survey but according to the distance analysis write up (see reports folder), **118 yelloweye rockfish** were used in the stock assessment analysis, consisting of 112 adults and 6 subadults greater than 350 mm. See the distance analysis write up for more detailed information on density calculations.
+
+**Data Issues**
+
+- When you examine the raw data, the number of adult and subadult yelloweye does not match what is reported in the distance analysis write up:
+
+>"Only adults and subadults greater than 350 mm were included in the analysis. If subadults did not have length information, then they were excluded from the analysis. A total of 118 yelloweye were included in the density analysis in 2012, 112 adults and 6 subadults." 
+
+- When examining the raw data, a total of 236 adult and subadult yelloweye rockfish were observed, including 210 adults and 26 subadults. This total includes individuals both with and without length measurements. If we include all the adults with and without length data and the subadults with length data > 350 mm, the total number of yelloweye observed is 215. Length measurements were available for 93 adults and 5 subadults. All measured adults were greater than 350 mm, resulting in 98 individuals with length data that exceeded the 350 mm threshold.
+
+| Category | Adults | Subadults | Total |
+|:---------|-------:|----------:|------:|
+| All adults and subadult yelloweye rockfish observed | 210 | 26 | 236 |
+| All adults and subadults > 350 mm | 210 | 5 | 215 |
+| Adults with length data  and subadults > 350 mm | 93 | 5 | 98 |
+
+- There are some notes in the original file (see file path below) about some adult fish (n=4) being excluded from analysis.Need to examine this more to understand why the other fish are being excluded.
+
+- Note: In 2012, the dive number was assigned before the survey and does not reflect the order that the dives were completed, which is what we do now. There are 24 unique dive numbers but for each dive one or two transects were completed. The transect numbers are either 1 or 2 (there is one dive with the transect numbers 2 and 3). I believe that this numbering system for the transect number is a relic from the submersible survey when they had to do two transects per dive. There are 46 unique transects were completed. I got this count by combining the dive number and transect number and counting the unique values.
+
+**Data Import**
+
+`Filepath: M:\ROVSurvey\2012\CSEO ROV Survey\FishVideoReview_Feb2_2013ROV lengths_kg.csv`
+
+```{r import-2012}
 CSEO_2012_ALLdata <- read_csv("data/SPECIES_REVIEW_DATA/2012_CSEO/species_CSEO_2012.csv")
+```
 
-# 2013 -----------------------------------------------------------------------
-# I cannot find the original files from event measure, so that I can combine everything myself.
-# Filepath: M:\ROVSurvey\2013\species_SSEO_2013
+## 2013 — SSEO
 
-# This was created in 2021, so I am assuming it was created by Phil or Kelli but there are 8 dives missing
-# according to the dive log. 
+**Data Summary**
 
-#FLAG! I found event measure files for the missing dives but I did not find documentation 
-# on why these dives were not included in the "species_SSEO_2013" file. I def want 
-# to revisit this and make sure that those dives were included in the assessment in 2013.
+The 2013 SSEO ROV survey took place 8/19/2013-8/27/2013. **31 transects** were completed. The total number of yelloweye rockfish observed was XXX but only **118 yelloweye rockfish** were used in the stock assessment analysis. This included 93 adults and 25 subadults greater than 340 mm. The inclusion criteria for subadaults was decreased from 350 mm to 340 mm. Subadults without length measurements were also included because measured subadults averaged 465 mm, making it likely they exceeded the threshold.  See full distance analysis write up in the "reports" folder.
 
-# The 2013 ROV Distance Analysis notes have been saved in the documents folder
+**Data Issues** 
 
+- Like 2012, the dive number is assigned before the survey, so it is not relfective of the order that the dives were performed.
+- The "species_SSEO_2013" file is incomplete. It's important to note that the dive number 
+is assigned before hand like we do the transect number now. This file has dive numbers 1,3,4,5,6,11,15,17,19,21,22,25,27,29,31,33,39,43,48,51,52,57,59.
+But this is only 23 transects and the SAFE report has 31.
+
+In the ROVSurvey/2013/Fish Review/Textfiles - there are Event Measure files for
+dives 4,9,11,13,14,25,41,45,47,49,52,56 - which includes the missing dives. But I did not find documentation 
+on why these dives were not included in the "species_SSEO_2013" file. I definitely want to revisit this and make sure
+that those dives were included in the assessment in 2013.
+
+When I summarize the 2013 data at the end of this code, the total adult and subadult yelloweye comes out
+to 269 Is this a coding issue or a data issue? 
+
+**Data Import**
+
+`Filepath: M:\ROVSurvey\2013\species_SSEO_2013`
+
+This was created in 2021, so I am assuming it was created by Phil or Kelli
+but there are 8 dives missing according to the dive log.
+
+```{r import-2013}
 SSEO_2013_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2013_SSEO/species_SSEO_2013.csv") %>% 
   mutate(Time..mins. = NA,
          Period.time..mins. = NA) #adding these columns to match the missing data
@@ -76,36 +143,114 @@ SSEO_2013_missing_data <- read.csv("data/SPECIES_REVIEW_DATA/2013_SSEO/species_S
 
 SSEO_2013_ALLdata <- rbind(SSEO_2013_ALLdata,SSEO_2013_missing_data)
 
+write.csv(SSEO_2013_ALLdata,"outputs/species_review/species_SSEO_2013.csv")
+```
 
-# 2015 -----------------------------------------------------------------------
-# I combined the raw files for this survey - see code: 2015_EYKT_MergingCSVFilesCode_SpeciesReviewData
-# The 2015 ROV Distance Analysis notes have been saved in the documents folder
 
+
+## 2015 — EYKT
+
+I combined the raw files for this survey — see code:
+`2015_EYKT_MergingCSVFilesCode_SpeciesReviewData`.
+
+**Data Issues**
+
+None.
+
+**Data Import**
+```{r import-2015}
 EYKT_2015_ALLdata <- read.csv("outputs/species_review/SPECIES_EYKT_2015.csv") 
+```
 
-# 2016 -----------------------------------------------------------------------
-# File path: M:\ROVSurvey\2016
-# The 2016 ROV Distance Analysis notes have been saved in the documents folder
+**Data Summary**
 
-CSEO_2016_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2016_CSEO/species_CSEO_2016.csv")
+The 2015 EYKT ROV survey took place 5/13/2015-5/18/2015.There were no dives on the 17th and 18th. The original plan was to sample EYKT then sample NSEO but the weather deterorated. 34 transects were completed but only **33 transects** were valid and used for analysis. The total number of yelloweye rockfish observed was XXX but only **259 yelloweye rockfish** were used in the stock assessment analysis. This included 244 adults and 15 subadults > 340 mm. See full distance analysis write up in the "reports" folder.
 
+2012: First year using the >350 mm cutoff; fish without lengths were excluded.
+2013: Adjusted cutoff to >340 mm cutoff, but began including subadults without length measurements.
+2015: Kept the >340 mm cutoff for the SAFE assessment, but also analyzed all adults and subadults in anticipation of a future age-structured assessment with selectivity.
+
+## 2016 — NSEO
+
+`File path: M:\ROVSurvey\2016`
+
+**Data Issues**
+
+None.
+
+**Data Import**
+```{r import-2016a}
 NSEO_2016_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2016_NSEO/species_NSEO_2016.csv")
+```
 
-# 2017 -----------------------------------------------------------------------
-# File path: M:\ROVSurvey\2017
-# The 2017 ROV Distance Analysis notes have been saved in the documents folder
+**Data Summary**
 
+The 2016 NSEO ROV survey took place 6/9/2016-6/15/2016.**36 transects** were completed. 170 yelloweye rockfish were observed, consisting of 119 adults and 51 subadults. For the current stock assessment, only **125 yelloweye rockfish** (119 adults and 6 subadults ≥340 mm) were included, while the age-structured analysis included all adults and subadults. See full distance analysis write up in the "reports" folder.
+
+## 2016 — CSEO
+
+`File path: M:\ROVSurvey\2016`
+
+**Data Issues**
+
+None.
+
+**Data Import**
+```{r import-2016}
+CSEO_2016_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2016_CSEO/species_CSEO_2016.csv")
+```
+
+**Data Summary**
+
+The 2016 CSEO ROV survey took place 8/17/2016-8/24/2016.The original plan was to sample EYKT then sample NSEO but the weather deterorated. **32 transects** were completed. 164 yelloweye rockfish were observed, consisting of 151 adults and 13 subadults. Three density analyses were conducted: an age-structured model including all adults and subadults, a SAFE analysis including adults plus subadults ≥340 mm and those without length measurements, and a second SAFE analysis excluding subadults without length data. The recommended SAFE analysis included subadults without length measurements because the average measured subadult length (347 mm; 377 mm before filtering measurement errors) exceeded the 340-mm threshold used in the assessment. This included **160 yelloweye rockfish**, consisting of 151 adults, 6 subadults >= 340mm and 3 subadults with no length). See full distance analysis write up in the "reports" folder.
+
+
+## 2017 — EYKT
+
+`File path: M:\ROVSurvey\2017`
+
+**Data Issues**
+
+None.
+
+**Data Import**
+```{r import-2017}
 EYKT_2017_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2017_EYKT/species_EYKT_2017.csv")
+```
 
-# 2018 -----------------------------------------------------------------------
-# File path: M:\ROVSurvey\2018\CSEO\R Data Files\2018_cseo_species
-# File path: M:\ROVSurvey\2018\NSEO\NSEO_2018_species
-# File path: M:\ROVSurvey\2018\SSEO\Species Review Files\2018ROV Survey_FishVideoReview_SSEO
+**Data Summary**
 
-#It looks like dives 25 and 26 are missing but these dives were brf experimental dives
-#There are .text files in the ROVSurvey/2018/CSEO/Stereo Files folder for those experimental dives
+The 2017 EYKT ROV survey took place 5/8/2017-5/19/2017. The 2017 EYKT ROV survey included **35 valid line transects** and **134 yelloweye rockfish** were included in the SAFE stock assessment. This included 129 adults and 5 subadults ≥340 mm. A total of 146 yelloweye rockfish (129 adults and 17 subadults) were observed during the survey, but 12 subadults (4 <340 mm and 8 without length measurements) were excluded from the SAFE analysis. See full distance analysis write up in the "reports" folder.
+
+
+## 2018 — CSEO
+
+`File path: M:\ROVSurvey\2018\CSEO\R Data Files\2018_cseo_species`
+
+**Data Issues**
+
+- It looks like dives 25 and 26 are missing, but these dives were BRF experimental dives. There are `.text` files in the `ROVSurvey/2018/CSEO/Stereo Files` folder for those experimental dives. Need to add in those experimental dives to make the ROV survey record complete.
+- The 2024 SAFE report Table 14.9 has 35 transects completed but there were only 33 used for this stock assessment. Need to correct.
+
+**Data Import**
+```{r import-2018-cseo}
 CSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_CSEO/species_CSEO_2018.csv")
+```
 
+**Data Summary**
+
+
+
+## 2018 — NSEO
+`File path: M:\ROVSurvey\2018\NSEO\NSEO_2018_species`
+
+**Data Issues**
+
+- The "NSEO_2018_species" spreadsheet is missing dive 26.
+
+**Data Import**
+
+```{r import-2018-nseo}
 #columns for NSEO 
 cols <- c("Filename","Frame","Time..HMS.","Period","Period.time..HMS.","Length..mm.","Precision..mm.","RMS..mm.",
           "Range..mm.","Direction..deg.","Horz..Dir...deg.","Vert..Dir...deg.","Mid.X..mm.","Mid.Y..mm.","Mid.Z..mm.",
@@ -119,9 +264,6 @@ NSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_NSEO/species_NSEO_2
          Event.Time.HH.MM.SS = NA) %>% 
   select(any_of(cols))
 
-#FLAG!!!
-#This spreadsheet is missing dive 26. I don't think it was included in the assessment because it is
-#not in any of the combined species files in the 2018 NSEO
 NSEO_2018_dive26 <- read.csv("data/SPECIES_REVIEW_DATA/2018_NSEO/NSEO_2018_Dive26.csv") %>% 
   select(! c(X,X.1,X.2,X.3)) %>% 
   select(any_of(cols))
@@ -132,7 +274,32 @@ unique(NSEO_2018_ALLdata$Dive)
 
 #Export NSEO 2018 to check time codes
 write.csv(NSEO_2018_ALLdata,"outputs/nseo_2018_alldata.csv")
+```
 
+**Data Summary**
+
+## 2018 — SSEO
+
+`File path: M:\ROVSurvey\2018\SSEO\Species Review Files\2018ROV Survey_FishVideoReview_SSEO`
+
+**Data Issues**
+
+- The transect numbers recorded on the dive log from the field do not match
+  what was recorded in the species review files — I am going to assume that
+  what is in the species review files is correct. May want to cross-reference
+  this with the GPS locations.
+- Needed to fix the dive and transect numbers for dive 16.
+- Needed to fix the dive and transect numbers for dive 21.
+- Dive 8 is missing because there was a note that the data was bad and to not
+  use it, but there was no other explanation on why the data was bad (that I
+  could find anyways!!).
+- There are two other dives (34 and 35) that are on the dive log but are not
+  in the species review. These dives were never analyzed in EventMeasure and
+  they do not belong to another area.
+  
+**Data Import**
+
+```{r import-2018-sseo}
 SSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_SSEO/species_SSEO_2018.csv") %>% 
   # need to fix the dive and transect numbers for dive 16
   mutate(DIVE_NO = case_when(
@@ -146,37 +313,40 @@ SSEO_2018_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2018_SSEO/species_SSEO_2
     FILENAME == "SL_2018SSEO_Dive_21_10-59-57.000.avi" ~ 69,TRUE ~ TRANSECT_NUMBER))
 
 SSEO_2018_ALLdata %>% summarise(distinct_dives = n_distinct(DIVE_NO))
+```
 
-# the transect numbers recorded on the dive log from the field do not match what was recorded 
-# in the species review files - i am going to assume that what is in the species review files
-# is correct - may want to cross reference this with the GPS locations
-
-# also note - dive 8 is missing because there was a note that the data was bad and to not use
-# but there was no other explanation on why the data was bad (that I could find anyways!!)
-
-# final note is that there are two other dives (34 and 35) that are on the dive log but are not
-# in the species review. These dives were never analyzed in event measure and they do no belong
-# to another area.
-
-# with this in mind, 32 transects were used in the SEO DSR stock assessment but 35 were attempted
-
-# FLAG! do we want to include dive 8 for completeness? i could not figure out why the data was bad
-# so am worried about adding it and it accidentally being used for analysis
+**Data Summary**
 
 
-# 2019 -----------------------------------------------------------------------
-# File path: M:\ROVSurvey\2019\EYKT\R Code\EYKT_2019\EYKT_2019_species
-# There is not a document for the analysis beyond the SAFE report.
+## 2019 — EYKT
 
+`File path: M:\ROVSurvey\2019\EYKT\R Code\EYKT_2019\EYKT_2019_species`
+
+**Data Issues**
+
+**Data Import**
+
+```{r import-2019}
 EYKT_2019_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2019_EYKT/species_EYKT_2019.csv") %>% 
   mutate(Dive = case_when(
   Filename == "SL_2019_EYKT_Dive_12_09-27-40.000.avi" ~ 12, TRUE ~ Dive))
+```
 
-# 2020 -----------------------------------------------------------------------
-# File path: M:\ROVSurvey\2020\R Code\Data\SSEO_2020_Species
-# I found that the transect number and dive number are flipped for transect 31.
-# The 2020 ROV Distance Analysis notes have been saved in the documents folder
+**Data Summary**
 
+## 2020 — SSEO
+
+`File path: M:\ROVSurvey\2020\R Code\Data\SSEO_2020_Species`
+
+
+**Data Issues**
+
+- I found that the transect number and dive number are flipped for transect
+31 (dive 18).
+
+**Data Import**
+
+```{r import-2020}
 SSEO_2020_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2020_SSEO/species_SSEO_2020.csv") %>%
   #the transect number and dive number were flipped for dive 31
   mutate(Dive = case_when(
@@ -189,14 +359,26 @@ SSEO_2020_ALLdata %>% summarise(distinct_dives = n_distinct(Dive))
 
 #This output was sent to Ivy for species distribution model
 write.csv(SSEO_2020_ALLdata,"outputs/SPECIES_SSEO_2020_divenum_corrected.csv")
+```
 
-# 2022 -----------------------------------------------------------------------
-# File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\SPECIES_CSEO_2022_summary
-# The times in the original excel files were never converted to HHMMSS, so when combined in
-# R originally, the times were still incorrect. I was unable to convert the time in the combined file,
-# so I converted the time in the original species review .csv files and recombined them
-# using the code 2022_CSEO_MergingCSVFilesCode_SpeciesReviewData
+**Data Summary**
 
+## 2022 — CSEO & NSEO
+
+`File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\SPECIES_CSEO_2022_summary`
+
+**Data Issues**
+
+- The times in the original Excel files were never converted to HHMMSS, so
+when combined in R originally, the times were still incorrect. I was unable
+to convert the time in the combined file, so I converted the time in the
+original species review `.csv` files and recombined them using the code
+`2022_CSEO_MergingCSVFilesCode_SpeciesReviewData`.
+- Adjusted the dive and transect numbers for dive 17, 18, 15, and 23
+
+**Data Import**
+
+```{r import-2022-cseo}
 CSEO_2022_ALLdata <- read.csv("outputs/SPECIES_CSEO_2022.csv") %>% 
   # need to fix the dive and transect numbers for dive 17 - renamed from 17b to 17
   mutate(Dive = case_when(
@@ -209,22 +391,45 @@ CSEO_2022_ALLdata <- read.csv("outputs/SPECIES_CSEO_2022.csv") %>%
   mutate(Transect.Number = case_when(
     Filename == "SL_2022_CSEO_Dive_22_15-14-56.000.avi" ~ 23,TRUE ~ as.numeric(Transect.Number)))
 
-unique(CSEO_2022_ALLdata$Dive)
-CSEO_2022_ALLdata %>% summarise(distinct_dives = n_distinct(Dive))
-CSEO_2022_ALLdata %>% summarise(distinct_trans = n_distinct(Transect.Number))
-
 #This output was sent to Ivy for species distribution model
 write.csv(CSEO_2022_ALLdata,"outputs/SPECIES_CSEO_2022_summary_time_corrected.csv")
+```
 
-# File path: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW\SPECIES_NSEO_2022_summary
+**Data Summary**
 
+## 2022 — NSEO
+`File path: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW\SPECIES_NSEO_2022_summary`
+
+**Data Issues**
+
+None.
+
+**Data Import**
+```{r import-2022-nseo}
 NSEO_2022_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2022_NSEO/species_NSEO_2022.csv")
+```
 
-# 2023 -----------------------------------------------------------------------
-# File path: M:\ROVSurvey\2023\EYKT\Final files for Analysis\SPECIES_EYKT_2023_summary
+**Data Summary**
+
+## 2023 — EYKT
+
+`File path: M:\ROVSurvey\2023\EYKT\Final files for Analysis\SPECIES_EYKT_2023_summary`
+
+**Data Issues**
+
+None.
+
+**Data Import**
+
+```{r import-2023}
 EYKT_2023_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2023_EYKT/species_EYKT_2023.csv")
+```
 
-# Combine Dataframes ---------------------------------------------------------
+**Data Summary**
+
+# Combine Dataframes
+
+```{r combine-list}
 all_dfs <- list(
   CSEO_2012 = CSEO_2012_ALLdata,
   SSEO_2013 = SSEO_2013_ALLdata,
@@ -240,10 +445,12 @@ all_dfs <- list(
   CSEO_2022 = CSEO_2022_ALLdata,
   NSEO_2022 = NSEO_2022_ALLdata, 
   EYKT_2023 = EYKT_2023_ALLdata) 
+```
 
-# Now we need to combine the dataframes into one massive dataframe. This is going'
-# to require a lot of data manipulation.
+Now we need to combine the dataframes into one massive dataframe. This is
+going to require a lot of data manipulation.
 
+```{r clean-names}
 all_dfs <- lapply(all_dfs, clean_names)
 
 # Here I am going to remove the columns that start with X or "user"- these are 
@@ -255,14 +462,21 @@ all_dfs <- lapply(all_dfs, function(df) {
 list2env(all_dfs, envir = .GlobalEnv)
 
 lapply(all_dfs, names)
+```
 
-# R programmers everywhere are going to cry at what I am about to do. I am 
-# finding a lot of variation in column names and also data types, and can't figure out
-# how to make big changes to all of them at once, so I am going to change each 
-# data frame one by one. Sowwy.
+# Standardize Columns for Combining
 
-# CSEO 2012 --------------------------------------------------------------------
+R programmers everywhere are going to cry at what I am about to do. I am
+finding a lot of variation in column names and also data types, and can't
+figure out how to make big changes to all of them at once, so I am going to
+change each dataframe one by one. Sowwy.
 
+`EYKT_2023` is used as the running comparison template throughout this
+section.
+
+## 2012 — CSEO
+
+```{r standardize-2012}
 cols_cseo_2012 <- names(CSEO_2012)
 cols_eykt_2023 <- names(EYKT_2023)
 
@@ -302,9 +516,11 @@ EYKT_2023 <- EYKT_2023 %>%
          period_time_mins = NA,
          rms_2_mm = NA,
          time_akdt = NA) #time_akdt is in 2015 EYKT so adding it here )
+```
 
-# SSEO 2013 --------------------------------------------------------------------
+## 2013 — SSEO
 
+```{r standardize-2013}
 cols_sseo_2013 <- names(SSEO_2013)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -329,9 +545,11 @@ SSEO_2013 <- SSEO_2013 %>%
          dive = dive_no,
          transect_number = transect_no,
          event_time_hh_mm_ss = event_time)
+```
 
-# EYKT 2015 --------------------------------------------------------------------
+## 2015 — EYKT
 
+```{r standardize-2015}
 cols_eykt_2015 <- names(EYKT_2015)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -356,9 +574,11 @@ EYKT_2015 <- EYKT_2015 %>%
   rename(dive = dive_no,
          transect_number = transect_no) %>% 
   filter(!is.na(year))
+```
 
-# CSEO 2016 --------------------------------------------------------------------
+## 2016 — CSEO
 
+```{r standardize-2016-cseo}
 cols_cseo_2016 <- names(CSEO_2016)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -382,9 +602,11 @@ CSEO_2016 <- CSEO_2016 %>%
          rms_2_mm = NA) %>%  
   rename(dive = dive_no,
          transect_number = transect_no)
+```
 
-# NSEO 2016 --------------------------------------------------------------------
+## 2016 — NSEO
 
+```{r standardize-2016-nseo}
 cols_nseo_2016 <- names(NSEO_2016)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -410,9 +632,11 @@ NSEO_2016 <- NSEO_2016 %>%
   rename(dive = dive_no,
          transect_number = transect_no) %>% 
   filter(!is.na(year)) #there is a rosethorn rf with no location data
+```
 
-# EYKT 2017 --------------------------------------------------------------------
+## 2017 — EYKT
 
+```{r standardize-2017}
 cols_eykt_2017 <- names(EYKT_2017)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -440,9 +664,11 @@ EYKT_2017 <- EYKT_2017 %>%
          transect_number = transect_no) %>% 
   mutate(dive_type = case_when(
     filename == "SL_2017EYKT_Dive_16_11-05-02.000.avi" ~ "Exploratory", TRUE ~ as.character(dive_type)))
+```
 
-# NSEO 2018 --------------------------------------------------------------------
+## 2018 — NSEO
 
+```{r standardize-2018-nseo}
 cols_nseo_2018 <- names(NSEO_2018)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -469,9 +695,11 @@ NSEO_2018 <- NSEO_2018 %>%
          time_akdt =  NA,
          event_time_hh_mm_ss = NA,
          comment_1 = NA)
+```
 
-# CSEO 2018 --------------------------------------------------------------------
+## 2018 — CSEO
 
+```{r standardize-2018-cseo}
 cols_cseo_2018 <- names(CSEO_2018)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -501,9 +729,11 @@ CSEO_2018 <- CSEO_2018 %>%
   rename(op_code = opcode,
          tape_reader = tapereader,
          dive = dive_no)
+```
 
-# SSEO 2018 --------------------------------------------------------------------
+## 2018 — SSEO
 
+```{r standardize-2018-sseo}
 cols_sseo_2018 <- names(SSEO_2018)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -530,9 +760,11 @@ SSEO_2018 <- SSEO_2018 %>%
   rename(op_code = opcode,
          tape_reader = tapereader,
          dive = dive_no)
+```
 
-# EYKT 2019 --------------------------------------------------------------------
+## 2019 — EYKT
 
+```{r standardize-2019}
 cols_eykt_2019 <- names(EYKT_2019)
 cols_eykt_2023 <- names(EYKT_2023) #should include the changes from the above step
 
@@ -556,11 +788,16 @@ EYKT_2019 <- EYKT_2019 %>%
          period_time_hms = NA,
          rms_2_mm = NA,
          time_akdt =  NA)
+```
 
-# SSEO 2020, CSEO and NSEO 2022 are the same as EYKT 2023, so don't need the other checks
-# adding the columns that I needed to add to EYKT 2023
+## 2020 — SSEO, 2022 — CSEO & NSEO
 
-# SSEO 2020 --------------------------------------------------------------------
+SSEO 2020, CSEO 2022, and NSEO 2022 already match the same column structure
+as EYKT 2023, so they don't need the full comparison check used above —
+only the columns that were added to EYKT 2023 need to be added here.
+
+```{r standardize-2020-2022}
+# SSEO 2020 
 SSEO_2020 <- SSEO_2020 %>% 
   mutate(mgmt_area = "SSEO",
        time_mins = NA,
@@ -568,7 +805,7 @@ SSEO_2020 <- SSEO_2020 %>%
        rms_2_mm = NA,
        time_akdt = NA)
 
-# CSEO 2022 --------------------------------------------------------------------
+# CSEO 2022 
 CSEO_2022 <- CSEO_2022 %>% 
   mutate(mgmt_area = "CSEO",
          time_mins = NA,
@@ -578,14 +815,18 @@ CSEO_2022 <- CSEO_2022 %>%
 
 unique(CSEO_2022$dive)
 
-# NSEO 2022 --------------------------------------------------------------------
+# NSEO 2022 
 NSEO_2022 <- NSEO_2022 %>% 
   mutate(mgmt_area = "NSEO",
          time_mins = NA,
          period_time_mins = NA,
          rms_2_mm = NA,
          time_akdt = NA)
+```
 
+## Recombine Standardized Dataframes
+
+```{r recombine-edited}
 #recombine them in this list
 all_dfs_edited <- list(
   CSEO_2012,
@@ -602,9 +843,15 @@ all_dfs_edited <- list(
   CSEO_2022,
   NSEO_2022, 
   EYKT_2023) 
+```
 
-# Final standardizaiton --------------------------------------------------------
+# Final Standardization
 
+`EYKT_2023` is used as the final template — all dataframes are aligned to
+its column set and coerced to character to prevent type conflicts before
+binding.
+
+```{r final-standardization}
 # Set EYKT_2023 as the template
 template_cols <- names(EYKT_2023)
 
@@ -626,9 +873,11 @@ all_dfs_aligned <- lapply(all_dfs_edited, function(df) {
 
 # COMBINE THE DATA
 ROV_species_review_all_years <- bind_rows(all_dfs_aligned)
+```
 
-#Cleaning the data -------------------------------------------------------------
+# Cleaning the Line Transect Data
 
+```{r clean-data}
 ROV_species_review_all_years <- ROV_species_review_all_years %>% 
   mutate(year = as.character(year),
        dive_no = as.character(dive),
@@ -665,8 +914,11 @@ ROV_species_review_all_years <- ROV_species_review_all_years %>%
   mutate(dive_trans = paste(dive,transect_number, sep = "_"))
 
 write.csv(ROV_species_review_all_years,"outputs/ROV_species_review_all_years.csv")
+```
 
-# Data Exploration  ------------------------------------------------------------
+# Data Exploration
+
+```{r explore-uniques}
 names(ROV_species_review_all_years)
 
 unique(ROV_species_review_all_years$year)
@@ -679,7 +931,9 @@ unique(ROV_species_review_all_years$code)
 unique(ROV_species_review_all_years$stage)
 unique(ROV_species_review_all_years$activity)
 unique(ROV_species_review_all_years$dive_type)
+```
 
+```{r explore-summary-tables}
 transects_per_area_per_year <- ROV_species_review_all_years %>%
   group_by(mgmt_area,year) %>%
   filter(!is.na(year)) %>% 
@@ -698,25 +952,26 @@ summary_table <- ROV_species_review_all_years %>%
 
 summary_table <- summary_table %>%
   left_join(transects_per_area_per_year, by = c("mgmt_area", "year"))
+```
 
-# The number of yelloweye does not match the number reported in the SAFE reports
-# This could be a variety of things. In earlier years with the ROV, they were excluding
-# fish based on size but I need to check the raw files and check things!
+The number of yelloweye does not match the number reported in the SAFE
+reports. This could be a variety of things. In earlier years with the ROV,
+fish were excluded based on size, but the raw files need to be checked.
 
-# Data Exploration  ---------------------------------------------------------
-#Since the adoption of the ROV in 2012, an average of 78% of all yelloweye 
-#rockfish from the surveys moved minimally or slowly. Of those slow-moving 
-#specimens, approximately 70% did not display directional movements (i.e., 
-#they were milling or resting on the bottom). 
+# Activity Analysis
 
+Since the adoption of the ROV in 2012, an average of 78% of all yelloweye
+rockfish from the surveys moved minimally or slowly. Of those slow-moving
+specimens, approximately 70% did not display directional movements (i.e.,
+they were milling or resting on the bottom).
 
-#The above text is from the draft of the ROP. I am assuming Kelli or Phil
-#but I don't know where this analysis was completed. Below I replicated this
-#analysis and updated the statement above in the ROP, which should be published
-#in 2026
+The above text is from the draft of the ROP. I am assuming Kelli or Phil
+completed it, but I don't know where this analysis was done. Below I
+replicated this analysis and updated the statement above in the ROP, which
+should be published in 2026.
 
-
-activity<- ROV_species_review_all_years %>%
+```{r activity-overall}
+activity <- ROV_species_review_all_years %>%
   filter(genus=="yelloweye",
          !activity %in% c(""," "),
          !is.na(activity)) %>%  
@@ -753,57 +1008,5 @@ ggplot(activity, aes(x = reorder(activity_new, -percentage), y = percentage, fil
     fill = "Activity") +
   theme_minimal(base_size = 14) +
   theme(legend.position = "none")
-
-
-#Here I am asking the question - what is the percentage breakdown of the
-# inactive fish? what activitiy are they doing?
-inactive <- ROV_species_review_all_years %>%
-  filter(genus == "yelloweye",
-         !activity %in% c("", " "),
-         !is.na(activity)) %>%
-  mutate(
-    activity_new = case_when(
-      activity %in% c(
-        "Fish milling/hovering",
-        "Fish resting on bottom",
-        "Fish moving slowly into frame",
-        "Fish moving slowly out of frame",
-        "Fish milling") ~ "Not Moving or Minimal Movement",
-      activity %in% c(
-        "Fish actively swimming in frame",
-        "Fish chasing other fish",
-        "Fish moving quickly into frame",
-        "Fish seeking cover",
-        "Fish being chased",
-        "Fish moving quickly out of frame",
-        "Fish actively swimming within frame",
-        "Feeding",
-        "Passing") ~ "Moving",
-      activity == "Attracted" ~ "Attracted", TRUE ~ activity),
-    inactive = case_when(activity %in% c(
-        "Fish milling/hovering",
-        "Fish resting on bottom",
-        "Fish milling") ~ "No Movement",TRUE ~ "Moving")) %>%
-  group_by(inactive) %>% 
-  summarize(count = n()) %>% 
-  mutate(percentage = (count / sum(count)) * 100) %>%
-  arrange(desc(percentage))
-
-
-
-
-# Breakdown of minimal movement behaviors
-ggplot(inactive, aes(x = reorder(activity_new, -percentage), y = percentage, fill = activity_new)) +
-  geom_bar(stat = "identity", width = 0.7) +
-  geom_text(aes(label = paste0(round(percentage, 1), "%")), 
-            vjust = -0.5, size = 4) +
-  labs(title = "Behavior Breakdown: Not Moving or Minimal Movement",
-    x = "Specific Inactive Behaviors",
-    y = "Percentage within Minimal Movement Group",
-    fill = "Behavior") +
-  theme_minimal(base_size = 14) +
-  theme(legend.position = "none") +
-  coord_flip()  # Flip for readability
-
-
+```
 
