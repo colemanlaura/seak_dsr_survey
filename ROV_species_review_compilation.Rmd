@@ -11,6 +11,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+library(knitr)
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 ```
 
@@ -29,13 +30,22 @@ Each year will have the file path of where I found the raw data. A data summary
 from previous staff when available. The full summaries are saved in the "reports" folder.
 And finally, a section noting any issue with the data.
 
-> **Note:** This code should not be used to get the number of yelloweye
-> rockfish (YE) for the stock assessment survey yet. I still need to 
-> determine if fish seen in areas marked as "bad" were used in the final 
-> assessment. Also, each year has a different criteria for including
-> or excluding fish. As of 7/16/26 this is not yet finalized. Look for flags
-> "Need to correct" for data that needs to be corrected and "Need to add"
-> for data missing from this code.
+> **Note:** This code should not yet be used to determine the number of 
+> yelloweye rockfish (YE) for the stock assessment survey. I still need 
+> to determine whether fish observed in areas marked "bad" during the QC video review
+> were used in the final assessment. Additionally, the criteria for including or 
+> excluding fish in the stock assessment changed every year (see below), 
+> and as of 7/16/26 this determination is not yet finalized. Look for 
+> `Need to correct` flags for data that needs correction, and `Need to add` 
+> flags for data missing from this code.
+
+**Year-specific criteria for including fish in the stock assessment:**
+
+- **2012:** First year using a >350 mm cutoff; fish without length measurements were excluded.
+- **2013:** Cutoff adjusted to ≥ 340  mm; began including subadults without length measurements.
+- **2015:** Kept the ≥ 340  mm cutoff for the SAFE assessment, but also included subadults with no length measurement and all 60 schooling yelloweye observed on dive 11 before video timestamp 23:09:21.
+- **2016 - NSEO:** Included only valid adult and subadult yelloweye rockfish ≥ 340  mm, excluding all subadults below that length as well as subadults with no length measurement since NSEO's average subadult length, 309 mm, fell below the cutoff.
+- **2016 - CSEO:** Kept all valid adults and subadults ≥ 340  mm and with no length information
 
 ## ROV Surveys for DSR Stock Assessment
 
@@ -76,7 +86,51 @@ source('scripts/helper.r')
 
 **Data Summary**
 
-The 2012 CSEO ROV survey took place 8/18/2012-8/23/2012. **46 valid transects** were completed. 293 yelloweye rockfish were oberved on the survey but according to the distance analysis write up (see reports folder), **118 yelloweye rockfish** were used in the stock assessment analysis, consisting of 112 adults and 6 subadults greater than 350 mm. See the distance analysis write up for more detailed information on density calculations.
+According to the dive log (2012 survey folder, groundfish drive), 49 transects were attempted across 32 unique dives, with some dives including more than one transect. The total number of yelloweye observed comes from summary_table, generated at the end of this code once all species review data was combined. The remaining data — number of valid transects, total number of yelloweye in the stock assessment, etc. — come from either the published SAFE report or the unpublished distance-sampling analysis write-up in the "reports" folder of this R project. Meters surveyed also comes from the SAFE report but cannot be QC'd with this code, and should be revisited once the navigation and QC video review data have been compiled.
+
+```{r survey_summary_cseo_2012, results='asis', echo=FALSE}
+
+summary_table <- data.frame(
+  Metric = c(
+    "**Area**",
+    "**Year**",
+    "**Survey Dates**",
+    "**Number of Transects Attempted**",
+    "**Number of Valid Transects for Stock Assessment**",
+    "**Total Number of Yelloweye Observed**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "&nbsp;&nbsp;&nbsp;Juvenile YE",
+    "**Total Number of Yelloweye in Stock Assessment**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "**Meters Surveyed**"
+  ),
+  Value = c(
+    "CSEO",
+    "2012",
+    "8/18/2012 - 8/23/2012",
+    "49",
+    "46",
+    "293",
+    "210",
+    "26",
+    "57",
+    "118",
+    "112",
+    "6",
+    "38,590"
+  )
+)
+
+kable(
+  summary_table,
+  escape = FALSE,
+  col.names = c("", ""),
+  align = c("l", "r")
+)
+```
+
 
 **Data Issues**
 
@@ -96,6 +150,8 @@ The 2012 CSEO ROV survey took place 8/18/2012-8/23/2012. **46 valid transects** 
 
 - Note: In 2012, the dive number was assigned before the survey and does not reflect the order that the dives were completed, which is what we do now. There are 24 unique dive numbers but for each dive one or two transects were completed. The transect numbers are either 1 or 2 (there is one dive with the transect numbers 2 and 3). I believe that this numbering system for the transect number is a relic from the submersible survey when they had to do two transects per dive. There are 46 unique transects were completed. I got this count by combining the dive number and transect number and counting the unique values.
 
+- The reported meters surveyed (38,590 m) is worth a closer look. If each of the 46 transects were 1,000 m, we would expect a total closer to 46,000 m. However, "2012 DSR ROV SURVEY PROTOCOL FINAL" (2012 survey folder, groundfish drive) notes that the ROV followed the transect lines from the 2007 submersible survey, which varied between 500–1,000 m. Averaging 38,590 m over 46 transects gives approximately 839 m per transect, which falls within that expected range but I think it's worth it to double check!
+
 **Data Import**
 
 `Filepath: M:\ROVSurvey\2012\CSEO ROV Survey\FishVideoReview_Feb2_2013ROV lengths_kg.csv`
@@ -108,29 +164,67 @@ CSEO_2012_ALLdata <- read_csv("data/SPECIES_REVIEW_DATA/2012_CSEO/species_CSEO_2
 
 **Data Summary**
 
-The 2013 SSEO ROV survey took place 8/19/2013-8/27/2013. **31 transects** were completed. The total number of yelloweye rockfish observed was XXX but only **118 yelloweye rockfish** were used in the stock assessment analysis. This included 93 adults and 25 subadults greater than 340 mm. The inclusion criteria for subadaults was decreased from 350 mm to 340 mm. Subadults without length measurements were also included because measured subadults averaged 465 mm, making it likely they exceeded the threshold.  See full distance analysis write up in the "reports" folder.
+According to the dive log (2013 survey folder, groundfish drive), 35 transects were attempted. There was one experimental dive over the Cape Addington volcano to see what the crater rim looked like and several other dives were aborted due to camera issues or current. The total number of yelloweye observed comes from summary_table, generated at the end of this code once all species review data was combined. The remaining data — number of valid transects, total number of yelloweye in the stock assessment, etc. — come from either the published SAFE report or the unpublished distance-sampling analysis write-up in the "reports" folder of this R project. Meters surveyed also comes from the SAFE report but cannot be QC'd with this code, and should be revisited once the navigation and QC video review data have been compiled.
+
+```{r survey_summary_2013_sseo, results='asis', echo=FALSE}
+
+summary_table <- data.frame(
+  Metric = c(
+    "**Area**",
+    "**Year**",
+    "**Survey Dates**",
+    "**Number of Transects Attempted**",
+    "**Number of Valid Transects for Stock Assessment**",
+    "**Total Number of Yelloweye Observed**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "&nbsp;&nbsp;&nbsp;Juvenile YE",
+    "**Total Number of Yelloweye in Stock Assessment**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "**Meters Surveyed**"
+  ),
+  Value = c(
+    "SSEO",
+    "2013",
+    "8/19/2013-8/27/2013",
+    "35",
+    "31",
+    "187",
+    "133",
+    "40",
+    "14",
+    "118",
+    "93",
+    "25",
+    "30,439"
+  )
+)
+
+kable(
+  summary_table,
+  escape = FALSE,
+  col.names = c("", ""),
+  align = c("l", "r")
+)
+```
 
 **Data Issues** 
 
-- Like 2012, the dive number is assigned before the survey, so it is not relfective of the order that the dives were performed.
-- The "species_SSEO_2013" file is incomplete. It's important to note that the dive number 
-is assigned before hand like we do the transect number now. This file has dive numbers 1,3,4,5,6,11,15,17,19,21,22,25,27,29,31,33,39,43,48,51,52,57,59.
-But this is only 23 transects and the SAFE report has 31.
+- Like 2012, it's important to note that the dive number is assigned before the survey, so it is not reflective of the order that the dives were performed. The transect number is equal to 1 for all dives because only one transect was done per dive.
 
-In the ROVSurvey/2013/Fish Review/Textfiles - there are Event Measure files for
+- I could not find all of the original event measure files to remake the species review file. I did find a file called, "species_SSEO_2013" that was created in 2021, probably by Kellii Wood or Phil Joy in 2021. However, the "species_SSEO_2013" file is incomplete. This file has dive numbers 1,3-6,11,15,17,19,21,22,25,27,29,31,33,39,43,48,51,52,57,59. But this is only 23 transects and the SAFE report has 31. On the groundifsh drive ROVSurvey/2013/Fish Review/Textfiles - there are Event Measure files for
 dives 4,9,11,13,14,25,41,45,47,49,52,56 - which includes the missing dives. But I did not find documentation 
 on why these dives were not included in the "species_SSEO_2013" file. I definitely want to revisit this and make sure
 that those dives were included in the assessment in 2013.
 
-When I summarize the 2013 data at the end of this code, the total adult and subadult yelloweye comes out
-to 269 Is this a coding issue or a data issue? 
+- I have not yet checked to see if I can recreate the yelloweye included in the stock assessment based on the criteria listed in the distance analysis report. 
 
 **Data Import**
 
 `Filepath: M:\ROVSurvey\2013\species_SSEO_2013`
 
-This was created in 2021, so I am assuming it was created by Phil or Kelli
-but there are 8 dives missing according to the dive log.
+This was created in 2021, so I am assuming it was created by Phil or Kelli but there are 8 dives missing according to the dive log.
 
 ```{r import-2013}
 SSEO_2013_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2013_SSEO/species_SSEO_2013.csv") %>% 
@@ -146,64 +240,199 @@ SSEO_2013_ALLdata <- rbind(SSEO_2013_ALLdata,SSEO_2013_missing_data)
 write.csv(SSEO_2013_ALLdata,"outputs/species_review/species_SSEO_2013.csv")
 ```
 
+## 2014 — CANCELED
 
+The 2014 survey was canceled due to weather. Staff waited in Yakutat for a week for the weather to improve and ran out of ship time to do the survey. While waiting two transects were completd in Yakutat Bay and temperature data was collected. This data is not included here but can be found on the groundfish drive.
 
 ## 2015 — EYKT
 
-I combined the raw files for this survey — see code:
-`2015_EYKT_MergingCSVFilesCode_SpeciesReviewData`.
+**Data Summary**
+
+According to the dive log (2015 survey folder, groundfish drive), 34 transects were attempted. One dive was aborted and restarted because there was no video storage left. The total number of yelloweye observed comes from summary_table, generated at the end of this code once all species review data was combined. The remaining data — number of valid transects, total number of yelloweye in the stock assessment, etc. — come from either the published SAFE report or the unpublished distance-sampling analysis write-up in the "reports" folder of this R project. Meters surveyed also comes from the SAFE report but cannot be QC'd with this code, and should be revisited once the navigation and QC video review data have been compiled.
+
+```{r survey_summary_2015_eykt, results='asis', echo=FALSE}
+
+summary_table <- data.frame(
+  Metric = c(
+    "**Area**",
+    "**Year**",
+    "**Survey Dates**",
+    "**Number of Transects Attempted**",
+    "**Number of Valid Transects for Stock Assessment**",
+    "**Total Number of Yelloweye Observed**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "&nbsp;&nbsp;&nbsp;Juvenile YE",
+    "**Total Number of Yelloweye in Stock Assessment**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "**Meters Surveyed**"
+  ),
+  Value = c(
+    "EYKT",
+    "2015",
+    "5/13/2015-5/18/2015",
+    "34",
+    "33",
+    "528",
+    "403",
+    "26",
+    "99",
+    "259",
+    "244",
+    "15",
+    "22,896"
+  )
+)
+
+kable(
+  summary_table,
+  escape = FALSE,
+  col.names = c("", ""),
+  align = c("l", "r")
+)
+```
 
 **Data Issues**
 
-None.
+- The meters surveyed reported in the SAFE is 22,896 m but this seems low since 33 ~1km transects were completed.There are some notes in the ROV data collection files of shorter transects to avoid cliffs, but it would be good to double check this number.
+
+- The analysis used in the SAFE report included all valid adult and subadult yelloweye rockfish ≥ 340  mm but I'd like to cross reference the criteria listed with the number of yelloweye included in the assessment.
 
 **Data Import**
+I combined the raw files for this survey — see code: `2015_EYKT_MergingCSVFilesCode_SpeciesReviewData`.
+
 ```{r import-2015}
 EYKT_2015_ALLdata <- read.csv("outputs/species_review/SPECIES_EYKT_2015.csv") 
 ```
 
-**Data Summary**
-
-The 2015 EYKT ROV survey took place 5/13/2015-5/18/2015.There were no dives on the 17th and 18th. The original plan was to sample EYKT then sample NSEO but the weather deterorated. 34 transects were completed but only **33 transects** were valid and used for analysis. The total number of yelloweye rockfish observed was XXX but only **259 yelloweye rockfish** were used in the stock assessment analysis. This included 244 adults and 15 subadults > 340 mm. See full distance analysis write up in the "reports" folder.
-
-2012: First year using the >350 mm cutoff; fish without lengths were excluded.
-2013: Adjusted cutoff to >340 mm cutoff, but began including subadults without length measurements.
-2015: Kept the >340 mm cutoff for the SAFE assessment, but also analyzed all adults and subadults in anticipation of a future age-structured assessment with selectivity.
-
 ## 2016 — NSEO
 
-`File path: M:\ROVSurvey\2016`
+**Data Summary**
+
+According to the rov data collection file (2016 survey folder, groundfish drive), 40 transects were attempted. The total number of yelloweye observed comes from summary_table, generated at the end of this code once all species review data was combined. The remaining data — number of valid transects, total number of yelloweye in the stock assessment, etc. — come from either the published SAFE report or the unpublished distance-sampling analysis write-up in the "reports" folder of this R project. Meters surveyed also comes from the SAFE report but cannot be QC'd with this code, and should be revisited once the navigation and QC video review data have been compiled.
+
+```{r survey_summary_2016_nseo, results='asis', echo=FALSE}
+
+summary_table <- data.frame(
+  Metric = c(
+    "**Area**",
+    "**Year**",
+    "**Survey Dates**",
+    "**Number of Transects Attempted**",
+    "**Number of Valid Transects for Stock Assessment**",
+    "**Total Number of Yelloweye Observed**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "&nbsp;&nbsp;&nbsp;Juvenile YE",
+    "**Total Number of Yelloweye in Stock Assessment**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "**Meters Surveyed**"
+  ),
+  Value = c(
+    "NSEO",
+    "2016",
+    "6/9/2016-6/15/2016",
+    "40",
+    "36",
+    "400",
+    "176",
+    "87",
+    "137",
+    "125",
+    "119",
+    "6",
+    "34,435"
+  )
+)
+
+kable(
+  summary_table,
+  escape = FALSE,
+  col.names = c("", ""),
+  align = c("l", "r")
+)
+```
 
 **Data Issues**
 
-None.
+- The distance analysis report (see reports folder in the R project) says only valid adult and subadult yelloweye rockfish ≥340 mm, excluding all subadults below that length as well as subadults with no length measurement since NSEO's average subadult length, 309 mm, fell below the cutoff but I'd like to cross reference the criteria listed with the number of yelloweye included in the assessment.
 
 **Data Import**
+
+`File path: M:\ROVSurvey\2016`
+
 ```{r import-2016a}
 NSEO_2016_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2016_NSEO/species_NSEO_2016.csv")
 ```
 
-**Data Summary**
-
-The 2016 NSEO ROV survey took place 6/9/2016-6/15/2016.**36 transects** were completed. 170 yelloweye rockfish were observed, consisting of 119 adults and 51 subadults. For the current stock assessment, only **125 yelloweye rockfish** (119 adults and 6 subadults ≥340 mm) were included, while the age-structured analysis included all adults and subadults. See full distance analysis write up in the "reports" folder.
-
 ## 2016 — CSEO
-
-`File path: M:\ROVSurvey\2016`
-
-**Data Issues**
-
-None.
-
-**Data Import**
-```{r import-2016}
-CSEO_2016_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2016_CSEO/species_CSEO_2016.csv")
-```
 
 **Data Summary**
 
 The 2016 CSEO ROV survey took place 8/17/2016-8/24/2016.The original plan was to sample EYKT then sample NSEO but the weather deterorated. **32 transects** were completed. 164 yelloweye rockfish were observed, consisting of 151 adults and 13 subadults. Three density analyses were conducted: an age-structured model including all adults and subadults, a SAFE analysis including adults plus subadults ≥340 mm and those without length measurements, and a second SAFE analysis excluding subadults without length data. The recommended SAFE analysis included subadults without length measurements because the average measured subadult length (347 mm; 377 mm before filtering measurement errors) exceeded the 340-mm threshold used in the assessment. This included **160 yelloweye rockfish**, consisting of 151 adults, 6 subadults >= 340mm and 3 subadults with no length). See full distance analysis write up in the "reports" folder.
 
+
+**Data Summary**
+
+I can't find any of the ROV data collection or dive logs for the August CSEO survey. There are a few places to look but I won't be able to verify the total number of transects completed. I did find a file (`File path: M:\ROVSurvey\2016\2016_ROV_CSEO_Dives') that has some data but it's hard to say if all of these dives were completed. The remaining data — number of valid transects, total number of yelloweye in the stock assessment, etc. — come from either the published SAFE report or the unpublished distance-sampling analysis write-up in the "reports" folder of this R project. Meters surveyed also comes from the SAFE report but cannot be QC'd with this code, and should be revisited once the navigation and QC video review data have been compiled.
+
+```{r survey_summary_2016_nseo, results='asis', echo=FALSE}
+
+summary_table <- data.frame(
+  Metric = c(
+    "**Area**",
+    "**Year**",
+    "**Survey Dates**",
+    "**Number of Transects Attempted**",
+    "**Number of Valid Transects for Stock Assessment**",
+    "**Total Number of Yelloweye Observed**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "&nbsp;&nbsp;&nbsp;Juvenile YE",
+    "**Total Number of Yelloweye in Stock Assessment**",
+    "&nbsp;&nbsp;&nbsp;Adult YE",
+    "&nbsp;&nbsp;&nbsp;Subadult YE",
+    "**Meters Surveyed**"
+  ),
+  Value = c(
+    "CSEO",
+    "2016",
+    "8/17/2016-8/24/2016",
+    "xx",
+    "32",
+    "304",
+    "246",
+    "23",
+    "35",
+    "160",
+    "151",
+    "9",
+    "30,726"
+  )
+)
+
+kable(
+  summary_table,
+  escape = FALSE,
+  col.names = c("", ""),
+  align = c("l", "r")
+)
+```
+
+
+**Data Issues**
+
+- The distance analysis report (see reports folder in the R project) says all valid adults and subadults ≥ 340  mm and with no length information but I'd like to cross reference the criteria listed with the number of yelloweye included in the assessment.
+
+**Data Import**
+
+`File path: M:\ROVSurvey\2016`
+
+```{r import-2016}
+CSEO_2016_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2016_CSEO/species_CSEO_2016.csv")
+```
 
 ## 2017 — EYKT
 
@@ -220,7 +449,7 @@ EYKT_2017_ALLdata <- read.csv("data/SPECIES_REVIEW_DATA/2017_EYKT/species_EYKT_2
 
 **Data Summary**
 
-The 2017 EYKT ROV survey took place 5/8/2017-5/19/2017. The 2017 EYKT ROV survey included **35 valid line transects** and **134 yelloweye rockfish** were included in the SAFE stock assessment. This included 129 adults and 5 subadults ≥340 mm. A total of 146 yelloweye rockfish (129 adults and 17 subadults) were observed during the survey, but 12 subadults (4 <340 mm and 8 without length measurements) were excluded from the SAFE analysis. See full distance analysis write up in the "reports" folder.
+The 2017 EYKT ROV survey took place 5/8/2017-5/19/2017. The 2017 EYKT ROV survey included **35 valid line transects** and **134 yelloweye rockfish** were included in the SAFE stock assessment. This included 129 adults and 5 subadults ≥ 340  mm. A total of 146 yelloweye rockfish (129 adults and 17 subadults) were observed during the survey, but 12 subadults (4 < 340 mm and 8 without length measurements) were excluded from the SAFE analysis. See full distance analysis write up in the "reports" folder.
 
 
 ## 2018 — CSEO
@@ -944,7 +1173,8 @@ summary_table <- ROV_species_review_all_years %>%
   filter(!is.na(year), species == 145) %>%
   group_by(mgmt_area, year) %>%
   summarise(
-    n_ad_su_yelloweye = sum(stage %in% c("AD", "SU")),
+    n_ad_yelloweye = sum(stage == "AD"),
+    n_su_yelloweye = sum(stage == "SU"),
     n_juv_yelloweye   = sum(stage == "JV"),
     .groups = "drop"
   ) %>%

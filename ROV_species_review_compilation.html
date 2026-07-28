@@ -2771,14 +2771,32 @@ data summary from previous staff when available. The full summaries are
 saved in the “reports” folder. And finally, a section noting any issue
 with the data.</p>
 <blockquote>
-<p><strong>Note:</strong> This code should not be used to get the number
-of yelloweye rockfish (YE) for the stock assessment survey yet. I still
-need to determine if fish seen in areas marked as “bad” were used in the
-final assessment. Also, each year has a different criteria for including
-or excluding fish. As of 7/16/26 this is not yet finalized. Look for
-flags “Need to correct” for data that needs to be corrected and “Need to
-add” for data missing from this code.</p>
+<p><strong>Note:</strong> This code should not yet be used to determine
+the number of yelloweye rockfish (YE) for the stock assessment survey. I
+still need to determine whether fish observed in areas marked “bad”
+during the QC video review were used in the final assessment.
+Additionally, the criteria for including or excluding fish in the stock
+assessment changed every year (see below), and as of 7/16/26 this
+determination is not yet finalized. Look for
+<code>Need to correct</code> flags for data that needs correction, and
+<code>Need to add</code> flags for data missing from this code.</p>
 </blockquote>
+<p><strong>Year-specific criteria for including fish in the stock
+assessment:</strong></p>
+<ul>
+<li><strong>2012:</strong> First year using a &gt;350 mm cutoff; fish
+without length measurements were excluded.</li>
+<li><strong>2013:</strong> Cutoff adjusted to &gt;340 mm; began
+including subadults without length measurements.</li>
+<li><strong>2015:</strong> Kept the &gt;340 mm cutoff for the SAFE
+assessment, but also included subadults with no length measurement and
+all 60 schooling yelloweye observed on dive 11 before video timestamp
+23:09:21.</li>
+<li><strong>2016:</strong> Included only valid adult and subadult
+yelloweye rockfish &gt;340 mm, excluding all subadults below that length
+as well as subadults with no length measurement since NSEO’s average
+subadult length, 309 mm, fell below the cutoff.</li>
+</ul>
 <div id="rov-surveys-for-dsr-stock-assessment" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> ROV Surveys for DSR
 Stock Assessment</h2>
@@ -2860,17 +2878,85 @@ pilot Mike Byerly.</p>
 <div id="cseo" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> 2012 — CSEO</h2>
 <p><strong>Data Summary</strong></p>
-<p>The 2012 CSEO ROV survey took place 8/18/2012-8/23/2012. <strong>46
-valid transects</strong> were completed. 293 yelloweye rockfish were
-oberved on the survey but according to the distance analysis write up
-(see reports folder), <strong>118 yelloweye rockfish</strong> were used
-in the stock assessment analysis, consisting of 112 adults and 6
-subadults greater than 350 mm. See the distance analysis write up for
-more detailed information on density calculations.</p>
+<p>According to the dive log (2012 survey folder, groundfish drive), 49
+transects were attempted across 32 unique dives, with some dives
+including more than one transect. The total number of yelloweye observed
+comes from summary_table, generated at the end of this code once all
+species review data was combined. The remaining data — number of valid
+transects, total number of yelloweye in the stock assessment, etc. —
+come from either the published SAFE report or the unpublished
+distance-sampling analysis write-up in the “reports” folder of this R
+project. Meters surveyed also comes from the SAFE report but cannot be
+QC’d with this code, and should be revisited once the navigation and QC
+video review data have been compiled.</p>
+<table>
+<colgroup>
+<col width="69%" />
+<col width="30%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Area</strong></td>
+<td align="right">CSEO</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Year</strong></td>
+<td align="right">2012</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Survey Dates</strong></td>
+<td align="right">8/18/2012 - 8/23/2012</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Number of Transects Attempted</strong></td>
+<td align="right">49</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Number of Valid Transects for Stock
+Assessment</strong></td>
+<td align="right">46</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total Number of Yelloweye
+Observed</strong></td>
+<td align="right">293</td>
+</tr>
+<tr class="odd">
+<td align="left">   Adult YE</td>
+<td align="right">210</td>
+</tr>
+<tr class="even">
+<td align="left">   Subadult YE</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="left">   Juvenile YE</td>
+<td align="right">57</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total Number of Yelloweye in Stock
+Assessment</strong></td>
+<td align="right">118</td>
+</tr>
+<tr class="odd">
+<td align="left">   Adult YE</td>
+<td align="right">112</td>
+</tr>
+<tr class="even">
+<td align="left">   Subadult YE</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Meters Surveyed</strong></td>
+<td align="right">38,590</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Data Issues</strong></p>
 <ul>
-<li>When you examine the raw data, the number of yelloweye does not
-match what is reported in the distance analysis write up:</li>
+<li>When you examine the raw data, the number of adult and subadult
+yelloweye does not match what is reported in the distance analysis write
+up:</li>
 </ul>
 <blockquote>
 <p>“Only adults and subadults greater than 350 mm were included in the
@@ -2879,14 +2965,15 @@ excluded from the analysis. A total of 118 yelloweye were included in
 the density analysis in 2012, 112 adults and 6 subadults.”</p>
 </blockquote>
 <ul>
-<li>When examining the raw data, a total of 236 yelloweye rockfish were
-observed, including 210 adults and 26 subadults. This total includes
-individuals both with and without length measurements. If we include all
-the adults with and without length data and the subadults with length
-data &gt; 350 mm, the total number of yelloweye observed is 215. Length
-measurements were available for 93 adults and 5 subadults. All measured
-adults were greater than 350 mm, resulting in 98 individuals with length
-data that exceeded the 350 mm threshold.</li>
+<li>When examining the raw data, a total of 236 adult and subadult
+yelloweye rockfish were observed, including 210 adults and 26 subadults.
+This total includes individuals both with and without length
+measurements. If we include all the adults with and without length data
+and the subadults with length data &gt; 350 mm, the total number of
+yelloweye observed is 215. Length measurements were available for 93
+adults and 5 subadults. All measured adults were greater than 350 mm,
+resulting in 98 individuals with length data that exceeded the 350 mm
+threshold.</li>
 </ul>
 <table>
 <thead>
@@ -2920,7 +3007,10 @@ observed</td>
 </tbody>
 </table>
 <ul>
-<li>Note: In 2012, the dive number was assigned before the survey and
+<li><p>There are some notes in the original file (see file path below)
+about some adult fish (n=4) being excluded from analysis.Need to examine
+this more to understand why the other fish are being excluded.</p></li>
+<li><p>Note: In 2012, the dive number was assigned before the survey and
 does not reflect the order that the dives were completed, which is what
 we do now. There are 24 unique dive numbers but for each dive one or two
 transects were completed. The transect numbers are either 1 or 2 (there
@@ -2928,7 +3018,15 @@ is one dive with the transect numbers 2 and 3). I believe that this
 numbering system for the transect number is a relic from the submersible
 survey when they had to do two transects per dive. There are 46 unique
 transects were completed. I got this count by combining the dive number
-and transect number and counting the unique values.</li>
+and transect number and counting the unique values.</p></li>
+<li><p>The reported meters surveyed (38,590 m) is worth a closer look.
+If each of the 46 transects were 1,000 m, we would expect a total closer
+to 46,000 m. However, “2012 DSR ROV SURVEY PROTOCOL FINAL” (2012 survey
+folder, groundfish drive) notes that the ROV followed the transect lines
+from the 2007 submersible survey, which varied between 500–1,000 m.
+Averaging 38,590 m over 46 transects gives approximately 839 m per
+transect, which falls within that expected range but I think it’s worth
+it to double check!</p></li>
 </ul>
 <p><strong>Data Import</strong></p>
 <p><code>Filepath: M:\ROVSurvey\2012\CSEO ROV Survey\FishVideoReview_Feb2_2013ROV lengths_kg.csv</code></p>
@@ -2937,30 +3035,104 @@ and transect number and counting the unique values.</li>
 <div id="sseo" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> 2013 — SSEO</h2>
 <p><strong>Data Summary</strong></p>
-<p>The 2013 SSEO ROV survey took place 8/19/2013-8/27/2013. <strong>31
-transects</strong> were completed. The total number of yelloweye
-rockfish observed was XXX but only <strong>118 yelloweye
-rockfish</strong> were used in the stock assessment analysis. This
-included 93 adults and 25 subadults greater than 340 mm. The inclusion
-criteria for subadaults was decreased from 350 mm to 340 mm. Subadults
-without length measurements were also included because measured
-subadults averaged 465 mm, making it likely they exceeded the threshold.
-See full distance analysis write up in the “reports” folder.</p>
+<p>According to the dive log (2013 survey folder, groundfish drive), 35
+transects were attempted. There was one experimental dive over the Cape
+Addington volcano to see what the crater rim looked like and several
+other dives were aborted due to camera issues or current. The total
+number of yelloweye observed comes from summary_table, generated at the
+end of this code once all species review data was combined. The
+remaining data — number of valid transects, total number of yelloweye in
+the stock assessment, etc. — come from either the published SAFE report
+or the unpublished distance-sampling analysis write-up in the “reports”
+folder of this R project. Meters surveyed also comes from the SAFE
+report but cannot be QC’d with this code, and should be revisited once
+the navigation and QC video review data have been compiled.</p>
+<table>
+<colgroup>
+<col width="71%" />
+<col width="28%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Area</strong></td>
+<td align="right">SSEO</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Year</strong></td>
+<td align="right">2013</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Survey Dates</strong></td>
+<td align="right">8/19/2013-8/27/2013</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Number of Transects Attempted</strong></td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Number of Valid Transects for Stock
+Assessment</strong></td>
+<td align="right">31</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total Number of Yelloweye
+Observed</strong></td>
+<td align="right">187</td>
+</tr>
+<tr class="odd">
+<td align="left">   Adult YE</td>
+<td align="right">133</td>
+</tr>
+<tr class="even">
+<td align="left">   Subadult YE</td>
+<td align="right">40</td>
+</tr>
+<tr class="odd">
+<td align="left">   Juvenile YE</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total Number of Yelloweye in Stock
+Assessment</strong></td>
+<td align="right">118</td>
+</tr>
+<tr class="odd">
+<td align="left">   Adult YE</td>
+<td align="right">93</td>
+</tr>
+<tr class="even">
+<td align="left">   Subadult YE</td>
+<td align="right">25</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Meters Surveyed</strong></td>
+<td align="right">30,439</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Data Issues</strong></p>
-<p>The “species_SSEO_2013” file is incomplete. It’s important to note
-that the dive number is assigned before hand like we do the transect
-number now. This file has dive numbers
-1,3,4,5,6,11,15,17,19,21,22,25,27,29,31,33,39,43,48,51,52,57,59. But
-this is only 23 transects and the SAFE report has 31.</p>
-<p>In the ROVSurvey/2013/Fish Review/Textfiles - there are Event Measure
-files for dives 4,9,11,13,14,25,41,45,47,49,52,56 - which includes the
-missing dives. But I did not find documentation on why these dives were
-not included in the “species_SSEO_2013” file. I definitely want to
-revisit this and make sure that those dives were included in the
-assessment in 2013.</p>
-<p>When I summarize the 2013 data at the end of this code, the total
-adult and subadult yelloweye comes out to 269 Is this a coding issue or
-a data issue?</p>
+<ul>
+<li><p>Like 2012, it’s important to note that the dive number is
+assigned before the survey, so it is not reflective of the order that
+the dives were performed. The transect number is equal to 1 for all
+dives because only one transect was done per dive.</p></li>
+<li><p>I could not find all of the original event measure files to
+remake the species review file. I did find a file called,
+“species_SSEO_2013” that was created in 2021, probably by Kellii Wood or
+Phil Joy in 2021. However, the “species_SSEO_2013” file is incomplete.
+This file has dive numbers
+1,3-6,11,15,17,19,21,22,25,27,29,31,33,39,43,48,51,52,57,59. But this is
+only 23 transects and the SAFE report has 31. On the groundifsh drive
+ROVSurvey/2013/Fish Review/Textfiles - there are Event Measure files for
+dives 4,9,11,13,14,25,41,45,47,49,52,56 - which includes the missing
+dives. But I did not find documentation on why these dives were not
+included in the “species_SSEO_2013” file. I definitely want to revisit
+this and make sure that those dives were included in the assessment in
+2013.</p></li>
+<li><p>I have not yet checked to see if I can recreate the yelloweye
+included in the stock assessment based on the criteria listed in the
+distance analysis report.</p></li>
+</ul>
 <p><strong>Data Import</strong></p>
 <p><code>Filepath: M:\ROVSurvey\2013\species_SSEO_2013</code></p>
 <p>This was created in 2021, so I am assuming it was created by Phil or
@@ -2973,50 +3145,202 @@ SSEO_2013_missing_data &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2013_SSEO/s
   rename(Comment=Comment...20,
          Comment.1=Comment...37)
 
-SSEO_2013_ALLdata &lt;- rbind(SSEO_2013_ALLdata,SSEO_2013_missing_data)</code></pre>
+SSEO_2013_ALLdata &lt;- rbind(SSEO_2013_ALLdata,SSEO_2013_missing_data)
+
+write.csv(SSEO_2013_ALLdata,&quot;outputs/species_review/species_SSEO_2013.csv&quot;)</code></pre>
 </div>
-<div id="eykt" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> 2015 — EYKT</h2>
-<p>I combined the raw files for this survey — see code:
+<div id="canceled" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> 2014 — CANCELED</h2>
+<p>The 2014 survey was canceled due to weather. Staff waited in Yakutat
+for a week for the weather to improve and ran out of ship time to do the
+survey. While waiting two transects were completd in Yakutat Bay and
+temperature data was collected. This data is not included here but can
+be found on the groundfish drive.</p>
+</div>
+<div id="eykt" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> 2015 — EYKT</h2>
+<p><strong>Data Summary</strong></p>
+<p>According to the dive log (2015 survey folder, groundfish drive), 34
+transects were attempted. One dive was aborted and restarted because
+there was no video storage left. The total number of yelloweye observed
+comes from summary_table, generated at the end of this code once all
+species review data was combined. The remaining data — number of valid
+transects, total number of yelloweye in the stock assessment, etc. —
+come from either the published SAFE report or the unpublished
+distance-sampling analysis write-up in the “reports” folder of this R
+project. Meters surveyed also comes from the SAFE report but cannot be
+QC’d with this code, and should be revisited once the navigation and QC
+video review data have been compiled.</p>
+<table>
+<colgroup>
+<col width="71%" />
+<col width="28%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Area</strong></td>
+<td align="right">EYKT</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Year</strong></td>
+<td align="right">2015</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Survey Dates</strong></td>
+<td align="right">5/13/2015-5/18/2015</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Number of Transects Attempted</strong></td>
+<td align="right">34</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Number of Valid Transects for Stock
+Assessment</strong></td>
+<td align="right">33</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total Number of Yelloweye
+Observed</strong></td>
+<td align="right">528</td>
+</tr>
+<tr class="odd">
+<td align="left">   Adult YE</td>
+<td align="right">403</td>
+</tr>
+<tr class="even">
+<td align="left">   Subadult YE</td>
+<td align="right">26</td>
+</tr>
+<tr class="odd">
+<td align="left">   Juvenile YE</td>
+<td align="right">99</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total Number of Yelloweye in Stock
+Assessment</strong></td>
+<td align="right">259</td>
+</tr>
+<tr class="odd">
+<td align="left">   Adult YE</td>
+<td align="right">244</td>
+</tr>
+<tr class="even">
+<td align="left">   Subadult YE</td>
+<td align="right">15</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Meters Surveyed</strong></td>
+<td align="right">22,896</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data Issues</strong></p>
+<ul>
+<li><p>The meters surveyed reported in the SAFE is 22,896 m but this
+seems low since 33 ~1km transects were completed.There are some notes in
+the ROV data collection files of shorter transects to avoid cliffs, but
+it would be good to double check this number.</p></li>
+<li><p>The analysis used in the SAFE report included all valid adult and
+subadult yelloweye rockfish &gt;340 mm but I’d like to cross reference
+the criteria listed with the number of yelloweye included in the
+assessment.</p></li>
+</ul>
+<p><strong>Data Import</strong> I combined the raw files for this survey
+— see code:
 <code>2015_EYKT_MergingCSVFilesCode_SpeciesReviewData</code>.</p>
-<p><strong>Data Issues</strong></p>
-<p>None.</p>
-<p><strong>Data Import</strong></p>
 <pre class="r"><code>EYKT_2015_ALLdata &lt;- read.csv(&quot;outputs/species_review/SPECIES_EYKT_2015.csv&quot;) </code></pre>
-<p><strong>Data Summary</strong></p>
-<p>The 2015 EYKT ROV survey took place 5/13/2015-5/18/2015.There were no
-dives on the 17th and 18th. The original plan was to sample EYKT then
-sample NSEO but the weather deterorated. 34 transects were completed but
-only <strong>33 transects</strong> were valid and used for analysis. The
-total number of yelloweye rockfish observed was XXX but only <strong>259
-yelloweye rockfish</strong> were used in the stock assessment analysis.
-This included 244 adults and 15 subadults &gt; 340 mm. See full distance
-analysis write up in the “reports” folder.</p>
-<p>2012: First year using the &gt;350 mm cutoff; fish without lengths
-were excluded. 2013: Adjusted cutoff to &gt;340 mm cutoff, but began
-including subadults without length measurements. 2015: Kept the &gt;340
-mm cutoff for the SAFE assessment, but also analyzed all adults and
-subadults in anticipation of a future age-structured assessment with
-selectivity.</p>
 </div>
-<div id="nseo" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> 2016 — NSEO</h2>
-<p><code>File path: M:\ROVSurvey\2016</code></p>
+<div id="nseo" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> 2016 — NSEO</h2>
+<p><strong>Data Summary</strong></p>
+<p>According to the rov data collection file (2016 survey folder,
+groundfish drive), 40 transects were attempted. The total number of
+yelloweye observed comes from summary_table, generated at the end of
+this code once all species review data was combined. The remaining data
+— number of valid transects, total number of yelloweye in the stock
+assessment, etc. — come from either the published SAFE report or the
+unpublished distance-sampling analysis write-up in the “reports” folder
+of this R project. Meters surveyed also comes from the SAFE report but
+cannot be QC’d with this code, and should be revisited once the
+navigation and QC video review data have been compiled.</p>
+<table>
+<colgroup>
+<col width="72%" />
+<col width="27%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Area</strong></td>
+<td align="right">NSEO</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Year</strong></td>
+<td align="right">2016</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Survey Dates</strong></td>
+<td align="right">6/9/2016-6/15/2016</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Number of Transects Attempted</strong></td>
+<td align="right">40</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Number of Valid Transects for Stock
+Assessment</strong></td>
+<td align="right">36</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total Number of Yelloweye
+Observed</strong></td>
+<td align="right">400</td>
+</tr>
+<tr class="odd">
+<td align="left">   Adult YE</td>
+<td align="right">176</td>
+</tr>
+<tr class="even">
+<td align="left">   Subadult YE</td>
+<td align="right">87</td>
+</tr>
+<tr class="odd">
+<td align="left">   Juvenile YE</td>
+<td align="right">137</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Total Number of Yelloweye in Stock
+Assessment</strong></td>
+<td align="right">125</td>
+</tr>
+<tr class="odd">
+<td align="left">   Adult YE</td>
+<td align="right">119</td>
+</tr>
+<tr class="even">
+<td align="left">   Subadult YE</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Meters Surveyed</strong></td>
+<td align="right">34,435</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Data Issues</strong></p>
-<p>None.</p>
-<p><strong>Data Import</strong></p>
+<ul>
+<li>The distance analysis report (see reports folder in the R project)
+says only valid adult and subadult yelloweye rockfish ≥340 mm, excluding
+all subadults below that length as well as subadults with no length
+measurement since NSEO’s average subadult length, 309 mm, fell below the
+cutoff but I’d like to cross reference the criteria listed with the
+number of yelloweye included in the assessment.</li>
+</ul>
+<p><strong>Data Import</strong>
+<code>File path: M:\ROVSurvey\2016</code></p>
 <pre class="r"><code>NSEO_2016_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2016_NSEO/species_NSEO_2016.csv&quot;)</code></pre>
-<p><strong>Data Summary</strong></p>
-<p>The 2016 NSEO ROV survey took place 6/9/2016-6/15/2016.<strong>36
-transects</strong> were completed. 170 yelloweye rockfish were observed,
-consisting of 119 adults and 51 subadults. For the current stock
-assessment, only <strong>125 yelloweye rockfish</strong> (119 adults and
-6 subadults ≥340 mm) were included, while the age-structured analysis
-included all adults and subadults. See full distance analysis write up
-in the “reports” folder.</p>
 </div>
-<div id="cseo-1" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> 2016 — CSEO</h2>
+<div id="cseo-1" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> 2016 — CSEO</h2>
 <p><code>File path: M:\ROVSurvey\2016</code></p>
 <p><strong>Data Issues</strong></p>
 <p>None.</p>
@@ -3038,8 +3362,8 @@ included <strong>160 yelloweye rockfish</strong>, consisting of 151
 adults, 6 subadults &gt;= 340mm and 3 subadults with no length). See
 full distance analysis write up in the “reports” folder.</p>
 </div>
-<div id="eykt-1" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> 2017 — EYKT</h2>
+<div id="eykt-1" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> 2017 — EYKT</h2>
 <p><code>File path: M:\ROVSurvey\2017</code></p>
 <p><strong>Data Issues</strong></p>
 <p>None.</p>
@@ -3055,8 +3379,8 @@ during the survey, but 12 subadults (4 &lt;340 mm and 8 without length
 measurements) were excluded from the SAFE analysis. See full distance
 analysis write up in the “reports” folder.</p>
 </div>
-<div id="cseo-2" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> 2018 — CSEO</h2>
+<div id="cseo-2" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> 2018 — CSEO</h2>
 <p><code>File path: M:\ROVSurvey\2018\CSEO\R Data Files\2018_cseo_species</code></p>
 <p><strong>Data Issues</strong></p>
 <ul>
@@ -3072,8 +3396,8 @@ were only 33 used for this stock assessment. Need to correct.</li>
 <pre class="r"><code>CSEO_2018_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2018_CSEO/species_CSEO_2018.csv&quot;)</code></pre>
 <p><strong>Data Summary</strong></p>
 </div>
-<div id="nseo-1" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> 2018 — NSEO</h2>
+<div id="nseo-1" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> 2018 — NSEO</h2>
 <p><code>File path: M:\ROVSurvey\2018\NSEO\NSEO_2018_species</code></p>
 <p><strong>Data Issues</strong></p>
 <ul>
@@ -3106,8 +3430,8 @@ unique(NSEO_2018_ALLdata$Dive)</code></pre>
 write.csv(NSEO_2018_ALLdata,&quot;outputs/nseo_2018_alldata.csv&quot;)</code></pre>
 <p><strong>Data Summary</strong></p>
 </div>
-<div id="sseo-1" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> 2018 — SSEO</h2>
+<div id="sseo-1" class="section level2" number="3.10">
+<h2><span class="header-section-number">3.10</span> 2018 — SSEO</h2>
 <p><code>File path: M:\ROVSurvey\2018\SSEO\Species Review Files\2018ROV Survey_FishVideoReview_SSEO</code></p>
 <p><strong>Data Issues</strong></p>
 <ul>
@@ -3145,8 +3469,8 @@ SSEO_2018_ALLdata %&gt;% summarise(distinct_dives = n_distinct(DIVE_NO))</code><
 </div>
 <p><strong>Data Summary</strong></p>
 </div>
-<div id="eykt-2" class="section level2" number="3.10">
-<h2><span class="header-section-number">3.10</span> 2019 — EYKT</h2>
+<div id="eykt-2" class="section level2" number="3.11">
+<h2><span class="header-section-number">3.11</span> 2019 — EYKT</h2>
 <p><code>File path: M:\ROVSurvey\2019\EYKT\R Code\EYKT_2019\EYKT_2019_species</code></p>
 <p><strong>Data Issues</strong></p>
 <p><strong>Data Import</strong></p>
@@ -3155,8 +3479,8 @@ SSEO_2018_ALLdata %&gt;% summarise(distinct_dives = n_distinct(DIVE_NO))</code><
   Filename == &quot;SL_2019_EYKT_Dive_12_09-27-40.000.avi&quot; ~ 12, TRUE ~ Dive))</code></pre>
 <p><strong>Data Summary</strong></p>
 </div>
-<div id="sseo-2" class="section level2" number="3.11">
-<h2><span class="header-section-number">3.11</span> 2020 — SSEO</h2>
+<div id="sseo-2" class="section level2" number="3.12">
+<h2><span class="header-section-number">3.12</span> 2020 — SSEO</h2>
 <p><code>File path: M:\ROVSurvey\2020\R Code\Data\SSEO_2020_Species</code></p>
 <p><strong>Data Issues</strong></p>
 <ul>
@@ -3184,8 +3508,8 @@ unique(SSEO_2020_ALLdata$Dive)</code></pre>
 write.csv(SSEO_2020_ALLdata,&quot;outputs/SPECIES_SSEO_2020_divenum_corrected.csv&quot;)</code></pre>
 <p><strong>Data Summary</strong></p>
 </div>
-<div id="cseo-nseo" class="section level2" number="3.12">
-<h2><span class="header-section-number">3.12</span> 2022 — CSEO &amp;
+<div id="cseo-nseo" class="section level2" number="3.13">
+<h2><span class="header-section-number">3.13</span> 2022 — CSEO &amp;
 NSEO</h2>
 <p><code>File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\SPECIES_CSEO_2022_summary</code></p>
 <p><strong>Data Issues</strong></p>
@@ -3216,8 +3540,8 @@ files and recombined them using the code
 write.csv(CSEO_2022_ALLdata,&quot;outputs/SPECIES_CSEO_2022_summary_time_corrected.csv&quot;)</code></pre>
 <p><strong>Data Summary</strong></p>
 </div>
-<div id="nseo-2" class="section level2" number="3.13">
-<h2><span class="header-section-number">3.13</span> 2022 — NSEO</h2>
+<div id="nseo-2" class="section level2" number="3.14">
+<h2><span class="header-section-number">3.14</span> 2022 — NSEO</h2>
 <p><code>File path: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW\SPECIES_NSEO_2022_summary</code></p>
 <p><strong>Data Issues</strong></p>
 <p>None.</p>
@@ -3225,8 +3549,8 @@ write.csv(CSEO_2022_ALLdata,&quot;outputs/SPECIES_CSEO_2022_summary_time_correct
 <pre class="r"><code>NSEO_2022_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2022_NSEO/species_NSEO_2022.csv&quot;)</code></pre>
 <p><strong>Data Summary</strong></p>
 </div>
-<div id="eykt-3" class="section level2" number="3.14">
-<h2><span class="header-section-number">3.14</span> 2023 — EYKT</h2>
+<div id="eykt-3" class="section level2" number="3.15">
+<h2><span class="header-section-number">3.15</span> 2023 — EYKT</h2>
 <p><code>File path: M:\ROVSurvey\2023\EYKT\Final files for Analysis\SPECIES_EYKT_2023_summary</code></p>
 <p><strong>Data Issues</strong></p>
 <p>None.</p>
@@ -4009,7 +4333,8 @@ summary_table &lt;- ROV_species_review_all_years %&gt;%
   filter(!is.na(year), species == 145) %&gt;%
   group_by(mgmt_area, year) %&gt;%
   summarise(
-    n_ad_su_yelloweye = sum(stage %in% c(&quot;AD&quot;, &quot;SU&quot;)),
+    n_ad_yelloweye = sum(stage == &quot;AD&quot;),
+    n_su_yelloweye = sum(stage == &quot;SU&quot;),
     n_juv_yelloweye   = sum(stage == &quot;JV&quot;),
     .groups = &quot;drop&quot;
   ) %&gt;%
