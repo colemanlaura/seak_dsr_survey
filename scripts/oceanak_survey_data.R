@@ -79,7 +79,7 @@ source('scripts/helper.r')
 # output from the R code species_review_all_data_all_years_9.16.25
 # as of 10.28.25 - this output is not final - my goal with this output was to inlcude all
 # dives - even if they were excluded from the assessment.
-rov_data_compiled <- read_csv("outputs/ROV_species_review_all_years.csv")
+rov_data_compiled <- read_csv("outputs/ROV_line_transects_species_review_all_years.csv")
 
 #https://oceanak.adfg.alaska.gov/analytics/saw.dll?Answers&path=%2Fshared%2FCommercial%20Fisheries%2FRegion%20I%2FGroundFish%2FUser%20Reports%2FLaura%20Coleman%2FYELLOWEYE%2FVISUAL%20SURVEY%20DATA
 visual_survey_species_data <- read_csv("data/OCEANAK VISUAL SURVEY DATA/visual_survey_species_data_oceanak.csv") %>% 
@@ -124,6 +124,10 @@ unique(visual_survey_species_data$transect_fix_method)
 unique(visual_survey_species_data$camera)
 unique(visual_survey_species_data$observation_source)
 unique(visual_survey_species_data$observation_type)
+unique(visual_survey_species_data$activity)
+unique(visual_survey_species_data$stage)
+unique(visual_survey_species_data$species_class)
+unique(visual_survey_species_data$species_code)
 
 # right now, we are only interested in the line transect data
 
