@@ -62,6 +62,8 @@ Folder with the distance analysis reports that I found for ROV surveys 2012-2017
   - The goal here is is create one file with ALL of the RAW ROV quality review data for yelloweye rockfish stock assessment survey. I want to include ALL transects, with all species. Kelli or Phil compiled a lot of this data already, so I will start with the outputs they created and will recombine raw files if needed.
 - oceanak survey data
   - This code explores the submersible and ROV data in OceanAK. I compared this to the numbers in the SAFE report and there were very few discrepancies.
+- SPECIES REVIEW MERGE FILES: this folder contains codes for the surveys where i had to recombine the raw data
+- Temperature Data: this folder contains code to combine temperature data and species review data for each survey with temperature data. I moved this over from a different project (dsr_rov_temp), so as of 8/19/26, the connections for this code are broken. 
   
 ## Where to find submersbile and ROV files?!
 
@@ -95,6 +97,23 @@ The submersible and ROV data is saved in several places on the GF drive.
     - FWD - forward facing camera - black and white videos
     - DOE - Deep Ocean Engineering camera - comes on the ROV - used for navigation
     - BEL - belly camera
+    
+## TO DO FOR ROV DATA QAQC
+(1) Determine whether fish observed in areas marked "bad" during the QC video review were used in the final assessment. each video segment was assigned a video quality code (See Appendix E in the ROV ROP <https://www.adfg.alaska.gov/FedAidPDFs/ROP.CF.1J.2026.04.pdf>). Segments are only assigned a poor visibility code when fish cannot be identified on the transect line. We use the "good" segments to calculate the transect line length. But the species review data and qc data is never paired, so I am curious is yelloweye in the "bad" sections are included in the stock assessment. It seems to me that we would not want to inlcude these fish. In order to make this determination the species review data and QC data need to be combined by date and time. Ivy Mumm has done this for some of the ROV surveys as part of the species distribution model but it should be done for all ROV surveys to get a count of yelloweye in the "good" sections and see how this compares to the yelloweye included in the stock asessment.Ivy Mumm has done this exercise for some years and would be a good person to touch base with. 
+
+(2) Verify the criteria used to include fish (see below) to verify the number of fish included in the stock assessment. Additionally, the criteria for including or excluding fish in the stock assessment changed every year (see below). 
+
+(3) Look for `Need to correct` and `Need to check` flags for data that needs corrections, and `Need to add` flags for data missing from this code. The Data Issues sections in the data import section will also have some outstanding issues that need to be addressed.
+
+(4) Since this is meant to be a complete record of ALL dives, double check that the dive type is correct. Transects used in the yelloweye stock assessment should be "Line". We should perhaps create a divetype, "Excluded" for dives that were not part of the stock assessment due to bad data. 
+
+(5) Check to see if dives included in the species review were also included in the qc review. The qc review data is used to calculate the line lengths. This should be done in the QC code.
+
+(6) Finish adding all of the data to the correct folders. I have pulled all the species review, qc review, and temperature data. But I still need to add in the navigation data and the rov collection data. Both of these files are made by Mike Byerly for each ROV survey.
+
+(7) Clean up the species data - are all the codes right? are they all spelled correctly?
+
+(8) Clean up the length data! There are some erroneouslengths that should be deleted and added to the comments. Use the precision values as a key as to what is good data and what is bad data. I am not sure what the threshold is but there would be guidance in the SeaGIS manual.
 
 ## This RMarkdown
 
@@ -102,7 +121,7 @@ This Rmarkdown includes raw species review data for ROV surveys 2012–2023.
 
 The goal here is to create one file with **ALL** of the raw ROV data. This includes line transects for the yelloweye rockfish stock assessment, experimental transects, or groundtruthing transects. Kelli or Phil compiled a lot of this data already, so this starts with the outputs they created and recombines raw files where needed.
 
-The first part of this R Markdown is to import all of the raw data.
+The **first** part of this R Markdown is to import all of the raw data.
 
 Each year is organized into three parts:
 
@@ -112,20 +131,9 @@ Each year is organized into three parts:
 
 **Data Import** — reading in the raw data and completing any fixes needed.
 
-The second part of the R Markdown is data import and cleaning. Once all the data is imported, it was standardized using the 2023 species review file as a template, but had to pull in some columns from earlier years to avoid losing data. 
+The **second** part of the R Markdown is data import and cleaning. Once all the data is imported, it was standardized using the 2023 species review file as a template, but had to pull in some columns from earlier years to avoid losing data. 
 
-The third part of this code is exploratory: looking at species composition, activity, and size.
-
-## TO DO
-(1) Determine whether fish observed in areas marked "bad" during the QC video review were used in the final assessment. each video segment was assigned a video quality code (See Appendix E in the ROV ROP <https://www.adfg.alaska.gov/FedAidPDFs/ROP.CF.1J.2026.04.pdf>). Segments are only assigned a poor visibility code when fish cannot be identified on the transect line. We use the "good" segments to calculate the transect line length. But the species review data and qc data is never paired, so I am curious is yelloweye in the "bad" sections are included in the stock assessment. It seems to me that we would not want to inlcude these fish. In order to make this determination the species review data and QC data need to be combined by date and time. Ivy Mumm has done this for some of the ROV surveys as part of the species distribution model but it should be done for all ROV surveys to get a count of yelloweye in the "good" sections and see how this compares to the yelloweye included in the stock asessment.Ivy Mumm has done this exercise for some years and would be a good person to touch base with. 
-
-(2) Verify the criteria used to include fish (see below) to verify the number of fish included in the stock assessment. Additionally, the criteria for including or excluding fish in the stock assessment changed every year (see below). 
-
-(3) Look for `Need to correct` and `Need to check` flags for data that needs corrections, and `Need to add` flags for data missing from this code. The Data Issues sections in the data import section will also have some outstanding issues that need to be addressed.
-
-(4) Since this is meant to be a complete record of ALL dives, double check that the dive type is correct. Transects used in the yelloweye stock assessment should be "Line". We should perhaps create a divetype, "Excluded" for dives that were not part of the stock assessment due to bad data. 
-
-(5) Check to see if dives included in the species review were also included in the qc review. The qc review data is used to calculate the line lengths.
+The **third** part of this code is exploratory: looking at species composition, activity, and size.
 
 ## ROV Surveys for DSR Stock Assessment
 
@@ -1232,7 +1240,7 @@ kable(
 
 **Data Issues**
 
-None. The only thing to note here is that two dives were excluded because they were outside of the DYRH. Kellii purposely added those to groundtruth the habitat suitability model (now the species distribution model).
+None. The only thing to note here is that two dives (15 and 22) were excluded because they were outside of the DYRH. Kellii purposely added those to groundtruth the habitat suitability model (now the species distribution model).
 
 **Data Import**
 

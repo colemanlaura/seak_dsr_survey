@@ -2848,6 +2848,12 @@ will recombine raw files if needed.</li>
 compared this to the numbers in the SAFE report and there were very few
 discrepancies.</li>
 </ul></li>
+<li>SPECIES REVIEW MERGE FILES: this folder contains codes for the
+surveys where i had to recombine the raw data</li>
+<li>Temperature Data: this folder contains code to combine temperature
+data and species review data for each survey with temperature data. I
+moved this over from a different project (dsr_rov_temp), so as of
+8/19/26, the connections for this code are broken.</li>
 </ul>
 </div>
 <div id="where-to-find-submersbile-and-rov-files" class="section level2">
@@ -2916,36 +2922,8 @@ navigation</li>
 </ul></li>
 </ul>
 </div>
-<div id="this-rmarkdown" class="section level2">
-<h2>This RMarkdown</h2>
-<p>This Rmarkdown includes raw species review data for ROV surveys
-2012–2023.</p>
-<p>The goal here is to create one file with <strong>ALL</strong> of the
-raw ROV data. This includes line transects for the yelloweye rockfish
-stock assessment, experimental transects, or groundtruthing transects.
-Kelli or Phil compiled a lot of this data already, so this starts with
-the outputs they created and recombines raw files where needed.</p>
-<p>The first part of this R Markdown is to import all of the raw
-data.</p>
-<p>Each year is organized into three parts:</p>
-<p><strong>Data summary</strong> — a table listing the survey dates,
-number of transects attempted, number of line transects included in the
-stock assessment, total number of YE observed, and number of YE included
-in the stock assessment.</p>
-<p><strong>Data issues</strong> — a list of known problems, split into
-those that have already been fixed and those still outstanding (either
-needing a fix or unfixable).</p>
-<p><strong>Data Import</strong> — reading in the raw data and completing
-any fixes needed.</p>
-<p>The second part of the R Markdown is data import and cleaning. Once
-all the data is imported, it was standardized using the 2023 species
-review file as a template, but had to pull in some columns from earlier
-years to avoid losing data.</p>
-<p>The third part of this code is exploratory: looking at species
-composition, activity, and size.</p>
-</div>
-<div id="to-do" class="section level2">
-<h2>TO DO</h2>
+<div id="to-do-for-rov-data-qaqc" class="section level2">
+<h2>TO DO FOR ROV DATA QAQC</h2>
 <ol style="list-style-type: decimal">
 <li><p>Determine whether fish observed in areas marked “bad” during the
 QC video review were used in the final assessment. each video segment
@@ -2979,8 +2957,41 @@ stock assessment should be “Line”. We should perhaps create a divetype,
 bad data.</p></li>
 <li><p>Check to see if dives included in the species review were also
 included in the qc review. The qc review data is used to calculate the
-line lengths.</p></li>
+line lengths. This should be done in the QC code.</p></li>
+<li><p>Finish adding all of the data to the correct folders. I have
+pulled all the species review, qc review, and temperature data. But I
+still need to add in the navigation data and the rov collection data.
+Both of these files are made by Mike Byerly for each ROV
+survey.</p></li>
 </ol>
+</div>
+<div id="this-rmarkdown" class="section level2">
+<h2>This RMarkdown</h2>
+<p>This Rmarkdown includes raw species review data for ROV surveys
+2012–2023.</p>
+<p>The goal here is to create one file with <strong>ALL</strong> of the
+raw ROV data. This includes line transects for the yelloweye rockfish
+stock assessment, experimental transects, or groundtruthing transects.
+Kelli or Phil compiled a lot of this data already, so this starts with
+the outputs they created and recombines raw files where needed.</p>
+<p>The <strong>first</strong> part of this R Markdown is to import all
+of the raw data.</p>
+<p>Each year is organized into three parts:</p>
+<p><strong>Data summary</strong> — a table listing the survey dates,
+number of transects attempted, number of line transects included in the
+stock assessment, total number of YE observed, and number of YE included
+in the stock assessment.</p>
+<p><strong>Data issues</strong> — a list of known problems, split into
+those that have already been fixed and those still outstanding (either
+needing a fix or unfixable).</p>
+<p><strong>Data Import</strong> — reading in the raw data and completing
+any fixes needed.</p>
+<p>The <strong>second</strong> part of the R Markdown is data import and
+cleaning. Once all the data is imported, it was standardized using the
+2023 species review file as a template, but had to pull in some columns
+from earlier years to avoid losing data.</p>
+<p>The <strong>third</strong> part of this code is exploratory: looking
+at species composition, activity, and size.</p>
 </div>
 <div id="rov-surveys-for-dsr-stock-assessment" class="section level2">
 <h2>ROV Surveys for DSR Stock Assessment</h2>
