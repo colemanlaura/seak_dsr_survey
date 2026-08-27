@@ -5,7 +5,7 @@
 # Last modified: 5/5/25
 
 # set up ----
-source('r/helper.r') 
+source('scripts/helper.r') 
 
 ###  set plotting theme to use TNR  ###
 #font_import() #remove # to run this but only do this one time - it takes a while
@@ -34,15 +34,14 @@ MGMT_AREA <- "EYKT"
 # I had to rename the columns in excel - the other columns were empty, so i deleted those
 # There are two files with temp data - one is Fahrenheit and the other is Celsius. We will use the Celsius to match 
 # data collected from the other years
-temp_data <- read_csv("data/2017_EYKT_Temperature_Data_ROV2.csv") %>% 
+temp_data <- read_csv("data/TEMPERATURE DATA/2017_EYKT_Temperature_Data_ROV2.csv") %>% 
   separate(date_time, into = c("Date", "Time"), sep = " ") %>% 
   mutate(Time = ifelse(nchar(Time) == 5, paste0(Time, ":00"), Time)) %>%
   mutate(Time = parse_time(Time, "%H:%M:%S"))
 
 # This is another file that is sent each year by Mike Byerly- this file has the dive_id, date, time,
 # start and end, comments, and YE count.
-# Data copied into data folder from: M:\ROVSurvey\2022\CSEO 2022\2022_CSEO_ROV_Data_Collection.csv
-ROV_data <- read_csv("data/2017_EYKT_ROV_Data_Collection.csv") %>%
+ROV_data <- read_csv("data/ROV SURVEY DATA/2017_EYKT/2017_EYKT_ROV_Data_Collection.csv") %>%
   rename("Time"="Time_AKDT") %>%
   filter(Start_End=="S"|Start_End=="E") %>%
   select("Dive_Id","Date") %>%
@@ -60,12 +59,16 @@ str(ROV_data)
 
 # Load in the species review - this output is created by GF staff. Each transect has its own .csv file 
 # from EventMEasure, which are combined for the assessment
+
+# Data from the Rmarkdown ROV_species_review_compilation - make sure to use this instead of the raw data
+# because there may be changes to the raw data during the QAQC process.
+
 # I needed to add the column time that had the milliseconds as :00 to facilitate combination
 # with the temp data. Temp data is record every second but does not have milliseconds.
-# Data copied from: M:\ROVSurvey\2022\CSEO 2022\SPECIES REVIEW
-species_data <- read_csv("data/SPECIES_EYKT_2017_summary.csv") %>%
-  select(Time, Dive.No, Transect.No, Length..mm., Precision..mm., Genus, Species, Code, Stage, Activity, Comment.1) %>%
-  rename(dive_number = Dive.No) %>%
+species_data <- read_csv("outputs/final_species_review/species_EYKT_2017.csv") %>%
+  select(Time..HMS., Dive.No, Transect.No, Length..mm., Precision..mm., Genus, Species, Code, Stage, Activity, Comment.1) %>%
+  rename(dive_number = Dive.No,
+  Time = Time..HMS.) %>%
   mutate(dive_number = sprintf("%02d", as.integer(dive_number)))%>%
   filter(Genus != "unknown") 
   
@@ -79,14 +82,14 @@ merged_data <- species_data %>%
 
 ##########################################################################################
 # Merge the newly merged temp data with the species data - the goal here is to apply the depth and temperature to each fish 
-# One issue is that the time from the temperature data is not to the millisecond, so 
+# One issue is that the time from the temperature data is not to the millisecond - DOUBLE CHECK THIS DATA!
 final_dat <- merged_data %>%
   left_join(temp_data, by = c("Date","Time")) %>% 
   select(-Comment.1,-number) %>% 
   mutate(Stage = factor(Stage, levels = c("JV", "SU", "AD"))) %>% 
   rename(Temperature=temp)
 
-write.csv(final_dat,paste0("output/temp_summaries/temp_species_data",YEAR,MGMT_AREA,".csv"))
+write.csv(final_dat,paste0("outputs/temperature_data/temp_species_data",YEAR,MGMT_AREA,".csv"))
 
 ##########################################################################################
 # Data Exploration
@@ -100,7 +103,7 @@ avg_temperature_per_dive <- final_dat %>%
 # Plot the average temperature per dive
 temp <- ggplot(avg_temperature_per_dive, aes(x = factor(dive_number), y = Average_Temperature)) +
   geom_bar(stat = "identity", fill = "skyblue", color = "black") +
-  labs(title = "Average Temperature (°C) per Dive - CSEO 2022", x = "", y = "Average Temperature (°C)") +
+  labs(title = "Average Temperature (°C) per Dive - EYKT 2017", x = "", y = "Average Temperature (°C)") +
   theme_classic() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
     plot.title = element_text(hjust = 0.5)); temp

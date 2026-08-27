@@ -2793,17 +2793,26 @@ EVERYTHING!</li>
 <li><p><strong><em>ROV SURVEY DATA</em></strong></p>
 <ul>
 <li>These folders contain the ROV Data Collection file that is generated
-by Mike Byerly and the navigation data from the ROV. If the folder is
-empty it means that I have not found the file yet or have not moved them
-in there yet.</li>
+by Mike Byerly and the navigation data from the ROV.</li>
 <li>Every survey Mike would create two files:
 <ul>
 <li>year_mgmt area_Nav_Data (e.g. 2023_EYKT_Nav_data)- with the ROV
-navigation data</li>
+navigation data
+<ul>
+<li>I could not find the navigation data for 2012, 2013, and 2015. This
+file is needed to estimate the line lengths, so it probably exists - it
+is just saved with a non obious name or in an unlikely place. I found
+the 2016 data in the Douglas DSRVID drive.</li>
+</ul></li>
 <li>year_mgmt area_ROV_Data_Collection - this file will have tabs for
 header, schedule, data collection and equipment. In the data collection
 tab mike would document the dive id, date, time, and add comments for
-yelloweye observed.</li>
+yelloweye observed.
+<ul>
+<li>I found the rov collection files for every survey. These are
+currently in the excel workbook format. You will need to save the data
+collection tab as a .csv file to read into R.</li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li><p><strong><em>SPECIES REVIEW DATA</em></strong></p>
@@ -2817,8 +2826,9 @@ EVERYTHING!</li>
 <li><p><strong><em>TEMPERATURE DATA</em></strong></p>
 <ul>
 <li>This is temperature data that was collected from TDRs on select
-surveys. The goal is to pair this data with the species review
-data.</li>
+surveys. The goal is to pair this data with the species review data.
+Temperature data was collected in 2012, 2013, 2016, 2017, 2022, and
+2023.</li>
 </ul></li>
 </ul>
 <p><strong>outputs:</strong></p>
@@ -2925,6 +2935,9 @@ navigation</li>
 <div id="to-do-for-rov-data-qaqc" class="section level2">
 <h2>TO DO FOR ROV DATA QAQC</h2>
 <ol style="list-style-type: decimal">
+<li><p>QC the compbined QC files. Check the number of transects included
+matches the species review.</p></li>
+<li><p>Combine and QC the navigation data.</p></li>
 <li><p>Determine whether fish observed in areas marked “bad” during the
 QC video review were used in the final assessment. each video segment
 was assigned a video quality code (See Appendix E in the ROV ROP <a href="https://www.adfg.alaska.gov/FedAidPDFs/ROP.CF.1J.2026.04.pdf" class="uri">https://www.adfg.alaska.gov/FedAidPDFs/ROP.CF.1J.2026.04.pdf</a>).
@@ -2955,14 +2968,18 @@ check that the dive type is correct. Transects used in the yelloweye
 stock assessment should be “Line”. We should perhaps create a divetype,
 “Excluded” for dives that were not part of the stock assessment due to
 bad data.</p></li>
-<li><p>Check to see if dives included in the species review were also
-included in the qc review. The qc review data is used to calculate the
-line lengths. This should be done in the QC code.</p></li>
 <li><p>Finish adding all of the data to the correct folders. I have
 pulled all the species review, qc review, and temperature data. But I
 still need to add in the navigation data and the rov collection data.
 Both of these files are made by Mike Byerly for each ROV
 survey.</p></li>
+<li><p>Clean up the species data - are all the codes right? are they all
+spelled correctly?</p></li>
+<li><p>Clean up the length data from the species review! There are some
+erroneous lengths that should be deleted and added to the comments. Use
+the precision values as a key as to what is good data and what is bad
+data. I am not sure what the threshold is but there would be guidance in
+the SeaGIS manual.</p></li>
 </ol>
 </div>
 <div id="this-rmarkdown" class="section level2">
@@ -3264,7 +3281,9 @@ it to double check!</li>
 </ul>
 <p><strong>Data Import</strong></p>
 <p><code>Filepath: M:\ROVSurvey\2012\CSEO ROV Survey\FishVideoReview_Feb2_2013ROV lengths_kg.csv</code></p>
-<pre class="r"><code>CSEO_2012_ALLdata &lt;- read_csv(&quot;data/SPECIES_REVIEW_DATA/2012_CSEO/species_CSEO_2012.csv&quot;)</code></pre>
+<pre class="r"><code>CSEO_2012_ALLdata &lt;- read_csv(&quot;data/SPECIES_REVIEW_DATA/2012_CSEO/species_CSEO_2012.csv&quot;)
+
+write.csv(CSEO_2012_ALLdata,&quot;outputs/final_species_review/species_CSEO_2012.csv&quot;)</code></pre>
 </div>
 <div id="sseo" class="section level2">
 <h2>2013 — SSEO</h2>
@@ -3386,7 +3405,7 @@ SSEO_2013_missing_data &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2013_SSEO/s
 
 SSEO_2013_ALLdata &lt;- rbind(SSEO_2013_ALLdata,SSEO_2013_missing_data)
 
-write.csv(SSEO_2013_ALLdata,&quot;outputs/species_review/species_SSEO_2013.csv&quot;)</code></pre>
+write.csv(SSEO_2013_ALLdata,&quot;outputs/final_species_review/species_SSEO_2013.csv&quot;)</code></pre>
 </div>
 <div id="canceled" class="section level2">
 <h2>2014 — CANCELED</h2>
@@ -3494,7 +3513,9 @@ assessment.</li>
 <p><strong>Data Import</strong> I combined the raw files for this survey
 — see code:
 <code>2015_EYKT_MergingCSVFilesCode_SpeciesReviewData</code>.</p>
-<pre class="r"><code>EYKT_2015_ALLdata &lt;- read.csv(&quot;outputs/species_review/SPECIES_EYKT_2015.csv&quot;) </code></pre>
+<pre class="r"><code>EYKT_2015_ALLdata &lt;- read.csv(&quot;outputs/raw_species_review/SPECIES_EYKT_2015.csv&quot;) 
+
+write.csv(EYKT_2015_ALLdata,&quot;outputs/final_species_review/species_EYKT_2015.csv&quot;)</code></pre>
 </div>
 <div id="nseo" class="section level2">
 <h2>2016 — NSEO</h2>
@@ -3590,7 +3611,9 @@ number of yelloweye included in the assessment.</li>
 </ul>
 <p><strong>Data Import</strong></p>
 <p><code>File path: M:\ROVSurvey\2016</code></p>
-<pre class="r"><code>NSEO_2016_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2016_NSEO/species_NSEO_2016.csv&quot;)</code></pre>
+<pre class="r"><code>NSEO_2016_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2016_NSEO/species_NSEO_2016.csv&quot;)
+
+write.csv(NSEO_2016_ALLdata,&quot;outputs/final_species_review/species_NSEO_2016.csv&quot;)</code></pre>
 </div>
 <div id="cseo-1" class="section level2">
 <h2>2016 — CSEO</h2>
@@ -3685,7 +3708,10 @@ number of yelloweye included in the assessment.</li>
 </ul>
 <p><strong>Data Import</strong></p>
 <p><code>File path: M:\ROVSurvey\2016</code></p>
-<pre class="r"><code>CSEO_2016_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2016_CSEO/species_CSEO_2016.csv&quot;)</code></pre>
+<pre class="r"><code>CSEO_2016_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2016_CSEO/species_CSEO_2016.csv&quot;)
+
+
+write.csv(CSEO_2016_ALLdata,&quot;outputs/final_species_review/species_CSEO_2016.csv&quot;)</code></pre>
 </div>
 <div id="eykt-1" class="section level2">
 <h2>2017 — EYKT</h2>
@@ -3779,7 +3805,9 @@ the assessment.</li>
 </ul>
 <p><strong>Data Import</strong></p>
 <p><code>File path: M:\ROVSurvey\2017</code></p>
-<pre class="r"><code>EYKT_2017_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2017_EYKT/species_EYKT_2017.csv&quot;)</code></pre>
+<pre class="r"><code>EYKT_2017_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2017_EYKT/species_EYKT_2017.csv&quot;)
+
+write.csv(EYKT_2017_ALLdata,&quot;outputs/final_species_review/species_EYKT_2017.csv&quot;)</code></pre>
 </div>
 <div id="sseo-1" class="section level2">
 <h2>2018 — SSEO</h2>
@@ -3943,7 +3971,9 @@ SSEO_2018_ALLdata %&gt;% summarise(distinct_dives = n_distinct(DIVE_NO))</code><
   arrange(DIVE_NO, TRANSECT_NUMBER)
 
 #Dive 8 - there is no note that I can find on why this dive was excluded other than the file was saved as: 2018_SSEO_8_56_baddata_doNotUse. There are no notes in the event measure file either. I&#39;ve read it in here in case we do want to add it in to complete the record. &#39;Need to add&#39; - perhaps change the dive type to &quot;EXCL&quot; for bad data.
-#SSEO_2018_Dive8 &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2018_SSEO/2018_SSEO_8_56_baddata_doNotUse.csv&quot;)</code></pre>
+#SSEO_2018_Dive8 &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2018_SSEO/2018_SSEO_8_56_baddata_doNotUse.csv&quot;)
+
+write.csv(SSEO_2018_ALLdata,&quot;outputs/final_species_review/species_SSEO_2018.csv&quot;)</code></pre>
 </div>
 <div id="cseo-2" class="section level2">
 <h2>2018 — CSEO</h2>
@@ -4089,6 +4119,7 @@ unique(CSEO_2018_ALLdata$DIVE_NO)</code></pre>
 ## [31] &quot;SL_2018CSEO_Dive_07_12-20-28.000.avi&quot;
 ## [32] &quot;SL_2018CSEO_Dive_08_13-55-43.000.avi&quot;
 ## [33] &quot;SL_2018CSEO_Dive_09_08-50-45.000.avi&quot;</code></pre>
+<pre class="r"><code>write.csv(CSEO_2018_ALLdata,&quot;outputs/final_species_review/species_CSEO_2018.csv&quot;)</code></pre>
 </div>
 <div id="nseo-1" class="section level2">
 <h2>2018 — NSEO</h2>
@@ -4217,7 +4248,7 @@ unique(NSEO_2018_ALLdata$Dive)</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 ## [26] 27 28 29 30 26 NA</code></pre>
 <pre class="r"><code>#Export NSEO 2018 to check time codes
-write.csv(NSEO_2018_ALLdata,&quot;outputs/nseo_2018_alldata.csv&quot;)</code></pre>
+write.csv(NSEO_2018_ALLdata,&quot;outputs/final_species_review/nseo_2018_alldata.csv&quot;)</code></pre>
 </div>
 <div id="eykt-2" class="section level2">
 <h2>2019 — EYKT</h2>
@@ -4310,7 +4341,9 @@ transect number is correct.</li>
 <p><code>File path: M:\ROVSurvey\2019\EYKT\R Code\EYKT_2019\EYKT_2019_species</code></p>
 <pre class="r"><code>EYKT_2019_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2019_EYKT/species_EYKT_2019.csv&quot;) %&gt;% 
   mutate(Dive = case_when(
-  Filename == &quot;SL_2019_EYKT_Dive_12_09-27-40.000.avi&quot; ~ 12, TRUE ~ Dive))</code></pre>
+  Filename == &quot;SL_2019_EYKT_Dive_12_09-27-40.000.avi&quot; ~ 12, TRUE ~ Dive))
+
+write.csv(EYKT_2019_ALLdata,&quot;outputs/final_species_review/species_EYKT_2019.csv&quot;)</code></pre>
 </div>
 <div id="sseo-2" class="section level2">
 <h2>2020 — SSEO</h2>
@@ -4424,7 +4457,7 @@ unique(SSEO_2020_ALLdata$Dive)</code></pre>
   </script>
 </div>
 <pre class="r"><code>#This output was sent to Ivy for species distribution model
-write.csv(SSEO_2020_ALLdata,&quot;outputs/SPECIES_SSEO_2020_divenum_corrected.csv&quot;)</code></pre>
+write.csv(SSEO_2020_ALLdata,&quot;outputs/final_species_review/SPECIES_SSEO_2020_divenum_corrected.csv&quot;)</code></pre>
 </div>
 <div id="cseo-3" class="section level2">
 <h2>2022 — CSEO</h2>
@@ -4527,7 +4560,7 @@ CSEO - there are notes left behind for both surveys.</li>
 </ul>
 <p><strong>Data Import</strong></p>
 <p><code>File path: M:\ROVSurvey\2022\CSEO 2022\R Data Files\SPECIES_CSEO_2022_summary</code></p>
-<pre class="r"><code>CSEO_2022_ALLdata &lt;- read.csv(&quot;outputs/SPECIES_CSEO_2022.csv&quot;) %&gt;% 
+<pre class="r"><code>CSEO_2022_ALLdata &lt;- read.csv(&quot;outputs/raw_species_review/SPECIES_CSEO_2022.csv&quot;) %&gt;% 
   # need to fix the dive and transect numbers for dive 17 - renamed from 17b to 17
   mutate(Dive = case_when(
     Filename == &quot;SL_2022_CSEO_Dive_17b_07-57-18.000.avi&quot; ~ 17,TRUE ~ as.numeric(Dive))) %&gt;%  
@@ -4540,7 +4573,7 @@ CSEO - there are notes left behind for both surveys.</li>
     Filename == &quot;SL_2022_CSEO_Dive_22_15-14-56.000.avi&quot; ~ 23,TRUE ~ as.numeric(Transect.Number)))
 
 #This output was sent to Ivy for species distribution model
-write.csv(CSEO_2022_ALLdata,&quot;outputs/SPECIES_CSEO_2022_summary_time_corrected.csv&quot;)</code></pre>
+write.csv(CSEO_2022_ALLdata,&quot;outputs/final_species_review/SPECIES_CSEO_2022_summary_time_corrected.csv&quot;)</code></pre>
 </div>
 <div id="nseo-2" class="section level2">
 <h2>2022 — NSEO</h2>
@@ -4669,6 +4702,7 @@ unique(NSEO_2022_ALLdata$Dive)</code></pre>
 ## [26] 27 28 29 30 31 32 33 34 35</code></pre>
 <pre class="r"><code>length(unique(NSEO_2022_ALLdata$Dive))</code></pre>
 <pre><code>## [1] 34</code></pre>
+<pre class="r"><code>write.csv(NSEO_2022_ALLdata,&quot;outputs/final_species_review/species_NSEO_2022.csv&quot;)</code></pre>
 </div>
 <div id="eykt-3" class="section level2">
 <h2>2023 — EYKT</h2>
@@ -4747,13 +4781,15 @@ Assessment</strong></td>
 </tbody>
 </table>
 <p><strong>Data Issues</strong></p>
-<p>None. The only thing to note here is that two dives were excluded
-because they were outside of the DYRH. Kellii purposely added those to
-groundtruth the habitat suitability model (now the species distribution
-model).</p>
+<p>None. The only thing to note here is that two dives (15 and 22) were
+excluded because they were outside of the DYRH. Kellii purposely added
+those to groundtruth the habitat suitability model (now the species
+distribution model).</p>
 <p><strong>Data Import</strong></p>
 <p><code>File path: M:\ROVSurvey\2023\EYKT\Final files for Analysis\SPECIES_EYKT_2023_summary</code></p>
-<pre class="r"><code>EYKT_2023_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2023_EYKT/species_EYKT_2023.csv&quot;)</code></pre>
+<pre class="r"><code>EYKT_2023_ALLdata &lt;- read.csv(&quot;data/SPECIES_REVIEW_DATA/2023_EYKT/species_EYKT_2023.csv&quot;)
+
+write.csv(EYKT_2023_ALLdata,&quot;outputs/final_species_review/species_EYKT_2023.csv&quot;)</code></pre>
 </div>
 </div>
 <div id="combine-dataframes" class="section level1">

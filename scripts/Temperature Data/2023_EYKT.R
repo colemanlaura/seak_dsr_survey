@@ -2,14 +2,14 @@
 # Each survey will be processed individually.
 
 # Authors: Laura Coleman (laura.coleman@alaska.gov)
-# Last modified: 11/12/24
+# Last modified: 8/25/26
 
 # set up ----
-source('r/helper.r') 
+source('scripts/helper.r') 
 
 ###  set plotting theme to use TNR  ###
 #font_import() #remove # to run this but only do this one time - it takes a while
-loadfonts(device="win")
+#loadfonts(device="win")
 windowsFonts(Times=windowsFont("TT Times New Roman"))
 theme_set(theme_bw(base_size=18,base_family='Times New Roman')
           +theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()))
@@ -29,7 +29,7 @@ MGMT_AREA <- "EYKT"
 
 # Load in the temperature data - this also includes pressure and depth data - this data is
 # recorded by the ROV and the files are sent to GF staff by Mike Byerly
-temp_data <- read_csv("data/2023_EYKT_Temperature_Depth_data.csv") %>% 
+temp_data <- read_csv("data/TEMPERATURE DATA/2023_EYKT_Temperature_Depth_data.csv") %>% 
   separate(Time, into = c("Date", "Time"), sep = " ") %>% 
   mutate(Time=hms(Time)) %>% 
   select(!c("Pressure","Sea pressure"))
@@ -39,7 +39,7 @@ temp_data <- read_csv("data/2023_EYKT_Temperature_Depth_data.csv") %>%
 # Note: Dives 2 and 13 were missing the "End" in Start_End column and Dive 17 was missing the time
 # row completely for the End. All of this was added in Excel and double checked with QC Start and End times
 # created by Ana during the QC videos
-ROV_data <- read_csv("data/2023_EYKT_ROV_Data_Collection.csv") %>%
+ROV_data <- read_csv("data/ROV SURVEY DATA/2023_EYKT/2023_EYKT_ROV_Data_Collection.csv") %>%
   rename("Time"="TC (AKDT)") %>%
   filter(Start_End=="Start"|Start_End=="End") %>%
   select("Dive_Id","Date","Time","Start_End") %>%
@@ -52,7 +52,9 @@ ROV_data <- read_csv("data/2023_EYKT_ROV_Data_Collection.csv") %>%
 #Load in the species review - this data includes all 24 transects for 2023 - this output is created by
 # GF staff. Each transect has its own .csv file from EventMEasure, which are combined for the
 # assessment
-species_data <- read_csv("data/2023_EYKT_SPECIES_summary.csv") %>% 
+# Data from the Rmarkdown ROV_species_review_compilation - make sure to use this instead of the raw data
+# because there may be changes to the raw data during the QAQC process.
+species_data <- read_csv("outputs/final_species_review/species_EYKT_2023.csv") %>% 
   select(Time..HMS., Dive, Transect.Number, Length..mm., Precision..mm., Dive.Type, Genus, 
          Species, Code, Stage, Activity, Comment.1) %>% 
   rename(Time=Time..HMS., dive_number=Dive) %>% 
@@ -118,7 +120,7 @@ final_dat <- merged_data %>%
          precision_mm=Precision..mm.) %>% 
   rename_all(tolower) 
 
-write.csv(final_dat,paste0("output/temp_species_data",YEAR,MGMT_AREA,".csv"))
+write.csv(final_dat,paste0("outputs/temperature_data/temp_species_data_",YEAR,"_", MGMT_AREA,".csv"))
 
 ##########################################################################################
 # Data Exploration

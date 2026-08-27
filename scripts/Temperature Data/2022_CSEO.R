@@ -5,7 +5,7 @@
 # Last modified: 11/12/24
 
 # set up ----
-source('r/helper.r') 
+source('scripts/helper.r') 
 
 ###  set plotting theme to use TNR  ###
 #font_import() #remove # to run this but only do this one time - it takes a while
@@ -30,12 +30,11 @@ MGMT_AREA <- "CSEO"
 # Load in the temperature data - this also includes pressure and depth data - this data is
 # recorded by the ROV and the files are sent to GF staff by Mike Byerly
 # Data copied into the data folder from: M:\ROVSurvey\Temperature Data\2022 CSEO\2022_CSEO_Temperature_Depth_Data.csv
-temp_data <- read_csv("data/2022_CSEO_Temperature_Depth_data.csv")
+temp_data <- read_csv("data/TEMPERATURE DATA/2022_CSEO_Temperature_Depth_data.csv")
 
 # This is another file that is sent each year by Mike Byerly- this file has the dive_id, date, time,
 # start and end, comments, and YE count. 
-# Data copied into data folder from: M:\ROVSurvey\2022\CSEO 2022\2022_CSEO_ROV_Data_Collection.csv
-ROV_data <- read_csv("data/2022_CSEO_ROV_Data_Collection.csv") %>%
+ROV_data <- read_csv("data/ROV SURVEY DATA/2022_CSEO/2022_CSEO_ROV_Data_Collection.csv") %>%
   rename("Time"="TC (UTC)") %>% 
   filter(Start_End=="Start"|Start_End=="End") %>%
   select("Dive_Id","Date") %>%
@@ -47,8 +46,8 @@ str(ROV_data)
 
 #Load in the quality review - this output is created by GF staff. Each transect has its own .csv file 
 # from EventMEasure, which are combined for the assessment
-# Data copied from: M:\ROVSurvey\2022\CSEO 2022\SPECIES REVIEW
-QC_data <- read_csv("data/QC_CSEO_2022_summary.csv") %>% 
+# NOTE!!! This QC data has not been QC'd yet - so you may need to update it.
+QC_data <- read_csv("data/QUALITY_REVIEW_DATA/2022_CSEO/QC_CSEO_2022_summary.csv") %>% 
   select('Time (HMS)',Year,DIVE_NO,Transect_No,Start.End) %>% 
   rename(Time='Time (HMS)',
          dive_number=DIVE_NO,
@@ -65,8 +64,7 @@ str(QC_data)
 
 # Load in the species review - this output is created by GF staff. Each transect has its own .csv file 
 # from EventMEasure, which are combined for the assessment
-# Data copied from: M:\ROVSurvey\2022\CSEO 2022\SPECIES REVIEW
-species_data <- read_csv("data/SPECIES_CSEO_2022_summary.csv") %>%
+species_data <- read_csv("outputs/final_species_review/SPECIES_CSEO_2022_summary_time_corrected.csv") %>%
   select(Time..HMS., Dive, Transect.Number, Length..mm., Precision..mm., Dive.Type, 
     Genus, Species, Code, Stage, Activity, Comment.1) %>%
   rename(Time = Time..HMS., dive_number = Dive) %>%
@@ -140,7 +138,7 @@ final_dat <- merged_data_final  %>%
   left_join(species_data, by = c("dive_number", "Time")) %>% 
   mutate(Stage = factor(Stage, levels = c("JV", "SU", "AD"))) 
 
-write.csv(final_dat,paste0("output/temp_summaries/temp_species_data",YEAR,MGMT_AREA,".csv"))
+write.csv(final_dat,paste0("outputs/temperature_data/temp_species_data",YEAR,MGMT_AREA,".csv"))
 
 ##########################################################################################
 # Data Exploration

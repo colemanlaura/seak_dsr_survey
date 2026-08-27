@@ -5,7 +5,7 @@
 # Last modified: 11/12/24
 
 # set up ----
-source('r/helper.r') 
+source('scripts/helper.r') 
 
 ###  set plotting theme to use TNR  ###
 #font_import() #remove # to run this but only do this one time - it takes a while
@@ -30,14 +30,15 @@ MGMT_AREA <- "NSEO"
 # Load in the temperature data - this also includes pressure and depth data - this data is
 # recorded by the ROV and the files are sent to GF staff by Mike Byerly
 # Data copied into the data folder from: M:\ROVSurvey\Temperature Data\2022 NSEO\2022_NSEO_Temperature_Depth_Data.csv
-temp_data <- read_csv("data/2022_NSEO_Temperature_Depth_Data.csv")
+temp_data <- read_csv("data/TEMPERATURE DATA/2022_NSEO_Temperature_Depth_Data.csv")
 
 # This is another file that is sent each year by Mike Byerly- this file has the dive_id, date, time,
 # start and end, comments, and YE count. 
 # Data copied into data folder from: M:\ROVSurvey\2022\NSEO 2022\2022_NSEO_ROV_Data_Collection.csv
-#There were two times that had a ; instead of : - fixed in excel
+# There were two times that had a ; instead of : - fixed in excel
+
 # Mike did not include the seconds in this file - so we shouldn't use it
-ROV_data <- read_csv("data/2022_NSEO_ROV_Data_Collection.csv") %>%
+ROV_data <- read_csv("data/ROV SURVEY DATA/2022_NSEO/2022_NSEO_ROV_Data_Collection.csv") %>%
   rename("Time"="TC (UTC)") %>%
   filter(Start_End=="Start"|Start_End=="End") %>%
   select("Dive_Id","Date") %>%
@@ -50,7 +51,8 @@ str(ROV_data)
 #Load in the quality review - this output is created by GF staff. Each transect has its own .csv file 
 # from EventMEasure, which are combined for the assessment
 # Data copied from: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW
-QC_data <- read_csv("data/QC_NSEO_2022_summary.csv") %>% 
+# NOTE!!! This QC data has not been QC'd yet - so you may need to update it.
+QC_data <- read_csv("data/QUALITY_REVIEW_DATA/2022_NSEO/QC_NSEO_2022_summary.csv") %>% 
   select(Time..HMS.,Year,Dive,Transect.Number,Comment.1) %>% 
   rename(Time=Time..HMS., dive_number=Dive,Start_End=Comment.1) %>% 
   filter(Start_End=="START"|Start_End=="END") %>% 
@@ -64,9 +66,10 @@ check <- QC_data %>%
 str(QC_data)
 
 # Load in the species review - this output is created by GF staff. Each transect has its own .csv file 
-# from EventMEasure, which are combined for the assessment
-# Data copied from: M:\ROVSurvey\2022\NSEO 2022\SPECIES REVIEW
-species_data <- read_csv("data/SPECIES_NSEO_2022_summary.csv") %>% 
+# from EventMeasure, which are combined for the assessment
+# Data from the Rmarkdown ROV_species_review_compilation - make sure to use this instead of the raw data
+# because there may be changes to the raw data during the QAQC process.
+species_data <- read_csv("outputs/final_species_review/species_NSEO_2022.csv") %>% 
   select(Time..HMS., Dive, Transect.Number, Length..mm., Precision..mm., Dive.Type, Genus, 
          Species, Code, Stage, Activity, Comment.1) %>% 
   rename(Time=Time..HMS., dive_number=Dive) %>% 
@@ -79,6 +82,7 @@ species_data <- read_csv("data/SPECIES_NSEO_2022_summary.csv") %>%
 merged_data <- QC_data %>%
   left_join(ROV_data, by = "dive_number") %>% 
   distinct()
+
 
 #There should be 2 rows per dive - start and stop
 check <- merged_data %>%
@@ -139,7 +143,7 @@ final_dat <- merged_data_final %>%
   mutate(Stage = factor(Stage, levels = c("JV", "SU", "AD"))) %>% 
   filter(!dive_number==35) #exclude dive 35 - the depth is negative and temp is too high - suggests sensor was not in the water!
 
-write.csv(final_dat,paste0("output/temp_species_data",YEAR,MGMT_AREA,".csv"))
+write.csv(final_dat,paste0("output/temperature_data/temp_species_data",YEAR,MGMT_AREA,".csv"))
 
 ##########################################################################################
 # Data Exploration
